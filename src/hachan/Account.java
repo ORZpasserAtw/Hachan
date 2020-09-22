@@ -35,8 +35,24 @@ public class Account extends HttpServlet {
 		
 		if (request.getParameter("new") != null) {
 			Cookie NewListN = new Cookie("list_"+Integer.toHexString(date.hashCode()), 
-					"["+URLEncoder.encode(request.getParameter("tName"),"ISO-8859-1")+"]["+request.getParameter("tMoney")+"]");
+					URLEncoder.encode(request.getParameter("tName"),"ISO-8859-1")+"\\$"+request.getParameter("tMoney"));
 			response.addCookie(NewListN);
+			response.sendRedirect("index.jsp");
+		}
+		if(request.getParameter("mod") != null){
+			Cookie NewListN = new Cookie(request.getParameter("listId"), 
+					URLEncoder.encode(request.getParameter("tName"),"ISO-8859-1")+"\\$"+request.getParameter("tMoney"));
+			response.addCookie(NewListN);
+			response.sendRedirect("index.jsp");
+		}
+		if(request.getParameter("del") != null){
+			Cookie cookies[] = request.getCookies();
+			for (Cookie c : cookies) {
+				if (c.getName().equals(request.getParameter("listId"))) {
+					c.setMaxAge(0);
+					response.addCookie(c);
+				}
+			}
 			response.sendRedirect("index.jsp");
 		}
 	}
