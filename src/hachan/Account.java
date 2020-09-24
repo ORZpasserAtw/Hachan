@@ -34,26 +34,34 @@ public class Account extends HttpServlet {
 		Date date = new Date();
 		
 		if (request.getParameter("new") != null) {
-			Cookie NewListN = new Cookie("list_"+Integer.toHexString(date.hashCode()), 
-					URLEncoder.encode(request.getParameter("tName"),"ISO-8859-1")+"\\$"+request.getParameter("tMoney"));
+			Cookie NewListN = new Cookie("accountId_"+Integer.toHexString(date.hashCode()), 
+					request.getParameter("accountDate")+" "+
+					request.getParameter("accountCat")+" "+
+					URLEncoder.encode(request.getParameter("accountName"),"ISO-8859-1")+" "+
+					request.getParameter("accountMoney")
+					);
 			response.addCookie(NewListN);
-			response.sendRedirect("index.jsp");
+			response.sendRedirect("account.jsp");
 		}
 		if(request.getParameter("mod") != null){
-			Cookie NewListN = new Cookie(request.getParameter("listId"), 
-					URLEncoder.encode(request.getParameter("tName"),"ISO-8859-1")+"\\$"+request.getParameter("tMoney"));
+			Cookie NewListN = new Cookie(request.getParameter("accountId"), 
+					request.getParameter("accountDate")+" "+
+					request.getParameter("accountCat")+" "+
+					URLEncoder.encode(request.getParameter("accountName"),"ISO-8859-1")+" "+
+					request.getParameter("accountMoney")
+					);
 			response.addCookie(NewListN);
-			response.sendRedirect("index.jsp");
+			response.sendRedirect("account.jsp");
 		}
 		if(request.getParameter("del") != null){
 			Cookie cookies[] = request.getCookies();
 			for (Cookie c : cookies) {
-				if (c.getName().equals(request.getParameter("listId"))) {
+				if (c.getName().equals(request.getParameter("accountId"))) {
 					c.setMaxAge(0);
 					response.addCookie(c);
 				}
 			}
-			response.sendRedirect("index.jsp");
+			response.sendRedirect("account.jsp");
 		}
 	}
 
