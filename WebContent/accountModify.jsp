@@ -1,66 +1,89 @@
 <%@ page language="java" pageEncoding="UTF-8" %>
-<jsp:directive.page import="java.net.URLDecoder"/>
-<!DOCTYPE html>
+<!doctype html>
 <html>
+
 <head>
-<meta charset="UTF8">
-<title>Insert title here</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>修改舊帳📒LIFF-Bismarck</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@100;400;700&display=swap" rel="stylesheet">
+    <link href="main.css" rel="stylesheet" />
 </head>
+
 <body>
-	<%	
-	request.setCharacterEncoding("UTF-8");
-	response.setContentType("text/html;charset=UTF-8");
-	Cookie cookies[] = request.getCookies();
-	String[] split_line = new String[1];
-	String target = request.getParameter("accountId");
-	if(request.getCookies() != null){
-        for(Cookie cookie : request.getCookies()){
-
-            String cookieName = URLDecoder.decode(cookie.getName(), "UTF-8");
-            String cookieValue = URLDecoder.decode(cookie.getValue(), "UTF-8");
-            if (cookieName.contains("accountId_")){
-				out.println("<a href=accountModify.jsp?accountId="+cookieName+">" + cookieName + "=" + cookieValue + "</a><br/>");
-			}
-            
-            if (cookieName.equals(target)){
-            	split_line = cookie.getValue().split(" ");
-            }
-        }
-    }
-	%>
-	<h1>修改舊帳</h1>
-	<form action="Account" method="post">
-		<br>
-		<input type="hidden" name="accountId" value=<%= target %>>
-
-		<label>
-			<div>日期：</div><br>
-			<div><input type="date" name="accountDate" value=<%= split_line[0] %>></div><br>
-		</label>
-		<label>
-			<div>分類：</div><br>
-			<div>
-				<select name="accountCat" default=<%= split_line[1] %>>
-					<option value="A">食</option>
-					<option value="B">衣</option>
-					<option value="C">住</option>
-					<option value="D">行</option>
-					<option value="E">育樂</option>
-				</select>
-			</div><br>
-		</label>
-		<label>
-			<div>事件：</div><br>
-			<div><input type="text" name="accountName" value=<%= URLDecoder.decode(split_line[2], "UTF-8") %>></div><br>
-        </label>
-        <label>
-        	<div>金額：</div><br>
-			<div><input type="number" name="accountMoney" value=<%= split_line[3] %>></div><br>
-		</label>
-
-
-		<input type="submit" name="mod" value="修改">
-		<input type="submit" name="del" value="刪除">
-	</form>
+    <div class="header">
+        <div class="navbar">
+            <a class="button upperL" href="#SaveAccount">保存</a>
+            <a class="button upperR" href="#RecoveryAccount">復原</a>
+            <a class="button bottom" href="account.jsp">回到記帳小本本</a>
+        </div>
+    </div>
+    <div class="content">
+        <form action="#" method="get">
+            <div class=separate2>
+                <label>
+                    <div>選擇日期：</div>
+                    <div><input type="date" name="date"></div>
+                </label>
+            </div>
+            <div class="separate2 cardview modaccount">
+                <label>
+                    <div>日期：</div><br>
+                    <div><input type="date" name="date" value="2020-01-01"></div><br>
+                </label>
+                <label>
+                    <div>分類：</div><br>
+                    <div><select class="AccountCat">
+                            <option selected value="食">食</option>
+                            <option value="衣">衣</option>
+                            <option value="住">住</option>
+                            <option value="行">行</option>
+                            <option value="育樂">育樂</option>
+                        </select></div><br>
+                </label>
+                <label>
+                    <div>事件：</div><br>
+                    <div><input type="text" name="title" value="牛排"></div><br>
+                </label>
+                <label>
+                    <div>金額：</div><br>
+                    <div><input type="number" name="title" value="500"></div><br>
+                </label>
+            </div>
+            <div class="separate2 cardview modaccount">
+                <label>
+                    <div>日期：</div><br>
+                    <div><input type="date" name="date" value="2020-04-20"></div><br>
+                </label>
+                <label>
+                    <div>分類：</div><br>
+                    <div><select class="AccountCat">
+                            <option value="食">食</option>
+                            <option selected value="衣">衣</option>
+                            <option value="住">住</option>
+                            <option value="行">行</option>
+                            <option value="育樂">育樂</option>
+                        </select></div><br>
+                </label>
+                <label>
+                    <div>事件：</div><br>
+                    <div><input type="text" name="title" value="褲子"></div><br>
+                </label>
+                <label>
+                    <div>金額：</div><br>
+                    <div><input type="number" name="title" value="1000"></div><br>
+                </label>
+            </div>
+        </form>
+    </div>
+    <div class="footer">
+        <a href="indexold.html">this is footer</a>
+    </div>
+    <script charset="utf-8" src="https://static.line-scdn.net/liff/edge/2.1/sdk.js"></script>
+    <script src="liff-starter.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="plugin/jquery.finger.min.js"></script>
+    <script src="main.js"></script>
 </body>
+
 </html>

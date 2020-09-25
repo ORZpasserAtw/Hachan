@@ -33,7 +33,7 @@ public class Account extends HttpServlet {
 		// TODO Auto-generated method stub
 		Date date = new Date();
 		
-		if (request.getParameter("new") != null) {
+		if (request.getParameter("new") != null && request.getParameter("accountName") != "" && request.getParameter("accountMoney") != "") {
 			Cookie NewListN = new Cookie("accountId_"+Integer.toHexString(date.hashCode()), 
 					request.getParameter("accountDate")+" "+
 					request.getParameter("accountCat")+" "+
@@ -41,9 +41,8 @@ public class Account extends HttpServlet {
 					request.getParameter("accountMoney")
 					);
 			response.addCookie(NewListN);
-			response.sendRedirect("account.jsp");
 		}
-		if(request.getParameter("mod") != null){
+		if(request.getParameter("mod") != null && request.getParameter("accountName") != "" && request.getParameter("accountMoney") != ""){
 			Cookie NewListN = new Cookie(request.getParameter("accountId"), 
 					request.getParameter("accountDate")+" "+
 					request.getParameter("accountCat")+" "+
@@ -51,7 +50,6 @@ public class Account extends HttpServlet {
 					request.getParameter("accountMoney")
 					);
 			response.addCookie(NewListN);
-			response.sendRedirect("account.jsp");
 		}
 		if(request.getParameter("del") != null){
 			Cookie cookies[] = request.getCookies();
@@ -61,8 +59,8 @@ public class Account extends HttpServlet {
 					response.addCookie(c);
 				}
 			}
-			response.sendRedirect("account.jsp");
 		}
+		response.sendRedirect("account.jsp");
 	}
 
 }

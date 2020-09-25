@@ -115,11 +115,11 @@ div.navbar a[href="https://www.google.com/maps/dir/?api=1&origin=目前位置&de
     background: url(img/bus.png) no-repeat left center transparent;
     background-size: contain;
 }
-div.navbar a[href="accountAdd.html"]::before{
+div.navbar a[href="accountAdd.jsp"]::before{
     background: url(img/sunglass.png) no-repeat left center transparent;
     background-size: contain;
 }
-div.navbar a[href="accountBalance.html"]::before{
+div.navbar a[href="accountBalance.jsp"]::before{
     background: url(img/wallet.png) no-repeat left center transparent;
     background-size: contain;
 }
@@ -133,7 +133,7 @@ div.navbar a[href="#RecordAccount"]::before{
     background: url(img/camera.png) no-repeat left center transparent;
     background-size: contain;
 }
-div.navbar a[href="accountModify.html"]::before{
+div.navbar a[href="accountModify.jsp"]::before{
     background: url(img/wallet2.png) no-repeat left center transparent;
     background-size: contain;
 }
