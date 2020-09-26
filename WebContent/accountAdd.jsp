@@ -14,8 +14,7 @@
 <body>
     <div class="header">
         <div class="navbar">
-            <a class="button upperL" href="#RecordAccount" onclick="document.getElementById('Account').submit();">記錄</a>
-            <a class="button upperR" href="accountModify.jsp">修改舊帳</a>
+            <a class="button upperF" href="#RecordAccount" onclick="document.getElementById('Account').submit();">記錄</a>
             <a class="button bottom" href="account.jsp">回到記帳小本本</a>
         </div>
     </div>
@@ -36,8 +35,9 @@
         	}
     	}
 	--%>
-		<form action="Account" method="post" id="Account">
+		
 			<div class="separate2 cardview modaccount">
+			<form action="Account" method="post" id="Account">
 				<label>
 					<div>日期：</div><br>
 					<div><input type="date" name="accountDate" value=<%=(new SimpleDateFormat("yyyy-MM-dd")).format(new Date())%>></div><br>
@@ -64,8 +64,9 @@
 					<div><input type="number" name="accountMoney"></div><br>
 				</label>
 				<input type="hidden" name="new">
+				</form>
 			</div>
-		</form>
+		
     </div>
     <div class="footer">
         <a href="indexold.html">this is footer</a>

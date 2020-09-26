@@ -1,5 +1,6 @@
 <%@ page language="java" pageEncoding="UTF-8" %>
-<!doctype html>
+<jsp:directive.page import="java.net.URLDecoder"/>
+<!DOCTYPE html>
 <html>
 
 <head>
@@ -13,68 +14,90 @@
 <body>
     <div class="header">
         <div class="navbar">
-            <a class="button upperL" href="#SaveAccount">保存</a>
-            <a class="button upperR" href="#RecoveryAccount">復原</a>
+            <a class="button upperL" href="#SaveAccount" onclick="document.getElementById('Account').submit();">保存</a>
+            <a class="button upperR" href="#RecoveryAccount"  onclick="document.getElementById('Account').reset();">復原</a>
             <a class="button bottom" href="account.jsp">回到記帳小本本</a>
         </div>
     </div>
     <div class="content">
-        <form action="#" method="get">
-            <div class=separate2>
-                <label>
-                    <div>選擇日期：</div>
-                    <div><input type="date" name="date"></div>
-                </label>
-            </div>
-            <div class="separate2 cardview modaccount">
-                <label>
-                    <div>日期：</div><br>
-                    <div><input type="date" name="date" value="2020-01-01"></div><br>
-                </label>
-                <label>
-                    <div>分類：</div><br>
-                    <div><select class="AccountCat">
-                            <option selected value="食">食</option>
-                            <option value="衣">衣</option>
-                            <option value="住">住</option>
-                            <option value="行">行</option>
-                            <option value="育樂">育樂</option>
-                        </select></div><br>
-                </label>
-                <label>
-                    <div>事件：</div><br>
-                    <div><input type="text" name="title" value="牛排"></div><br>
-                </label>
-                <label>
-                    <div>金額：</div><br>
-                    <div><input type="number" name="title" value="500"></div><br>
-                </label>
-            </div>
-            <div class="separate2 cardview modaccount">
-                <label>
-                    <div>日期：</div><br>
-                    <div><input type="date" name="date" value="2020-04-20"></div><br>
-                </label>
-                <label>
-                    <div>分類：</div><br>
-                    <div><select class="AccountCat">
-                            <option value="食">食</option>
-                            <option selected value="衣">衣</option>
-                            <option value="住">住</option>
-                            <option value="行">行</option>
-                            <option value="育樂">育樂</option>
-                        </select></div><br>
-                </label>
-                <label>
-                    <div>事件：</div><br>
-                    <div><input type="text" name="title" value="褲子"></div><br>
-                </label>
-                <label>
-                    <div>金額：</div><br>
-                    <div><input type="number" name="title" value="1000"></div><br>
-                </label>
-            </div>
-        </form>
+    	<%	
+		request.setCharacterEncoding("UTF-8");
+		response.setContentType("text/html;charset=UTF-8");
+		Cookie cookies[] = request.getCookies();
+		String[] split_line = new String[1];
+		String target = request.getParameter("accountId");
+		if(request.getCookies() != null){
+	        for(Cookie cookie : request.getCookies()){
+	
+	            String cookieName = URLDecoder.decode(cookie.getName(), "UTF-8");
+	            String cookieValue = URLDecoder.decode(cookie.getValue(), "UTF-8");
+	            
+	            if (cookieName.equals(target)){
+	            	split_line = cookie.getValue().split(" ");
+	            }
+	        }
+	    }
+		%>
+		<div class="separate2 cardview modaccount">
+			<form action="Account" method="post" id="Account">
+				<input type="hidden" name="accountId" value=<%= target %>>
+				<label>
+					<div>日期：</div><br>
+					<div><input type="date" name="accountDate" value=<%= split_line[0] %>></div><br>
+				</label>
+				<label>
+					<div>分類：</div><br>
+					<div>
+						<select name="accountCat" >
+							<%
+							if (split_line[1].equals("A")){
+								out.println("<option selected value=\"A\">食</option>");
+								out.println("<option value=\"B\">衣</option>");
+								out.println("<option value=\"C\">住</option>");
+								out.println("<option value=\"D\">行</option>");
+								out.println("<option value=\"E\">育樂</option>");
+							}else if(split_line[1].equals("B")){
+								out.println("<option value=\"A\">食</option>");
+								out.println("<option selected value=\"B\">衣</option>");
+								out.println("<option value=\"C\">住</option>");
+								out.println("<option value=\"D\">行</option>");
+								out.println("<option value=\"E\">育樂</option>");
+							}else if(split_line[1].equals("C")){
+								out.println("<option value=\"A\">食</option>");
+								out.println("<option value=\"B\">衣</option>");
+								out.println("<option value=\"C\">住</option>");
+								out.println("<option selected value=\"D\">行</option>");
+								out.println("<option value=\"E\">育樂</option>");
+							}else if(split_line[1].equals("D")){
+								out.println("<option value=\"A\">食</option>");
+								out.println("<option value=\"B\">衣</option>");
+								out.println("<option value=\"C\">住</option>");
+								out.println("<option selected value=\"D\">行</option>");
+								out.println("<option value=\"E\">育樂</option>");
+							}else if(split_line[1].equals("E")){
+								out.println("<option selected value=\"A\">食</option>");
+								out.println("<option value=\"B\">衣</option>");
+								out.println("<option value=\"C\">住</option>");
+								out.println("<option value=\"D\">行</option>");
+								out.println("<option selected value=\"E\">育樂</option>");
+							}
+							%>
+						</select>
+					</div>
+					<br>
+				</label>
+				<label>
+					<div>事件：</div><br>
+					<div><input type="text" name="accountName" value=<%= URLDecoder.decode(split_line[2], "UTF-8") %>></div><br>
+		        </label>
+		        <label>
+		        	<div>金額：</div><br>
+					<div><input type="number" name="accountMoney" value=<%= split_line[3] %>></div><br>
+				</label>
+				<input type="hidden" name="mod">
+			</form>
+		</div>
+		
     </div>
     <div class="footer">
         <a href="indexold.html">this is footer</a>
