@@ -36,7 +36,7 @@
     	}
 	--%>
 		
-			<div class="separate2 cardview modaccount">
+			<div class="separate2 cardview">
 			<form action="Account" method="post" id="Account">
 				<label>
 					<div>日期：</div><br>

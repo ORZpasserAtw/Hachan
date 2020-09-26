@@ -27,7 +27,6 @@
         }
     }
 	%>
-	<h1>記帳</h1>
 	<form action="Manager" method="post">
 		<div class=separate3>
                 <label>提醒</label><br>

@@ -233,7 +233,7 @@ form select{
     background-color: rgba(255,255,255,0);
     font-family: 'Noto Sans TC', sans-serif;
 }
-form div.separate2.cardview select{
+div.separate2.cardview form select{
     color: #000;
 }
 form select option{
@@ -269,37 +269,50 @@ form textarea{
     font-family: 'Noto Sans TC', sans-serif;
 }
 
-div.separate3 form label:nth-child(1){
+form div.separate3 label:nth-child(1){
     display: inline-block;
     margin-right: -4px;
     width:40%;
 }
-div.separate3 form label:nth-child(2){
+form div.separate3 label:nth-child(2){
     display: inline-block;
     margin-right: -4px;
     width:30%;
 }
-div.separate3 form label:nth-child(3){
+form div.separate3 label:nth-child(3){
     display: inline-block;
     margin-right: -4px;
     width:30%;
 }
 
-div.separate2 form{
+div.separate2 > form{
     box-sizing: border-box;
     white-space: nowrap;
 }
-div.separate2 form div:nth-of-type(odd){
+div.separate2 > form div:nth-of-type(odd){
     display: inline-block;
     margin-right: -4px;
     width:40%;
 }
-div.separate2 form div:nth-of-type(even){
+div.separate2 > form div:nth-of-type(even){
     vertical-align: top;
     display: inline-block;
     margin-right: -4px;
     width:60%;
 }
+
+form#Manager > div.separate3{
+    width:100%;
+}
+form#Manager > div.separate2{
+	display:block;
+    width:100%;
+}
+
+div.manager > div.separate2{
+	width:100%;
+}
+
 div.separate2.Balance form label:not(:first-child) div{
     margin-top: 50px;
 }
@@ -312,7 +325,7 @@ div.cardview form{
     border-radius: 5px;
     margin-top: 0px;
 }
-div.cardview.modmanager form,div.cardview.modaccount form,div.cardview.accountId form{
+div.cardview.modmanager form,div.cardview.accountId form{
     cursor: pointer;
 }
 div.separate2.cardview:nth-of-type(2){
@@ -331,7 +344,7 @@ div.separate3 > br{
     display:none;
 }
 div.separate3 > br:last-of-type{
-    display:block;
+    display:inline-block;
 }
 
 div.separate2 br{
