@@ -28,7 +28,7 @@
     }
 	%>
 	<h1>記帳</h1>
-	<form action="Manager" method="post">
+	<form action="Account" method="post">
 		<label>
 			<div>日期：</div><br>
 			<div><input type="date" name="accountDate" value=<%=(new SimpleDateFormat("yyyy-MM-dd")).format(new Date())%>></div><br>
