@@ -7,7 +7,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<%--	
+	<%	
 	request.setCharacterEncoding("UTF-8");
 	response.setContentType("text/html;charset=UTF-8");
 	Cookie cookies[] = request.getCookies();
@@ -18,7 +18,7 @@
 
             String cookieName = URLDecoder.decode(cookie.getName(), "UTF-8");
             String cookieValue = URLDecoder.decode(cookie.getValue(), "UTF-8");
-            if (cookieName.contains("accountId_")){
+            if (cookieName.contains("managerId_")){
 				out.println("<a href=accountModify.jsp?accountId="+cookieName+">" + cookieName + "=" + cookieValue + "</a><br/>");
 			}
             
@@ -26,9 +26,9 @@
             
         }
     }
-	--%>
+	%>
 	<h1>記帳</h1>
-	<form action="Account" method="post">
+	<form action="Manager" method="post">
 		<label>
 			<div>日期：</div><br>
 			<div><input type="date" name="accountDate" value=<%=(new SimpleDateFormat("yyyy-MM-dd")).format(new Date())%>></div><br>

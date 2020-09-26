@@ -17,12 +17,6 @@ Cookie cookies[] = request.getCookies();
 String[] split_line = new String[1];
 String AccountCat = "";
 %>
-
-<%!
-void getsum(){
-System.out.println("Hi I am m1") ;
-}
-%>
 <body>
     <div class="header">
         <div class="navbar">
