@@ -38,7 +38,7 @@
 	        }
 	    }
 		%>
-		<div class="separate2 cardview modaccount">
+		<div class="separate2 cardview">
 			<form action="Account" method="post" id="Account">
 				<input type="hidden" name="accountId" value=<%= target %>>
 				<label>
@@ -97,7 +97,6 @@
 				<input type="hidden" name="mod">
 			</form>
 		</div>
-		
     </div>
     <script charset="utf-8" src="https://static.line-scdn.net/liff/edge/2.1/sdk.js"></script>
     <script src="liff-starter.js"></script>

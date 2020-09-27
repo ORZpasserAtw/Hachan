@@ -23,10 +23,6 @@ $('select.TravelPri').first().change(function () {
     }
 }).change();
 
-$('.cardview.modaccount').on('press', function (e) {
-    $(this).hide();
-});
-
 //PhotoSwipe
 var initPhotoSwipeFromDOM = function(gallerySelector) {
 
