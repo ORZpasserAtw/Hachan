@@ -59,7 +59,11 @@ String[] split_line = new String[1];
 						
 						out.println("<label>");
 						out.println("<div>備註：</div><br>");
-						out.println("<div><textarea disabled name=\"managerDesc\" rows=\"3\" cols=\"10\" maxlength=\"50\">" +URLDecoder.decode(split_line[4], "UTF-8") + "</textarea></div><br>");
+						if(split_line.length >= 5){
+							out.println("<div><textarea disabled name=\"managerDesc\" rows=\"3\" cols=\"10\" maxlength=\"50\">" + URLDecoder.decode(split_line[4], "UTF-8") + "</textarea></div><br>");
+						}else{
+							out.println("<div><textarea disabled name=\"managerDesc\" rows=\"3\" cols=\"10\" maxlength=\"50\"></textarea></div><br>");
+						}
 						out.println("</label>");
 						out.println("<input type=\"hidden\" name=\"accountId\" value="+cookieName+">");
 						out.println("<input type=\"hidden\" name=\"del\">");
@@ -71,7 +75,8 @@ String[] split_line = new String[1];
 			%>
     </div>
     <div class="footer">
-        <a href="indexold.html">this is footer</a>
+        臺北商業大學 夜四技資四甲專題 N109405<br>
+        Copyright©2020 建議使用手機瀏覽並使用最新Chrome或Firefox<br>
     </div>
     <script charset="utf-8" src="https://static.line-scdn.net/liff/edge/2.1/sdk.js"></script>
     <script src="liff-starter.js"></script>

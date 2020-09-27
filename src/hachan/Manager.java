@@ -33,7 +33,7 @@ public class Manager extends HttpServlet {
 		// TODO Auto-generated method stub
 		Date date = new Date();
 		
-		if (request.getParameter("new") != null && request.getParameter("managerName") != "" && request.getParameter("managerDesc") != "") {
+		if (request.getParameter("new") != null && request.getParameter("managerName") != "") {
 			Cookie NewListN = new Cookie("managerId_"+Integer.toHexString(date.hashCode()), 
 					request.getParameter("managerRemind")+" "+
 					request.getParameter("managerDate")+" "+
@@ -43,7 +43,7 @@ public class Manager extends HttpServlet {
 					);
 			response.addCookie(NewListN);
 		}
-		if(request.getParameter("mod") != null && request.getParameter("managerName") != "" && request.getParameter("managerDesc") != ""){
+		if(request.getParameter("mod") != null && request.getParameter("managerName") != ""){
 			Cookie NewListN = new Cookie(request.getParameter("managerId"), 
 					request.getParameter("managerRemind")+" "+
 					request.getParameter("managerDate")+" "+

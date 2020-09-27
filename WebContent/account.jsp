@@ -107,7 +107,8 @@ String AccountCat = "";
 			%>
     </div>
     <div class="footer">
-        <a href="indexold.html">this is footer</a>
+        臺北商業大學 夜四技資四甲專題 N109405<br>
+        Copyright©2020 建議使用手機瀏覽並使用最新Chrome或Firefox<br>
     </div>
     <script charset="utf-8" src="https://static.line-scdn.net/liff/edge/2.1/sdk.js"></script>
     <script src="liff-starter.js"></script>

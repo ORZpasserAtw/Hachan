@@ -68,9 +68,6 @@
 			</div>
 		
     </div>
-    <div class="footer">
-        <a href="indexold.html">this is footer</a>
-    </div>
     <script charset="utf-8" src="https://static.line-scdn.net/liff/edge/2.1/sdk.js"></script>
     <script src="liff-starter.js"></script>
 </body>

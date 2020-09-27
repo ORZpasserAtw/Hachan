@@ -90,11 +90,11 @@ div.navbar a.upperL::before, div.navbar a.upperR::before , div.navbar a.upperF::
     vertical-align: middle;
     margin: 0px 4px 0px 0px;
 }
-div.navbar a[href="managerAdd.html"]::before{
+div.navbar a[href="managerAdd.jsp"]::before{
     background: url(img/box1.png) no-repeat left center transparent;
     background-size: contain;
 }
-div.navbar a[href="managerSearch.html"]::before{
+div.navbar a[href="managerSearch.jsp"]::before{
     background: url(img/box2.png) no-repeat center transparent;
     background-size: contain;
 }
