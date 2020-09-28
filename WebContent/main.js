@@ -8,8 +8,12 @@ $('.cardview.managerId').on('press', function (e) {
 });
 
 $('.cardview.accountId').on('press', function (e) {
-	document.getElementById('Account').submit();
-    $(this).hide();
+	if (confirm('確定刪除嗎?')) {
+		document.getElementById('Account').submit();
+    	$(this).hide();
+    } else {
+		location.reload();
+	}
 });
 
 $('select.TravelPri').change(function () {

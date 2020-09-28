@@ -30,7 +30,7 @@ String AccountCat = "";
             	<form action="#" method="get">
             		<label>
                     <div>選擇日期：</div>
-                    <div><input type="date" name="date"></div>
+                    <div><input type="date" name="date" value=<%=(new SimpleDateFormat("yyyy-MM-dd")).format(new Date())%>></div>
                		</label>
             	</form>
             </div>
@@ -60,8 +60,8 @@ String AccountCat = "";
 				for (Cookie cookie : request.getCookies()) {
 					String cookieName = URLDecoder.decode(cookie.getName(), "UTF-8");
 					String cookieValue = URLDecoder.decode(cookie.getValue(), "UTF-8");
+					split_line = cookie.getValue().split(" ");
 					if (cookieName.contains("accountId_")) {
-						split_line = cookie.getValue().split(" ");
 						out.println("<div class=\"separate2 cardview accountId\" onclick=\"location.href='accountModify.jsp?accountId="+cookieName+"'\">");
 						out.println("<form action=\"Account\" method=\"post\" id=\"Account\">");
 						out.println("<label>");

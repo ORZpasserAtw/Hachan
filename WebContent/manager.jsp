@@ -25,22 +25,14 @@ String[] split_line = new String[1];
         </div>
     </div>
     <div class="content">
-            <div class=separate2>
-            	<form action="#" method="get">
-            		<label>
-                    <div>選擇日期：</div>
-                    <div><input type="date" name="date"></div>
-               		</label>
-            	</form>
-            </div>
 			<%
 			if (request.getCookies() != null) {
 				for (Cookie cookie : request.getCookies()) {
 					String cookieName = URLDecoder.decode(cookie.getName(), "UTF-8");
 					String cookieValue = URLDecoder.decode(cookie.getValue(), "UTF-8");
-					if (cookieName.contains("managerId_")) {
-						split_line = cookie.getValue().split(" ");
-						out.println("<div class=\"separate2 cardview managerId\" onclick=\"location.href='managerModify.jsp?managerId="+cookieName+"'\">");
+					split_line = cookie.getValue().split(" ");
+					if (cookieName.contains("managerId_") && split_line[1].equals((new SimpleDateFormat("yyyy-MM-dd")).format(new Date()))) {
+						out.println("<div class=\"separate2 cardview managerId\">");
 						out.println("<form action=\"Manager\" method=\"post\" id=\"Manager\">");
 						out.println("<label>");
 						out.println("<div>日期：</div><br>");
@@ -73,7 +65,7 @@ String[] split_line = new String[1];
 				}
 			}
 			%>
-    </div>
+    	</div>
     <div class="footer">
         臺北商業大學 夜四技資四甲專題 N109405<br>
         Copyright©2020 建議使用手機瀏覽並使用最新Chrome或Firefox<br>
@@ -81,8 +73,6 @@ String[] split_line = new String[1];
     <script charset="utf-8" src="https://static.line-scdn.net/liff/edge/2.1/sdk.js"></script>
     <script src="liff-starter.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.finger/0.1.6/jquery.finger.min.js"></script>
-    <script src="main.js"></script>
 </body>
 
 </html>
