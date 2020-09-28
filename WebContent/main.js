@@ -1,9 +1,3 @@
-$('.cardview.modmanager').on('tap', function () {
-    self.location = "managerModify.html";
-});
-$('.cardview.modmanager').on('press', function (e) {
-    $(this).hide();
-});
 $('.cardview.accountId').on('press', function (e) {
 	document.getElementById('Account').submit();
     $(this).hide();
@@ -14,14 +8,53 @@ $('.cardview.accountId').on('press', function (e) {
     $(this).hide();
 });
 
-$('select.TravelPri').first().change(function () {
+$('select.TravelPri').change(function () {
+    document.getElementById('a').selectedIndex = 0;
+    document.getElementById('b').selectedIndex = 0;
     $('select.TravelSub').hide();
-    $('select.TravelSub').first().show();
+    $('div.my-gallery').hide();
+    $('div.navbar a.upperR').hide();
+    $('select.TravelSub').eq(0).show();
+    $('div.my-gallery').eq(0).show();
+    $('div.navbar a.upperR').eq(0).show();
     if (this.selectedIndex > 0) {
-        $('select.TravelSub').first().hide();
+        $('select.TravelSub').eq(0).hide();
         $('select.TravelSub').eq(this.selectedIndex).show();
     }
 }).change();
+
+
+document.getElementById('a').addEventListener('change', function (e) {
+    if (e.target.value === "海生館") {
+        $('div.my-gallery').hide();
+        $('div.navbar a.upperR').hide();
+        $('div.my-gallery').eq(1).show();
+        $('div.navbar a.upperR').eq(1).show();
+    }else if (e.target.value === "動物園") {
+        $('div.my-gallery').hide();
+        $('div.navbar a.upperR').hide();
+        $('div.my-gallery').eq(2).show();
+        $('div.navbar a.upperR').eq(2).show();
+    }else if (e.target.value === "動物之家") {
+        $('div.my-gallery').hide();
+        $('div.navbar a.upperR').hide();
+        $('div.my-gallery').eq(3).show();
+        $('div.navbar a.upperR').eq(3).show();
+    }else if (e.target.value === "其他") {
+        $('div.my-gallery').hide();
+        $('div.navbar a.upperR').hide();
+        $('div.my-gallery').eq(4).show();
+    }
+});
+
+document.getElementById('b').addEventListener('change', function (e) {
+    if (e.target.value === "阿里山") {
+        $('div.my-gallery').hide();
+        $('div.my-gallery').eq(5).show();
+    }else if (e.target.value === "陽明山") {
+        alert(e.target.value);
+    }
+});
 
 //PhotoSwipe
 var initPhotoSwipeFromDOM = function(gallerySelector) {

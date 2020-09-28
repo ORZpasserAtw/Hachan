@@ -115,7 +115,11 @@ div.navbar a[href="#Hate"]::before{
     background: url(img/cross.png) no-repeat left center transparent;
     background-size: contain;
 }
-div.navbar a[href="https://www.google.com/maps/dir/?api=1&origin=目前位置&destination=旗津區&travelmode=walking"]::before{
+div.navbar a[href="#Travel"]::before,
+div.navbar a[href="https://www.google.com/maps/dir/?api=1&origin=目前位置&destination=基隆市中正區海生館&travelmode=walking"]::before,
+div.navbar a[href="https://www.google.com/maps/dir/?api=1&origin=目前位置&destination=臺北市立動物園&travelmode=walking"]::before,
+div.navbar a[href="https://www.google.com/maps/dir/?api=1&origin=目前位置&destination=臺北市動物之家&travelmode=walking"]::before
+{
     background: url(img/bus.png) no-repeat left center transparent;
     background-size: contain;
 }
