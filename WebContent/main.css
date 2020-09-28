@@ -127,7 +127,7 @@ div.navbar a[href="accountAdd.jsp"]::before{
     background: url(img/sunglass.png) no-repeat left center transparent;
     background-size: contain;
 }
-div.navbar a[href="accountBalance.jsp"]::before{
+div.navbar a[href="accountBalance.html"]::before{
     background: url(img/wallet.png) no-repeat left center transparent;
     background-size: contain;
 }

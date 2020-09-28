@@ -21,7 +21,7 @@ String AccountCat = "";
     <div class="header">
         <div class="navbar">
             <a class="button upperL" href="accountAdd.jsp">開始記帳</a>
-            <a class="button upperR" href="accountBalance.jsp">設定餘額</a>
+            <a class="button upperR" href="accountBalance.html">設定餘額</a>
             <a class="button bottom" href="account.jsp">回到記帳小本本</a>
         </div>
     </div>
