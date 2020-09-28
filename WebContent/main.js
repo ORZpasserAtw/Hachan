@@ -1,6 +1,10 @@
-$('.cardview.accountId').on('press', function (e) {
-	document.getElementById('Account').submit();
-    $(this).hide();
+$('.cardview.managerId').on('press', function (e) {
+	if (confirm('確定刪除嗎?')) {
+  		document.getElementById('Manager').submit();
+    	$(this).hide();
+	} else {
+		location.reload();
+	}
 });
 
 $('.cardview.accountId').on('press', function (e) {

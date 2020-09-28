@@ -65,7 +65,7 @@ String[] split_line = new String[1];
 							out.println("<div><textarea disabled name=\"managerDesc\" rows=\"3\" cols=\"10\" maxlength=\"50\"></textarea></div><br>");
 						}
 						out.println("</label>");
-						out.println("<input type=\"hidden\" name=\"accountId\" value="+cookieName+">");
+						out.println("<input type=\"hidden\" name=\"managerId\" value="+cookieName+">");
 						out.println("<input type=\"hidden\" name=\"del\">");
 						out.println("</form>");
 						out.println("</div>");
