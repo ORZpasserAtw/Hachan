@@ -30,7 +30,7 @@ String[] split_line = new String[1];
 				for (Cookie cookie : request.getCookies()) {
 					String cookieName = URLDecoder.decode(cookie.getName(), "UTF-8");
 					String cookieValue = URLDecoder.decode(cookie.getValue(), "UTF-8");
-					split_line = cookie.getValue().split("@");
+					split_line = cookie.getValue().split("\\|");
 					if (cookieName.contains("managerId_") && split_line[1].equals((new SimpleDateFormat("yyyy-MM-dd")).format(new Date()))) {
 						out.println("<div class=\"separate2 cardview managerId\">");
 						out.println("<form action=\"Manager\" method=\"post\" id=\"Manager\">");

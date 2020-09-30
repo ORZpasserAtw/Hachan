@@ -23,7 +23,7 @@
 			}
             
             if (cookieName.equals(target)){
-            	split_line = cookie.getValue().split("@");
+            	split_line = cookie.getValue().split("\\|");
             }
             System.out.println(split_line[0]);
         }

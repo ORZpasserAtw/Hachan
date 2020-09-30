@@ -45,7 +45,7 @@ String AccountCat = "";
 							String cookieName = URLDecoder.decode(cookie.getName(), "UTF-8");
 							String cookieValue = URLDecoder.decode(cookie.getValue(), "UTF-8");
 							if (cookieName.contains("accountId_")) {
-								split_line = cookie.getValue().split("@");
+								split_line = cookie.getValue().split("\\|");
 								sum += Long.parseLong(split_line[3]);
 							}
 						}
@@ -60,7 +60,7 @@ String AccountCat = "";
 				for (Cookie cookie : request.getCookies()) {
 					String cookieName = URLDecoder.decode(cookie.getName(), "UTF-8");
 					String cookieValue = URLDecoder.decode(cookie.getValue(), "UTF-8");
-					split_line = cookie.getValue().split("@");
+					split_line = cookie.getValue().split("\\|");
 					if (cookieName.contains("accountId_")) {
 						out.println("<div class=\"separate2 cardview accountId\" onclick=\"location.href='accountModify.jsp?accountId="+cookieName+"'\">");
 						out.println("<form action=\"Account\" method=\"post\" id=\"Account\">");

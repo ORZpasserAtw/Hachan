@@ -33,7 +33,7 @@
 	            String cookieValue = URLDecoder.decode(cookie.getValue(), "UTF-8");
 	            
 	            if (cookieName.equals(target)){
-	            	split_line = cookie.getValue().split("@");
+	            	split_line = cookie.getValue().split("\\|");
 	            }
 	        }
 	    }
