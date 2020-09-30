@@ -34,7 +34,7 @@
 				}
         	}
     	}
-	--%>
+		--%>
 		
 			<div class="separate2 cardview">
 				<form action="Manager" method="post" id="Manager">

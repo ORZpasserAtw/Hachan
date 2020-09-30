@@ -35,20 +35,20 @@ public class Manager extends HttpServlet {
 		
 		if (request.getParameter("new") != null && request.getParameter("managerName") != "") {
 			Cookie NewListN = new Cookie("managerId_"+Integer.toHexString(date.hashCode()), 
-					request.getParameter("managerRemind")+" "+
-					request.getParameter("managerDate")+" "+
-					request.getParameter("managerTime")+" "+
-					URLEncoder.encode(request.getParameter("managerName"),"ISO-8859-1")+" "+
+					request.getParameter("managerRemind")+"@"+
+					request.getParameter("managerDate")+"@"+
+					request.getParameter("managerTime")+"@"+
+					URLEncoder.encode(request.getParameter("managerName"),"ISO-8859-1")+"@"+
 					URLEncoder.encode(request.getParameter("managerDesc"),"ISO-8859-1")
 					);
 			response.addCookie(NewListN);
 		}
 		if(request.getParameter("mod") != null && request.getParameter("managerName") != ""){
 			Cookie NewListN = new Cookie(request.getParameter("managerId"), 
-					request.getParameter("managerRemind")+" "+
-					request.getParameter("managerDate")+" "+
-					request.getParameter("managerTime")+" "+
-					URLEncoder.encode(request.getParameter("managerName"),"ISO-8859-1")+" "+
+					request.getParameter("managerRemind")+"@"+
+					request.getParameter("managerDate")+"@"+
+					request.getParameter("managerTime")+"@"+
+					URLEncoder.encode(request.getParameter("managerName"),"ISO-8859-1")+"@"+
 					URLEncoder.encode(request.getParameter("managerDesc"),"ISO-8859-1")
 					);
 			response.addCookie(NewListN);

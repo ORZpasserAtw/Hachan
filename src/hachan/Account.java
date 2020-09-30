@@ -35,18 +35,18 @@ public class Account extends HttpServlet {
 		
 		if (request.getParameter("new") != null && request.getParameter("accountName") != "" && request.getParameter("accountMoney") != "") {
 			Cookie NewListN = new Cookie("accountId_"+Integer.toHexString(date.hashCode()), 
-					request.getParameter("accountDate")+" "+
-					request.getParameter("accountCat")+" "+
-					URLEncoder.encode(request.getParameter("accountName"),"ISO-8859-1")+" "+
+					request.getParameter("accountDate")+"@"+
+					request.getParameter("accountCat")+"@"+
+					URLEncoder.encode(request.getParameter("accountName"),"ISO-8859-1")+"@"+
 					request.getParameter("accountMoney")
 					);
 			response.addCookie(NewListN);
 		}
 		if(request.getParameter("mod") != null && request.getParameter("accountName") != "" && request.getParameter("accountMoney") != ""){
 			Cookie NewListN = new Cookie(request.getParameter("accountId"), 
-					request.getParameter("accountDate")+" "+
-					request.getParameter("accountCat")+" "+
-					URLEncoder.encode(request.getParameter("accountName"),"ISO-8859-1")+" "+
+					request.getParameter("accountDate")+"@"+
+					request.getParameter("accountCat")+"@"+
+					URLEncoder.encode(request.getParameter("accountName"),"ISO-8859-1")+"@"+
 					request.getParameter("accountMoney")
 					);
 			response.addCookie(NewListN);

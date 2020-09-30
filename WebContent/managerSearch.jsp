@@ -36,7 +36,7 @@ String[] split_line = new String[1];
 			for (Cookie cookie : request.getCookies()) {
 				String cookieName = URLDecoder.decode(cookie.getName(), "UTF-8");
 				String cookieValue = URLDecoder.decode(cookie.getValue(), "UTF-8");
-				split_line = cookie.getValue().split(" ");
+				split_line = cookie.getValue().split("@");
 				if (cookieName.contains("managerId_")) {
 					out.println("<div class=\"separate2 cardview managerId\" onclick=\"location.href='managerModify.jsp?managerId="+cookieName+"'\">");
 					out.println("<form action=\"Manager\" method=\"post\" id=\"Manager\">");

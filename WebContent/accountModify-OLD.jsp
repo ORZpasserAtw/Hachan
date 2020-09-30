@@ -11,11 +11,11 @@
 	request.setCharacterEncoding("UTF-8");
 	response.setContentType("text/html;charset=UTF-8");
 	Cookie cookies[] = request.getCookies();
-	String[] split_line = new String[1];
+	String[] split_line = new String[10];
 	String target = request.getParameter("accountId");
 	if(request.getCookies() != null){
         for(Cookie cookie : request.getCookies()){
-
+        	
             String cookieName = URLDecoder.decode(cookie.getName(), "UTF-8");
             String cookieValue = URLDecoder.decode(cookie.getValue(), "UTF-8");
             if (cookieName.contains("accountId_")){
@@ -23,8 +23,9 @@
 			}
             
             if (cookieName.equals(target)){
-            	split_line = cookie.getValue().split(" ");
+            	split_line = cookie.getValue().split("@");
             }
+            System.out.println(split_line[0]);
         }
     }
 	%>

@@ -19,7 +19,7 @@
         </div>
     </div>
     <div class="content">
-		<%--	
+		<%--
 		request.setCharacterEncoding("UTF-8");
 		response.setContentType("text/html;charset=UTF-8");
 		Cookie cookies[] = request.getCookies();
@@ -34,7 +34,7 @@
 				}
         	}
     	}
-	--%>
+		--%>
 		
 			<div class="separate2 cardview">
 			<form action="Account" method="post" id="Account">
