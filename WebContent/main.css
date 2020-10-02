@@ -341,8 +341,9 @@ div.separate2 br:nth-of-type(even){
     display:block;
 }
 
-img.travelshow{
+div.travelshow img{
     width: 100%;
+    height: 340px;
     object-fit: none;
     cursor: pointer;
 }
@@ -351,7 +352,7 @@ div.travelshow p{
     margin: 0 0 10px;
     text-align: center;
     font-size: 200%;
-    
+    width: 100%;
 }
 
 div.travelshow p a{
