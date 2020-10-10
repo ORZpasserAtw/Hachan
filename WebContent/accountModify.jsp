@@ -6,7 +6,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>修改舊帳📒LIFF-Bismarck</title>
+    <title>修改舊帳📒</title>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@100;400;700&display=swap" rel="stylesheet">
     <link href="main.css" rel="stylesheet" />
 </head>
@@ -41,49 +41,76 @@
 		<div class="separate2 cardview">
 			<form action="Account" method="post" id="Account">
 				<input type="hidden" name="accountId" value=<%= target %>>
-				<label>
+	            <div class=separate2>
+	            <label>
 					<div>日期：</div><br>
 					<div><input type="date" name="accountDate" value=<%= split_line[0] %>></div><br>
 				</label>
 				<label>
 					<div>分類：</div><br>
-					<div>
-						<select name="accountCat" >
-							<%
-							if (split_line[1].equals("A")){
-								out.println("<option selected value=\"A\">食</option>");
-								out.println("<option value=\"B\">衣</option>");
-								out.println("<option value=\"C\">住</option>");
-								out.println("<option value=\"D\">行</option>");
-								out.println("<option value=\"E\">育樂</option>");
-							}else if(split_line[1].equals("B")){
-								out.println("<option value=\"A\">食</option>");
-								out.println("<option selected value=\"B\">衣</option>");
-								out.println("<option value=\"C\">住</option>");
-								out.println("<option value=\"D\">行</option>");
-								out.println("<option value=\"E\">育樂</option>");
-							}else if(split_line[1].equals("C")){
-								out.println("<option value=\"A\">食</option>");
-								out.println("<option value=\"B\">衣</option>");
-								out.println("<option value=\"C\">住</option>");
-								out.println("<option selected value=\"D\">行</option>");
-								out.println("<option value=\"E\">育樂</option>");
-							}else if(split_line[1].equals("D")){
-								out.println("<option value=\"A\">食</option>");
-								out.println("<option value=\"B\">衣</option>");
-								out.println("<option value=\"C\">住</option>");
-								out.println("<option selected value=\"D\">行</option>");
-								out.println("<option value=\"E\">育樂</option>");
-							}else if(split_line[1].equals("E")){
-								out.println("<option selected value=\"A\">食</option>");
-								out.println("<option value=\"B\">衣</option>");
-								out.println("<option value=\"C\">住</option>");
-								out.println("<option value=\"D\">行</option>");
-								out.println("<option selected value=\"E\">育樂</option>");
-							}
-							%>
-						</select>
-					</div>
+						<div>
+							<select name="accountCat" >
+								<%
+								if (split_line[1].equals("A")){
+									out.println("<option selected value=\"A\">支出-食</option>");
+									out.println("<option value=\"B\">支出-衣</option>");
+									out.println("<option value=\"C\">支出-住</option>");
+									out.println("<option value=\"D\">支出-行</option>");
+									out.println("<option value=\"E\">支出-育樂</option>");
+									out.println("<option value=\"F\">支出-其他</option>");
+									out.println("<option value=\"Z\">收入</option>");
+								}else if(split_line[1].equals("B")){
+									out.println("<option value=\"A\">支出-食</option>");
+									out.println("<option selected value=\"B\">支出-衣</option>");
+									out.println("<option value=\"C\">支出-住</option>");
+									out.println("<option value=\"D\">支出-行</option>");
+									out.println("<option value=\"E\">支出-育樂</option>");
+									out.println("<option value=\"F\">支出-其他</option>");
+									out.println("<option value=\"Z\">收入</option>");
+								}else if(split_line[1].equals("C")){
+									out.println("<option value=\"A\">支出-食</option>");
+									out.println("<option value=\"B\">支出-衣</option>");
+									out.println("<option selected value=\"C\">支出-住</option>");
+									out.println("<option value=\"D\">支出-行</option>");
+									out.println("<option value=\"E\">支出-育樂</option>");
+									out.println("<option value=\"F\">支出-其他</option>");
+									out.println("<option value=\"Z\">收入</option>");
+								}else if(split_line[1].equals("D")){
+									out.println("<option value=\"A\">支出-食</option>");
+									out.println("<option value=\"B\">支出-衣</option>");
+									out.println("<option value=\"C\">支出-住</option>");
+									out.println("<option selected value=\"D\">支出-行</option>");
+									out.println("<option value=\"E\">支出-育樂</option>");
+									out.println("<option value=\"F\">支出-其他</option>");
+									out.println("<option value=\"Z\">收入</option>");
+								}else if(split_line[1].equals("E")){
+									out.println("<option selected value=\"A\">支出-食</option>");
+									out.println("<option value=\"B\">支出-衣</option>");
+									out.println("<option value=\"C\">支出-住</option>");
+									out.println("<option value=\"D\">支出-行</option>");
+									out.println("<option selected value=\"E\">支出-育樂</option>");
+									out.println("<option value=\"F\">支出-其他</option>");
+									out.println("<option value=\"Z\">收入</option>");
+								}else if(split_line[1].equals("F")){
+									out.println("<option selected value=\"A\">支出-食</option>");
+									out.println("<option value=\"B\">支出-衣</option>");
+									out.println("<option value=\"C\">支出-住</option>");
+									out.println("<option value=\"D\">支出-行</option>");
+									out.println("<option value=\"E\">支出-育樂</option>");
+									out.println("<option selected value=\"F\">支出-其他</option>");
+									out.println("<option value=\"Z\">收入</option>");
+								}else if(split_line[1].equals("Z")){
+									out.println("<option selected value=\"A\">支出-食</option>");
+									out.println("<option value=\"B\">支出-衣</option>");
+									out.println("<option value=\"C\">支出-住</option>");
+									out.println("<option value=\"D\">支出-行</option>");
+									out.println("<option value=\"E\">支出-育樂</option>");
+									out.println("<option value=\"F\">支出-其他</option>");
+									out.println("<option selected value=\"Z\">收入</option>");
+								}
+								%>
+							</select>
+						</div>
 					<br>
 				</label>
 				<label>
@@ -94,6 +121,7 @@
 		        	<div>金額：</div><br>
 					<div><input type="number" name="accountMoney" value=<%= split_line[3] %>></div><br>
 				</label>
+	            </div>
 				<input type="hidden" name="mod">
 			</form>
 		</div>

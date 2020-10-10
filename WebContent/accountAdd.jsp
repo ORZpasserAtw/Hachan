@@ -6,7 +6,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>記帳📒LIFF-Bismarck</title>
+    <title>記帳支出📒</title>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@100;400;700&display=swap" rel="stylesheet">
     <link href="main.css" rel="stylesheet" />
 </head>
@@ -35,39 +35,42 @@
         	}
     	}
 		--%>
-		
-			<div class="separate2 cardview">
+		<div class="separate2 cardview">
 			<form action="Account" method="post" id="Account">
-				<label>
-					<div>日期：</div><br>
-					<div><input type="date" name="accountDate" value=<%=(new SimpleDateFormat("yyyy-MM-dd")).format(new Date())%>></div><br>
-				</label>
-				<label>
-					<div>分類：</div><br>
-					<div>
-						<select name="accountCat">
-							<option value="A">食</option>
-							<option value="B">衣</option>
-							<option value="C">住</option>
-							<option value="D">行</option>
-							<option value="E">育樂</option>
-						</select>
-					</div>
-					<br>
-				</label>
-				<label>
-					<div>事件：</div><br>
-					<div><input type="text" name="accountName"></div><br>
-		        </label>
-		        <label>
-		        	<div>金額：</div><br>
-					<div><input type="number" name="accountMoney"></div><br>
-				</label>
-				<input type="hidden" name="new">
-				</form>
-			</div>
-		
+				<div class=separate2>
+					<label>
+						<div>日期：</div><br>
+						<div><input type="date" name="accountDate" value=<%=(new SimpleDateFormat("yyyy-MM-dd")).format(new Date())%>></div><br>
+					</label>
+					<label>
+						<div>分類：</div><br>
+						<div>
+							<select name="accountCat">
+								<option value="A">支出-食</option>
+								<option value="B">支出-衣</option>
+								<option value="C">支出-住</option>
+								<option value="D">支出-行</option>
+								<option value="E">支出-育樂</option>
+								<option value="F">支出-其他</option>
+								<option value="Z">收入</option>
+							</select>
+						</div>
+						<br>
+					</label>
+					<label>
+						<div>事件：</div><br>
+						<div><input type="text" name="accountName"></div><br>
+			        </label>
+			        <label>
+			        	<div>金額：</div><br>
+						<div><input type="number" name="accountMoney"></div><br>
+					</label>
+					<input type="hidden" name="new">
+				</div>
+			</form>
+		</div>
     </div>
+    
     <script charset="utf-8" src="https://static.line-scdn.net/liff/edge/2.1/sdk.js"></script>
     <script src="liff-starter.js"></script>
 </body>

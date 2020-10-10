@@ -36,35 +36,34 @@
     	}
 		--%>
 		
-			<div class="separate2 cardview">
-				<form action="Manager" method="post" id="Manager">
-					<div class=separate3>
-		                <label>提醒</label>
-		                <label><input type="radio" name="managerRemind" value="Y" checked>是</label>
-		                <label><input type="radio" name="managerRemind" value="N">否</label>
-		            </div>
-		            <div class=separate2>
-		                <label>
-		                    <div>選擇日期：</div><br>
-		                    <div><input type="date" name="managerDate" value=<%=(new SimpleDateFormat("yyyy-MM-dd")).format(new Date())%>></div><br>
-		                </label>
-		                <label>
-		                    <div>選擇時間：</div><br>
-		                    <div><input type="time" name="managerTime" value=<%=(new SimpleDateFormat("HH:mm")).format(new Date())%>></div><br>
-		                </label>
-		                <label>
-		                    <div>活動名稱：</div><br>
-		                    <div><input type="text" name="managerName"></div><br>
-		                </label>
-		                <label>
-		                    <div>備註：</div><br>
-		                    <div><textarea name="managerDesc" rows="3" cols="10" maxlength="50"></textarea></div><br>
-		                </label>
-		            </div>
-					<input type="hidden" name="new">
-				</form>
-			</div>
-		
+		<div class="separate2 cardview">
+			<form action="Manager" method="post" id="Manager">
+				<div class=separate3>
+	                <label>提醒</label>
+	                <label><input type="radio" name="managerRemind" value="Y" checked>是</label>
+	                <label><input type="radio" name="managerRemind" value="N">否</label>
+	            </div>
+	            <div class=separate2>
+	                <label>
+	                    <div>選擇日期：</div><br>
+	                    <div><input type="date" name="managerDate" value=<%=(new SimpleDateFormat("yyyy-MM-dd")).format(new Date())%>></div><br>
+	                </label>
+	                <label>
+	                    <div>選擇時間：</div><br>
+	                    <div><input type="time" name="managerTime" value=<%=(new SimpleDateFormat("HH:mm")).format(new Date())%>></div><br>
+	                </label>
+	                <label>
+	                    <div>活動名稱：</div><br>
+	                    <div><input type="text" name="managerName"></div><br>
+	                </label>
+	                <label>
+	                    <div>備註：</div><br>
+	                    <div><textarea name="managerDesc" rows="3" cols="10" maxlength="50"></textarea></div><br>
+	                </label>
+	            </div>
+				<input type="hidden" name="new">
+			</form>
+		</div>
     </div>
     <script charset="utf-8" src="https://static.line-scdn.net/liff/edge/2.1/sdk.js"></script>
     <script src="liff-starter.js"></script>

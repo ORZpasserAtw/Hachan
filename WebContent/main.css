@@ -1,3 +1,4 @@
+
 html {
     overflow-y: scroll; 
 }
@@ -254,6 +255,16 @@ form select option{
     font-family: 'Noto Sans TC', sans-serif;
 }
 
+form select option[value="A"], form select option[value="B"], form select option[value="C"], 
+form select option[value="D"], form select option[value="D"], form select option[value="E"], 
+form select option[value="F"] {
+	background: #F8E59A;
+}
+form select option[value="Z"]{
+	background: #ADDC91;
+}
+
+
 form textarea{
     font-size: 100%;
     width: 100%;
@@ -296,6 +307,14 @@ div.separate2 > form div:nth-of-type(even){
     width:60%;
 }
 
+form#Account > div.separate3{
+    width:100%;
+}
+form#Account > div.separate2{
+	display:block;
+    width:100%;
+}
+
 form#Manager > div.separate3{
     width:100%;
 }
@@ -305,6 +324,9 @@ form#Manager > div.separate2{
 }
 
 div.manager > div.separate2{
+	width:100%;
+}
+div.account > div.separate2{
 	width:100%;
 }
 
