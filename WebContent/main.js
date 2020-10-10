@@ -16,6 +16,10 @@ $('.cardview.accountId').on('press', function (e) {
     }
 });
 
+$("select.dateselector").change(function() {
+     $('#dateform').submit();
+});
+
 function TravelIndexChange() {
     if (document.getElementById("TravelPri").selectedIndex === 1 && document.getElementById("TravelSub").selectedIndex === 1 && sessionStorage.getItem("Hate") === "N") {
         sessionStorage.setItem("travelIndex", "1");
