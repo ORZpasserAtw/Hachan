@@ -1,5 +1,5 @@
 <%@ page language="java" pageEncoding="UTF-8" %>
-<jsp:directive.page import="java.net.URLDecoder,java.io.*,java.util.Date,java.util.Calendar,java.text.DateFormat,java.text.SimpleDateFormat"/>
+<jsp:directive.page import="java.net.URLDecoder,java.io.*,java.text.ParseException,java.util.Date,java.util.Calendar,java.text.DateFormat,java.text.SimpleDateFormat"/>
 <!doctype html>
 <html>
 
@@ -14,9 +14,6 @@
 request.setCharacterEncoding("UTF-8");
 response.setContentType("text/html;charset=UTF-8");
 Cookie cookies[] = request.getCookies();
-String[] split_line = new String[1];
-
-long sum=0;
 
 Calendar cal = Calendar.getInstance(); //sets the calendar to current date and time
 cal.set(Calendar.DAY_OF_WEEK, Calendar.SUNDAY); //sets the calendar with starting day of week
@@ -91,141 +88,103 @@ Date lastDayOfMonth = cal.getTime();
             </div>
             <div class="separate2 cardview">
             	<form action="#" method="get">
-            		<label>
-                    <div>總支出：</div>
+                	<label>
+                    <div>結餘：</div>
+                    <%! 
+                    public long getSum(HttpServletRequest request, int mode, long sum, Date start, Date end) throws ParseException,IOException{
+                    	for (Cookie cookie : request.getCookies()) {
+                    		String[] split_line = new String[1];
+							String cookieName = URLDecoder.decode(cookie.getName(), "UTF-8");
+							String cookieValue = URLDecoder.decode(cookie.getValue(), "UTF-8");
+							split_line = cookie.getValue().split("\\|");
+							if (mode == 1){ //All
+								if (cookieName.contains("accountId_") && split_line[1].contains("Z")) {
+									sum += Long.parseLong(split_line[3]);
+								}
+							}else if(mode == 2){//Month and Week
+								if (cookieName.contains("accountId_") && split_line[1].contains("Z")) {
+    								Date d = new SimpleDateFormat("yyyy-MM-dd").parse(split_line[0]);
+    								if (!d.before(start) && !d.after(end)){
+    									sum += Long.parseLong(split_line[3]);
+    								}
+    							}
+							}else if(mode == 3){ //Today
+								if (cookieName.contains("accountId_") && split_line[1].contains("Z")) {
+									Date d = new SimpleDateFormat("yyyy-MM-dd").parse(split_line[0]);
+									if (cookieName.contains("accountId_") && split_line[1].contains("Z") && split_line[0].equals(new SimpleDateFormat("yyyy-MM-dd").format(new Date()))) {
+    									sum += Long.parseLong(split_line[3]);
+    								}
+								}
+							}else if (mode == -1){ //All
+								if (cookieName.contains("accountId_") && !split_line[1].contains("Z")) {
+									sum += Long.parseLong(split_line[3]);
+								}
+							}else if(mode == -2){//Month and Week
+								if (cookieName.contains("accountId_") && !split_line[1].contains("Z")) {
+    								Date d = new SimpleDateFormat("yyyy-MM-dd").parse(split_line[0]);
+    								if (!d.before(start) && !d.after(end)){
+    									sum += Long.parseLong(split_line[3]);
+    								}
+    							}
+							}else if(mode == -3){ //Today
+								if (cookieName.contains("accountId_") && !split_line[1].contains("Z")) {
+									Date d = new SimpleDateFormat("yyyy-MM-dd").parse(split_line[0]);
+									if (cookieName.contains("accountId_") && !split_line[1].contains("Z") && split_line[0].equals(new SimpleDateFormat("yyyy-MM-dd").format(new Date()))) {
+    									sum += Long.parseLong(split_line[3]);
+    								}
+								}
+							}
+						}
+                    	return sum;
+                    }
+                    %>
                  	<%
-                 	sum = 0;
+                 	long sumIn = 0;
 					if (request.getCookies() != null) {
 						if(request.getParameterMap().containsKey("date")){
               				if (request.getParameter("date").contains("All")){
-              					for (Cookie cookie : request.getCookies()) {
-        							String cookieName = URLDecoder.decode(cookie.getName(), "UTF-8");
-        							String cookieValue = URLDecoder.decode(cookie.getValue(), "UTF-8");
-        							split_line = cookie.getValue().split("\\|");
-        							if (cookieName.contains("accountId_") && !split_line[1].contains("Z")) {
-        								sum += Long.parseLong(split_line[3]);
-        							}
-        						}
+              					sumIn = getSum(request, 1, sumIn, null, null);
 	              			}else if(request.getParameter("date").contains("Month")){
-	              				for (Cookie cookie : request.getCookies()) {
-        							String cookieName = URLDecoder.decode(cookie.getName(), "UTF-8");
-        							String cookieValue = URLDecoder.decode(cookie.getValue(), "UTF-8");
-        							split_line = cookie.getValue().split("\\|");
-        							if (cookieName.contains("accountId_") && !split_line[1].contains("Z")) {
-        								Date d = new SimpleDateFormat("yyyy-MM-dd").parse(split_line[0]);
-        								if (!d.before(firstDayOfMonth) && !d.after(lastDayOfMonth)){
-        									sum += Long.parseLong(split_line[3]);
-        								}
-        							}
-        						}
+	              				sumIn = getSum(request, 2, sumIn, firstDayOfMonth, lastDayOfMonth);
 	              			}else if(request.getParameter("date").contains("Week")){
-	              				for (Cookie cookie : request.getCookies()) {
-        							String cookieName = URLDecoder.decode(cookie.getName(), "UTF-8");
-        							String cookieValue = URLDecoder.decode(cookie.getValue(), "UTF-8");
-        							split_line = cookie.getValue().split("\\|");
-        							
-        							if (cookieName.contains("accountId_") && !split_line[1].contains("Z")) {
-        								Date d = new SimpleDateFormat("yyyy-MM-dd").parse(split_line[0]);
-        								if (!d.before(firstDayOfWeek) && !d.after(lastDayOfWeek)){
-        									sum += Long.parseLong(split_line[3]);
-        								}
-        							}
-        						}
+	              				sumIn = getSum(request, 2, sumIn, firstDayOfWeek, lastDayOfWeek);
 	              			}else if(request.getParameter("date").contains("Today")){
-	              				for (Cookie cookie : request.getCookies()) {
-        							String cookieName = URLDecoder.decode(cookie.getName(), "UTF-8");
-        							String cookieValue = URLDecoder.decode(cookie.getValue(), "UTF-8");
-        							split_line = cookie.getValue().split("\\|");
-        							if (cookieName.contains("accountId_") && !split_line[1].contains("Z") && split_line[0].equals(new SimpleDateFormat("yyyy-MM-dd").format(new Date()))) {
-        								sum += Long.parseLong(split_line[3]);
-        							}
-        						}
+	              				sumIn = getSum(request, 3, sumIn, null, null);
 	              			}
               			}else{
-              				if (request.getCookies() != null) {
-        						for (Cookie cookie : request.getCookies()) {
-        							String cookieName = URLDecoder.decode(cookie.getName(), "UTF-8");
-        							String cookieValue = URLDecoder.decode(cookie.getValue(), "UTF-8");
-        							split_line = cookie.getValue().split("\\|");
-        							if (cookieName.contains("accountId_") && !split_line[1].contains("Z") && split_line[0].equals(new SimpleDateFormat("yyyy-MM-dd").format(new Date()))) {
-        								sum += Long.parseLong(split_line[3]);
-        							}
-        						}
-        					}
+              				sumIn = getSum(request, 3, sumIn, null, null);
               			}
 					}
 					%>
-                    <div><input disabled type="number" value=<%= sum %>></div><br>
+                 	<%
+                 	long sumOut = 0;
+					if (request.getCookies() != null) {
+						if(request.getParameterMap().containsKey("date")){
+              				if (request.getParameter("date").contains("All")){
+              					sumOut = getSum(request, -1, sumOut, null, null);
+	              			}else if(request.getParameter("date").contains("Month")){
+	              				sumOut = getSum(request, -2, sumOut, firstDayOfMonth, lastDayOfMonth);
+	              			}else if(request.getParameter("date").contains("Week")){
+	              				sumOut = getSum(request, -2, sumOut, firstDayOfWeek, lastDayOfWeek);
+	              			}else if(request.getParameter("date").contains("Today")){
+	              				sumOut = getSum(request, -3, sumOut, null, null);
+	              			}
+              			}else{
+              				sumOut = getSum(request, -3, sumOut, null, null);
+              			}
+					}
+					%>
+					<%
+					out.println("<div><input disabled type=\"text\" value=收入("+sumIn+")-支出("+sumOut+")="+(sumIn-sumOut)+"></div>");
+					%>
                 	</label>
             	</form>
             </div>
        		<div class="separate2 cardview">
             	<form action="#" method="get">
-                	<label>
-                    <div>總收入：</div>
-                 	<%
-                 	sum = 0;
-					if (request.getCookies() != null) {
-						if(request.getParameterMap().containsKey("date")){
-              				if (request.getParameter("date").contains("All")){
-              					for (Cookie cookie : request.getCookies()) {
-        							String cookieName = URLDecoder.decode(cookie.getName(), "UTF-8");
-        							String cookieValue = URLDecoder.decode(cookie.getValue(), "UTF-8");
-        							split_line = cookie.getValue().split("\\|");
-        							if (cookieName.contains("accountId_") && split_line[1].contains("Z")) {
-        								sum += Long.parseLong(split_line[3]);
-        							}
-        						}
-	              			}else if(request.getParameter("date").contains("Month")){
-	              				for (Cookie cookie : request.getCookies()) {
-        							String cookieName = URLDecoder.decode(cookie.getName(), "UTF-8");
-        							String cookieValue = URLDecoder.decode(cookie.getValue(), "UTF-8");
-        							split_line = cookie.getValue().split("\\|");
-        							if (cookieName.contains("accountId_") && split_line[1].contains("Z")) {
-        								Date d = new SimpleDateFormat("yyyy-MM-dd").parse(split_line[0]);
-        								if (!d.before(firstDayOfMonth) && !d.after(lastDayOfMonth)){
-        									sum += Long.parseLong(split_line[3]);
-        								}
-        							}
-        						}
-	              			}else if(request.getParameter("date").contains("Week")){
-	              				for (Cookie cookie : request.getCookies()) {
-        							String cookieName = URLDecoder.decode(cookie.getName(), "UTF-8");
-        							String cookieValue = URLDecoder.decode(cookie.getValue(), "UTF-8");
-        							split_line = cookie.getValue().split("\\|");
-        							
-        							if (cookieName.contains("accountId_") && split_line[1].contains("Z")) {
-        								Date d = new SimpleDateFormat("yyyy-MM-dd").parse(split_line[0]);
-        								if (!d.before(firstDayOfWeek) && !d.after(lastDayOfWeek)){
-        									sum += Long.parseLong(split_line[3]);
-        								}
-        							}
-        						}
-	              			}else if(request.getParameter("date").contains("Today")){
-	              				for (Cookie cookie : request.getCookies()) {
-        							String cookieName = URLDecoder.decode(cookie.getName(), "UTF-8");
-        							String cookieValue = URLDecoder.decode(cookie.getValue(), "UTF-8");
-        							split_line = cookie.getValue().split("\\|");
-        							if (cookieName.contains("accountId_") && split_line[1].contains("Z") && split_line[0].equals(new SimpleDateFormat("yyyy-MM-dd").format(new Date()))) {
-        								sum += Long.parseLong(split_line[3]);
-        							}
-        						}
-	              			}
-              			}else{
-              				if (request.getCookies() != null) {
-        						for (Cookie cookie : request.getCookies()) {
-        							String cookieName = URLDecoder.decode(cookie.getName(), "UTF-8");
-        							String cookieValue = URLDecoder.decode(cookie.getValue(), "UTF-8");
-        							split_line = cookie.getValue().split("\\|");
-        							if (cookieName.contains("accountId_") && split_line[1].contains("Z") && split_line[0].equals(new SimpleDateFormat("yyyy-MM-dd").format(new Date()))) {
-        								sum += Long.parseLong(split_line[3]);
-        							}
-        						}
-        					}
-              			}
-					}
-					%>
-                    <div><input disabled type="number" value=<%= sum %>></div>
+            		<label>
+                    <div>食：</div>
+                    <div><input disabled type="text" value="abc"></div><br>
                 	</label>
             	</form>
             </div>
@@ -270,69 +229,52 @@ Date lastDayOfMonth = cal.getTime();
 				out.println("<div>金額：</div><br>");
 				out.println("<div><input disabled type=\"number\" value=" + sl3 + "></div><br>");
 				out.println("</label>");
-				out.println("<input type=\"hidden\" name=\"accountId\" value="+cookieName+">");
-				out.println("<input type=\"hidden\" name=\"del\">");
 				out.println("</form>");
 				out.println("</div>");
             }
+			%>
+			<%!
+			public void printAccount(HttpServletRequest request, JspWriter out, int mode, Date start, Date end) throws ParseException,IOException{
+				String[] split_line = new String[1];
+				for (Cookie cookie : request.getCookies()) {
+					String cookieName = URLDecoder.decode(cookie.getName(), "UTF-8");
+					String cookieValue = URLDecoder.decode(cookie.getValue(), "UTF-8");
+					split_line = cookie.getValue().split("\\|");
+
+					if (mode == 1){ //All
+						if (cookieName.contains("accountId_")) {
+							printAccountCard(out, cookieName, split_line[0], split_line[1],split_line[2],split_line[3]);
+						}
+					}else if(mode == 2){//Month and Week
+						if (cookieName.contains("accountId_")) {
+							Date d = new SimpleDateFormat("yyyy-MM-dd").parse(split_line[0]);
+							if (d.getTime() >= start.getTime() && d.getTime() <= end.getTime()){
+								printAccountCard(out, cookieName, split_line[0], split_line[1],split_line[2],split_line[3]);
+							}
+						}
+					}else if(mode == 3){ //Today
+						if (cookieName.contains("accountId_") && split_line[0].equals(new SimpleDateFormat("yyyy-MM-dd").format(new Date()))) {
+							printAccountCard(out, cookieName, split_line[0], split_line[1],split_line[2],split_line[3]);
+						}
+					}
+				}
+			}
 			%>
 			<%
 			
 			if (request.getCookies() != null) {
 				if(request.getParameterMap().containsKey("date")){
 					if (request.getParameter("date").contains("All")){
-						for (Cookie cookie : request.getCookies()) {
-							String cookieName = URLDecoder.decode(cookie.getName(), "UTF-8");
-							String cookieValue = URLDecoder.decode(cookie.getValue(), "UTF-8");
-							split_line = cookie.getValue().split("\\|");
-							
-							if (cookieName.contains("accountId_")) {
-								printAccountCard(out, cookieName, split_line[0], split_line[1],split_line[2],split_line[3]);
-							}
-						}
+						printAccount(request,out,1,null,null);
 					} else if(request.getParameter("date").contains("Month")){
-						for (Cookie cookie : request.getCookies()) {
-							String cookieName = URLDecoder.decode(cookie.getName(), "UTF-8");
-							String cookieValue = URLDecoder.decode(cookie.getValue(), "UTF-8");
-							split_line = cookie.getValue().split("\\|");
-							if (cookieName.contains("accountId_")) {
-								Date d = new SimpleDateFormat("yyyy-MM-dd").parse(split_line[0]);
-								if (d.getTime() >= firstDayOfMonth.getTime() && d.getTime() <= lastDayOfMonth.getTime()){
-									printAccountCard(out, cookieName, split_line[0], split_line[1],split_line[2],split_line[3]);
-								}
-							}
-						}
+						printAccount(request,out,2,firstDayOfMonth,lastDayOfMonth);
           			}else if(request.getParameter("date").contains("Week")){
-          				for (Cookie cookie : request.getCookies()) {
-							String cookieName = URLDecoder.decode(cookie.getName(), "UTF-8");
-							String cookieValue = URLDecoder.decode(cookie.getValue(), "UTF-8");
-							split_line = cookie.getValue().split("\\|");
-							if (cookieName.contains("accountId_")) {
-								Date d = new SimpleDateFormat("yyyy-MM-dd").parse(split_line[0]);
-								if (d.getTime() >= firstDayOfWeek.getTime() && d.getTime() <= lastDayOfWeek.getTime()){
-									printAccountCard(out, cookieName, split_line[0], split_line[1],split_line[2],split_line[3]);
-								}
-							}
-						}
+          				printAccount(request,out,2,firstDayOfWeek,lastDayOfWeek);
           			}else if(request.getParameter("date").contains("Today")){
-          				for (Cookie cookie : request.getCookies()) {
-    						String cookieName = URLDecoder.decode(cookie.getName(), "UTF-8");
-    						String cookieValue = URLDecoder.decode(cookie.getValue(), "UTF-8");
-    						split_line = cookie.getValue().split("\\|");
-    						if (cookieName.contains("accountId_") && split_line[0].equals(new SimpleDateFormat("yyyy-MM-dd").format(new Date()))) {
-    							printAccountCard(out, cookieName, split_line[0], split_line[1],split_line[2],split_line[3]);
-    						}
-    					}
+          				printAccount(request,out,3,null,null);
           			}
 				}else{
-					for (Cookie cookie : request.getCookies()) {
-						String cookieName = URLDecoder.decode(cookie.getName(), "UTF-8");
-						String cookieValue = URLDecoder.decode(cookie.getValue(), "UTF-8");
-						split_line = cookie.getValue().split("\\|");
-						if (cookieName.contains("accountId_") && split_line[0].equals(new SimpleDateFormat("yyyy-MM-dd").format(new Date()))) {
-							printAccountCard(out, cookieName, split_line[0], split_line[1],split_line[2],split_line[3]);
-						}
-					}
+					printAccount(request,out,3,null,null);
 				}
 			}
 			%>

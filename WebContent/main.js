@@ -8,12 +8,7 @@ $('.cardview.managerId').on('press', function (e) {
 });
 
 $('.cardview.accountId').on('press', function (e) {
-    if (confirm('確定刪除嗎?')) {
-        document.getElementById('Account').submit();
-        $(this).hide();
-    } else {
-        location.reload();
-    }
+
 });
 
 $("select.dateselector").change(function() {

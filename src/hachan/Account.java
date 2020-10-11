@@ -42,7 +42,7 @@ public class Account extends HttpServlet {
 					);
 			response.addCookie(NewListN);
 		}
-		if(request.getParameter("mod") != null && request.getParameter("accountName") != "" && request.getParameter("accountMoney") != ""){
+		if(request.getParameter("mod") != null && request.getParameter("mod").contains("Y") && request.getParameter("accountName") != "" && request.getParameter("accountMoney") != ""){
 			Cookie NewListN = new Cookie(request.getParameter("accountId"), 
 					request.getParameter("accountDate")+"|"+
 					request.getParameter("accountCat")+"|"+
@@ -51,7 +51,7 @@ public class Account extends HttpServlet {
 					);
 			response.addCookie(NewListN);
 		}
-		if(request.getParameter("del") != null){
+		if(request.getParameter("del") != null && request.getParameter("del").contains("Y")){
 			Cookie cookies[] = request.getCookies();
 			for (Cookie c : cookies) {
 				if (c.getName().equals(request.getParameter("accountId"))) {

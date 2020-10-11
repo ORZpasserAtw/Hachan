@@ -291,16 +291,16 @@ form div.separate3 label:nth-child(3){
     width:30%;
 }
 
-div.separate2 > form{
+div.separate2 form{
     box-sizing: border-box;
     white-space: nowrap;
 }
-div.separate2 > form div:nth-of-type(odd){
+div.separate2 form div:nth-of-type(odd){
     display: inline-block;
     margin-right: -4px;
     width:40%;
 }
-div.separate2 > form div:nth-of-type(even){
+div.separate2 form div:nth-of-type(even){
     vertical-align: top;
     display: inline-block;
     margin-right: -4px;
@@ -314,6 +314,9 @@ form#Account > div.separate2{
 	display:block;
     width:100%;
 }
+div.account > div.separate2{
+	width:100%;
+}
 
 form#Manager > div.separate3{
     width:100%;
@@ -324,9 +327,6 @@ form#Manager > div.separate2{
 }
 
 div.manager > div.separate2{
-	width:100%;
-}
-div.account > div.separate2{
 	width:100%;
 }
 

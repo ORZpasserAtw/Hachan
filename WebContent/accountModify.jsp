@@ -14,8 +14,8 @@
 <body>
     <div class="header">
         <div class="navbar">
-            <a class="button upperL" href="#SaveAccount" onclick="document.getElementById('Account').submit();">保存</a>
-            <a class="button upperR" href="#RecoveryAccount"  onclick="document.getElementById('Account').reset();">復原</a>
+            <a class="button upperL" href="#SaveAccount" onclick="document.getElementById('Account').mod.value='Y';document.getElementById('Account').submit();">紀錄</a>
+            <a class="button upperR" href="#DelAccount"  onclick="document.getElementById('Account').del.value='Y';document.getElementById('Account').submit();">刪除</a>
             <a class="button bottom" href="account.jsp">回到記帳小本本</a>
         </div>
     </div>
@@ -123,14 +123,13 @@
 				</label>
 	            </div>
 				<input type="hidden" name="mod">
+				<input type="hidden" name="del">
 			</form>
 		</div>
     </div>
     <script charset="utf-8" src="https://static.line-scdn.net/liff/edge/2.1/sdk.js"></script>
     <script src="liff-starter.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-    <script src="plugin/jquery.finger.min.js"></script>
-    <script src="main.js"></script>
 </body>
 
 </html>
