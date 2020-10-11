@@ -82,7 +82,7 @@ Date lastDayOfMonth = cal.getTime();
 		              			}
 		              			%>
 			              	</select>
-	               		</div>
+	               		</div><br>
                		</label>
             		<label>
                     <div>分類：</div>
@@ -175,7 +175,7 @@ Date lastDayOfMonth = cal.getTime();
 		              			}
 		              			%>
 			              	</select>
-	               		</div>
+	               		</div><br>
                		</label>
             	</form>
             </div>
@@ -353,63 +353,15 @@ Date lastDayOfMonth = cal.getTime();
                  	<%
                  	long sumOut = 0;
 					if (request.getCookies() != null) {
-						if(request.getParameterMap().containsKey("date") && request.getParameterMap().containsKey("type")){
-              				if (request.getParameter("date").contains("All") && request.getParameter("type").contains("All")){
+						if(request.getParameterMap().containsKey("date")){
+              				if (request.getParameter("date").contains("All")){
               					sumOut = getSum(request, 1, sumOut, null, null);
-	              			}else if(request.getParameter("date").contains("Month") && request.getParameter("type").contains("All")){
+	              			}else if(request.getParameter("date").contains("Month")){
 	              				sumOut = getSum(request, 2, sumOut, firstDayOfMonth, lastDayOfMonth);
-	              			}else if(request.getParameter("date").contains("Week") && request.getParameter("type").contains("All")){
+	              			}else if(request.getParameter("date").contains("Week")){
 	              				sumOut = getSum(request, 2, sumOut, firstDayOfWeek, lastDayOfWeek);
-	              			}else if(request.getParameter("date").contains("Today") && request.getParameter("type").contains("All")){
+	              			}else if(request.getParameter("date").contains("Today")){
 	              				sumOut = getSum(request, 3, sumOut, null, null);
-	              			}else if (request.getParameter("date").contains("All") && request.getParameter("type").contains("A")){
-              					sumOut = getSum(request, 11, sumOut, null, null);
-	              			}else if(request.getParameter("date").contains("Month") && request.getParameter("type").contains("A")){
-	              				sumOut = getSum(request, 12, sumOut, firstDayOfMonth, lastDayOfMonth);
-	              			}else if(request.getParameter("date").contains("Week") && request.getParameter("type").contains("A")){
-	              				sumOut = getSum(request, 12, sumOut, firstDayOfWeek, lastDayOfWeek);
-	              			}else if(request.getParameter("date").contains("Today") && request.getParameter("type").contains("A")){
-	              				sumOut = getSum(request, 13, sumOut, null, null);
-	              			}else if (request.getParameter("date").contains("All") && request.getParameter("type").contains("B")){
-              					sumOut = getSum(request, 21, sumOut, null, null);
-	              			}else if(request.getParameter("date").contains("Month") && request.getParameter("type").contains("B")){
-	              				sumOut = getSum(request, 22, sumOut, firstDayOfMonth, lastDayOfMonth);
-	              			}else if(request.getParameter("date").contains("Week") && request.getParameter("type").contains("B")){
-	              				sumOut = getSum(request, 22, sumOut, firstDayOfWeek, lastDayOfWeek);
-	              			}else if(request.getParameter("date").contains("Today") && request.getParameter("type").contains("B")){
-	              				sumOut = getSum(request, 23, sumOut, null, null);
-	              			}else if (request.getParameter("date").contains("All") && request.getParameter("type").contains("C")){
-              					sumOut = getSum(request, 31, sumOut, null, null);
-	              			}else if(request.getParameter("date").contains("Month") && request.getParameter("type").contains("C")){
-	              				sumOut = getSum(request, 32, sumOut, firstDayOfMonth, lastDayOfMonth);
-	              			}else if(request.getParameter("date").contains("Week") && request.getParameter("type").contains("C")){
-	              				sumOut = getSum(request, 32, sumOut, firstDayOfWeek, lastDayOfWeek);
-	              			}else if(request.getParameter("date").contains("Today") && request.getParameter("type").contains("C")){
-	              				sumOut = getSum(request, 33, sumOut, null, null);
-	              			}else if (request.getParameter("date").contains("All") && request.getParameter("type").contains("D")){
-              					sumOut = getSum(request, 41, sumOut, null, null);
-	              			}else if(request.getParameter("date").contains("Month") && request.getParameter("type").contains("D")){
-	              				sumOut = getSum(request, 42, sumOut, firstDayOfMonth, lastDayOfMonth);
-	              			}else if(request.getParameter("date").contains("Week") && request.getParameter("type").contains("D")){
-	              				sumOut = getSum(request, 42, sumOut, firstDayOfWeek, lastDayOfWeek);
-	              			}else if(request.getParameter("date").contains("Today") && request.getParameter("type").contains("D")){
-	              				sumOut = getSum(request, 43, sumOut, null, null);
-	              			}else if (request.getParameter("date").contains("All") && request.getParameter("type").contains("E")){
-              					sumOut = getSum(request, 51, sumOut, null, null);
-	              			}else if(request.getParameter("date").contains("Month") && request.getParameter("type").contains("E")){
-	              				sumOut = getSum(request, 52, sumOut, firstDayOfMonth, lastDayOfMonth);
-	              			}else if(request.getParameter("date").contains("Week") && request.getParameter("type").contains("E")){
-	              				sumOut = getSum(request, 52, sumOut, firstDayOfWeek, lastDayOfWeek);
-	              			}else if(request.getParameter("date").contains("Today") && request.getParameter("type").contains("E")){
-	              				sumOut = getSum(request, 53, sumOut, null, null);
-	              			}else if (request.getParameter("date").contains("All") && request.getParameter("type").contains("F")){
-              					sumOut = getSum(request, 61, sumOut, null, null);
-	              			}else if(request.getParameter("date").contains("Month") && request.getParameter("type").contains("F")){
-	              				sumOut = getSum(request, 62, sumOut, firstDayOfMonth, lastDayOfMonth);
-	              			}else if(request.getParameter("date").contains("Week") && request.getParameter("type").contains("F")){
-	              				sumOut = getSum(request, 62, sumOut, firstDayOfWeek, lastDayOfWeek);
-	              			}else if(request.getParameter("date").contains("Today") && request.getParameter("type").contains("F")){
-	              				sumOut = getSum(request, 63, sumOut, null, null);
 	              			}
               			}else{
               				sumOut = getSum(request, 3, sumOut, null, null);
@@ -423,135 +375,126 @@ Date lastDayOfMonth = cal.getTime();
             	</form>
             </div>
        		<div class="separate2 cardview">
-            	<form action="#" method="get">
+            	<form action="#" method="get" id="Sumbox">
             		<label>
-                    <div>食：</div>
-                    <%
-                    if(request.getParameterMap().containsKey("date")){
-                    	if (request.getParameter("date").contains("All")){
-                    		out.println("<div><input disabled type=\"text\" value="+getSum(request, 11, 0, null, null)+"></div><br>");
-                    	}else if(request.getParameter("date").contains("Month")){
-                    		out.println("<div><input disabled type=\"text\" value="+getSum(request, 12, 0, firstDayOfMonth, lastDayOfMonth)+"></div><br>");
-                    	}else if(request.getParameter("date").contains("Week")){
-                    		out.println("<div><input disabled type=\"text\" value="+getSum(request, 12, 0, firstDayOfWeek, lastDayOfWeek)+"></div><br>");
-                    	}else if(request.getParameter("date").contains("Today")){
-                    		out.println("<div><input disabled type=\"text\" value="+getSum(request, 13, 0, null, null)+"></div><br>");
-                    	}
-                    }else{
-                    	out.println("<div><input disabled type=\"text\" value="+getSum(request, 11, 0, null, null)+"></div><br>");
-                    }
-                    %>
+	                	<div>支出</div><br>
+	                	<div></div><br>
                 	</label>
-            	</form>
-            </div>
-            <div class="separate2 cardview">
-            	<form action="#" method="get">
-            		<label>
-                    <div>衣：</div>
-                    <%
+                	<%
                     if(request.getParameterMap().containsKey("date")){
                     	if (request.getParameter("date").contains("All")){
+                    		out.println("<label>");
+                        	out.println("<div>　食：</div><br>");
+                        	out.println("<div><input disabled type=\"text\" value="+getSum(request, 11, 0, null, null)+"></div><br>");
+                        	out.println("</label>");
+                        	out.println("<label>");
+                        	out.println("<div>　衣：</div><br>");
                     		out.println("<div><input disabled type=\"text\" value="+getSum(request, 21, 0, null, null)+"></div><br>");
-                    	}else if(request.getParameter("date").contains("Month")){
-                    		out.println("<div><input disabled type=\"text\" value="+getSum(request, 22, 0, firstDayOfMonth, lastDayOfMonth)+"></div><br>");
-                    	}else if(request.getParameter("date").contains("Week")){
-                    		out.println("<div><input disabled type=\"text\" value="+getSum(request, 22, 0, firstDayOfWeek, lastDayOfWeek)+"></div><br>");
-                    	}else if(request.getParameter("date").contains("Today")){
-                    		out.println("<div><input disabled type=\"text\" value="+getSum(request, 23, 0, null, null)+"></div><br>");
-                    	}
-                    }else{
-                    	out.println("<div><input disabled type=\"text\" value="+getSum(request, 21, 0, null, null)+"></div><br>");
-                    }
-                    %>
-                	</label>
-            	</form>
-            </div>
-            <div class="separate2 cardview">
-            	<form action="#" method="get">
-            		<label>
-                    <div>住：</div>
-                    <%
-                    if(request.getParameterMap().containsKey("date")){
-                    	if (request.getParameter("date").contains("All")){
+                    		out.println("</label>");
+                    		out.println("<label>");
+                    		out.println("<div>　住：</div><br>");
                     		out.println("<div><input disabled type=\"text\" value="+getSum(request, 31, 0, null, null)+"></div><br>");
-                    	}else if(request.getParameter("date").contains("Month")){
-                    		out.println("<div><input disabled type=\"text\" value="+getSum(request, 32, 0, firstDayOfMonth, lastDayOfMonth)+"></div><br>");
-                    	}else if(request.getParameter("date").contains("Week")){
-                    		out.println("<div><input disabled type=\"text\" value="+getSum(request, 32, 0, firstDayOfWeek, lastDayOfWeek)+"></div><br>");
-                    	}else if(request.getParameter("date").contains("Today")){
-                    		out.println("<div><input disabled type=\"text\" value="+getSum(request, 33, 0, null, null)+"></div><br>");
-                    	}
-                    }else{
-                    	out.println("<div><input disabled type=\"text\" value="+getSum(request, 31, 0, null, null)+"></div><br>");
-                    }
-                    %>
-                	</label>
-            	</form>
-            </div>
-            <div class="separate2 cardview">
-            	<form action="#" method="get">
-            		<label>
-                    <div>行：</div>
-                    <%
-                    if(request.getParameterMap().containsKey("date")){
-                    	if (request.getParameter("date").contains("All")){
+                    		out.println("</label>");
+                    		out.println("<div>　行：</div><br>");
                     		out.println("<div><input disabled type=\"text\" value="+getSum(request, 41, 0, null, null)+"></div><br>");
-                    	}else if(request.getParameter("date").contains("Month")){
-                    		out.println("<div><input disabled type=\"text\" value="+getSum(request, 42, 0, firstDayOfMonth, lastDayOfMonth)+"></div><br>");
-                    	}else if(request.getParameter("date").contains("Week")){
-                    		out.println("<div><input disabled type=\"text\" value="+getSum(request, 42, 0, firstDayOfWeek, lastDayOfWeek)+"></div><br>");
-                    	}else if(request.getParameter("date").contains("Today")){
-                    		out.println("<div><input disabled type=\"text\" value="+getSum(request, 43, 0, null, null)+"></div><br>");
-                    	}
-                    }else{
-                    	out.println("<div><input disabled type=\"text\" value="+getSum(request, 41, 0, null, null)+"></div><br>");
-                    }
-                    %>
-                	</label>
-            	</form>
-            </div>
-            <div class="separate2 cardview">
-            	<form action="#" method="get">
-            		<label>
-                    <div>育樂：</div>
-                    <%
-                    if(request.getParameterMap().containsKey("date")){
-                    	if (request.getParameter("date").contains("All")){
+                    		out.println("</label>");
+                    		out.println("<div>育樂：</div><br>");
                     		out.println("<div><input disabled type=\"text\" value="+getSum(request, 51, 0, null, null)+"></div><br>");
-                    	}else if(request.getParameter("date").contains("Month")){
-                    		out.println("<div><input disabled type=\"text\" value="+getSum(request, 52, 0, firstDayOfMonth, lastDayOfMonth)+"></div><br>");
-                    	}else if(request.getParameter("date").contains("Week")){
-                    		out.println("<div><input disabled type=\"text\" value="+getSum(request, 52, 0, firstDayOfWeek, lastDayOfWeek)+"></div><br>");
-                    	}else if(request.getParameter("date").contains("Today")){
-                    		out.println("<div><input disabled type=\"text\" value="+getSum(request, 53, 0, null, null)+"></div><br>");
-                    	}
-                    }else{
-                    	out.println("<div><input disabled type=\"text\" value="+getSum(request, 51, 0, null, null)+"></div><br>");
-                    }
-                    %>
-                	</label>
-            	</form>
-            </div>
-            <div class="separate2 cardview">
-            	<form action="#" method="get">
-            		<label>
-                    <div>其他：</div>
-                    <%
-                    if(request.getParameterMap().containsKey("date")){
-                    	if (request.getParameter("date").contains("All")){
+                    		out.println("</label>");
+                    		out.println("<div>其他：</div><br>");
                     		out.println("<div><input disabled type=\"text\" value="+getSum(request, 61, 0, null, null)+"></div><br>");
+                    		out.println("</label>");
                     	}else if(request.getParameter("date").contains("Month")){
+                        	out.println("<label>");
+                        	out.println("<div>　食：</div><br>");
+                        	out.println("<div><input disabled type=\"text\" value="+getSum(request, 12, 0, firstDayOfMonth, lastDayOfMonth)+"></div><br>");
+                        	out.println("</label>");
+                        	out.println("<label>");
+                        	out.println("<div>　衣：</div><br>");
+                    		out.println("<div><input disabled type=\"text\" value="+getSum(request, 22, 0, firstDayOfMonth, lastDayOfMonth)+"></div><br>");
+                    		out.println("</label>");
+                    		out.println("<label>");
+                    		out.println("<div>　住：</div><br>");
+                    		out.println("<div><input disabled type=\"text\" value="+getSum(request, 32, 0, firstDayOfMonth, lastDayOfMonth)+"></div><br>");
+                    		out.println("</label>");
+                    		out.println("<div>　行：</div><br>");
+                    		out.println("<div><input disabled type=\"text\" value="+getSum(request, 42, 0, firstDayOfMonth, lastDayOfMonth)+"></div><br>");
+                    		out.println("</label>");
+                    		out.println("<div>育樂：</div><br>");
+                    		out.println("<div><input disabled type=\"text\" value="+getSum(request, 52, 0, firstDayOfMonth, lastDayOfMonth)+"></div><br>");
+                    		out.println("</label>");
+                    		out.println("<div>其他：</div><br>");
                     		out.println("<div><input disabled type=\"text\" value="+getSum(request, 62, 0, firstDayOfMonth, lastDayOfMonth)+"></div><br>");
+                    		out.println("</label>");
                     	}else if(request.getParameter("date").contains("Week")){
+                        	out.println("<label>");
+                        	out.println("<div>　食：</div><br>");
+                        	out.println("<div><input disabled type=\"text\" value="+getSum(request, 12, 0, firstDayOfWeek, lastDayOfWeek)+"></div><br>");
+                        	out.println("</label>");
+                        	out.println("<label>");
+                        	out.println("<div>　衣：</div><br>");
+                    		out.println("<div><input disabled type=\"text\" value="+getSum(request, 22, 0, firstDayOfWeek, lastDayOfWeek)+"></div><br>");
+                    		out.println("</label>");
+                    		out.println("<label>");
+                    		out.println("<div>　住：</div><br>");
+                    		out.println("<div><input disabled type=\"text\" value="+getSum(request, 32, 0, firstDayOfWeek, lastDayOfWeek)+"></div><br>");
+                    		out.println("</label>");
+                    		out.println("<div>　行：</div><br>");
+                    		out.println("<div><input disabled type=\"text\" value="+getSum(request, 42, 0, firstDayOfWeek, lastDayOfWeek)+"></div><br>");
+                    		out.println("</label>");
+                    		out.println("<div>育樂：</div><br>");
+                    		out.println("<div><input disabled type=\"text\" value="+getSum(request, 52, 0, firstDayOfWeek, lastDayOfWeek)+"></div><br>");
+                    		out.println("</label>");
+                    		out.println("<div>其他：</div><br>");
                     		out.println("<div><input disabled type=\"text\" value="+getSum(request, 62, 0, firstDayOfWeek, lastDayOfWeek)+"></div><br>");
+                    		out.println("</label>");
                     	}else if(request.getParameter("date").contains("Today")){
+                        	out.println("<label>");
+                        	out.println("<div>　食：</div><br>");
+                        	out.println("<div><input disabled type=\"text\" value="+getSum(request, 13, 0, null, null)+"></div><br>");
+                        	out.println("</label>");
+                        	out.println("<label>");
+                        	out.println("<div>　衣：</div><br>");
+                    		out.println("<div><input disabled type=\"text\" value="+getSum(request, 23, 0, null, null)+"></div><br>");
+                    		out.println("</label>");
+                    		out.println("<label>");
+                    		out.println("<div>　住：</div><br>");
+                    		out.println("<div><input disabled type=\"text\" value="+getSum(request, 33, 0, null, null)+"></div><br>");
+                    		out.println("</label>");
+                    		out.println("<div>　行：</div><br>");
+                    		out.println("<div><input disabled type=\"text\" value="+getSum(request, 43, 0, null, null)+"></div><br>");
+                    		out.println("</label>");
+                    		out.println("<div>育樂：</div><br>");
+                    		out.println("<div><input disabled type=\"text\" value="+getSum(request, 53, 0, null, null)+"></div><br>");
+                    		out.println("</label>");
+                    		out.println("<div>其他：</div><br>");
                     		out.println("<div><input disabled type=\"text\" value="+getSum(request, 63, 0, null, null)+"></div><br>");
+                    		out.println("</label>");
                     	}
                     }else{
-                    	out.println("<div><input disabled type=\"text\" value="+getSum(request, 61, 0, null, null)+"></div><br>");
+                    	out.println("<label>");
+                    	out.println("<div>　食：</div><br>");
+                    	out.println("<div><input disabled type=\"text\" value="+getSum(request, 11, 0, null, null)+"></div><br>");
+                    	out.println("</label>");
+                    	out.println("<label>");
+                    	out.println("<div>　衣：</div><br>");
+                		out.println("<div><input disabled type=\"text\" value="+getSum(request, 21, 0, null, null)+"></div><br>");
+                		out.println("</label>");
+                		out.println("<label>");
+                		out.println("<div>　住：</div><br>");
+                		out.println("<div><input disabled type=\"text\" value="+getSum(request, 31, 0, null, null)+"></div><br>");
+                		out.println("</label>");
+                		out.println("<div>　行：</div><br>");
+                		out.println("<div><input disabled type=\"text\" value="+getSum(request, 41, 0, null, null)+"></div><br>");
+                		out.println("</label>");
+                		out.println("<div>育樂：</div><br>");
+                		out.println("<div><input disabled type=\"text\" value="+getSum(request, 51, 0, null, null)+"></div><br>");
+                		out.println("</label>");
+                		out.println("<div>其他：</div><br>");
+                		out.println("<div><input disabled type=\"text\" value="+getSum(request, 61, 0, null, null)+"></div><br>");
+                		out.println("</label>");
                     }
                     %>
-                	</label>
             	</form>
             </div>
             <%! 

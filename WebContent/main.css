@@ -307,6 +307,13 @@ div.separate2 form div:nth-of-type(even){
     width:80%;
 }
 
+div.separate2 form#travelselector div:nth-of-type(odd){
+    width:40%;
+}
+div.separate2 form#travelselector div:nth-of-type(even){
+    width:60%;
+}
+
 form#Account > div.separate3{
     width:100%;
 }
@@ -328,6 +335,22 @@ form#Manager > div.separate2{
 
 div.manager > div.separate2{
 	width:100%;
+}
+
+form#Sumbox > div.separate3{
+    width:100%;
+}
+form#Sumbox > div.separate2{
+	display:block;
+    width:100%;
+}
+
+form#Sumbox label:first-child div:first-child{
+	font-size: 120%;
+}
+
+div.separate2 > form#filterform br{
+	display:block;
 }
 
 div.separate2.Balance form label:not(:first-child) div{
