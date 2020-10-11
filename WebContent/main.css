@@ -298,13 +298,13 @@ div.separate2 form{
 div.separate2 form div:nth-of-type(odd){
     display: inline-block;
     margin-right: -4px;
-    width:40%;
+    width:20%;
 }
 div.separate2 form div:nth-of-type(even){
     vertical-align: top;
     display: inline-block;
     margin-right: -4px;
-    width:60%;
+    width:80%;
 }
 
 form#Account > div.separate3{

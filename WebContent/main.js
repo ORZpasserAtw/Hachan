@@ -12,7 +12,10 @@ $('.cardview.accountId').on('press', function (e) {
 });
 
 $("select.dateselector").change(function() {
-     $('#dateform').submit();
+     $('#filterform').submit();
+});
+$("select.typeselector").change(function() {
+     $('#filterform').submit();
 });
 
 function TravelIndexChange() {
