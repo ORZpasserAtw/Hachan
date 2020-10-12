@@ -25,7 +25,7 @@
         	%>
         </div>
     </div>
-    <div class="content">
+    <div class="content" style="height: 200vh;">
     	<%	
 		request.setCharacterEncoding("UTF-8");
 		response.setContentType("text/html;charset=UTF-8");

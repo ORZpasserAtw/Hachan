@@ -18,7 +18,7 @@
             <a class="button bottom" href="manager.jsp">回到行動助理</a>
         </div>
     </div>
-    <div class="content">
+    <div class="content" style="height: 200vh;">
 		<%--	
 		request.setCharacterEncoding("UTF-8");
 		response.setContentType("text/html;charset=UTF-8");
