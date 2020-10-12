@@ -33,7 +33,11 @@ String[] split_line = new String[1];
 					split_line = cookie.getValue().split("\\|");
 					if (cookieName.contains("managerId_") && split_line[1].equals((new SimpleDateFormat("yyyy-MM-dd")).format(new Date()))) {
 						out.println("<div class=\"separate2 cardview managerId\">");
-						out.println("<form action=\"Manager\" method=\"post\" id=\"Manager\">");
+						if (split_line[0].contains("Y")){
+							out.println("<form action=\"Manager\" method=\"post\" id=\"Manager\" style=\"border: 4px #FF0000 solid;\">");
+						}else{
+							out.println("<form action=\"Manager\" method=\"post\" id=\"Manager\">");
+						}
 						out.println("<label>");
 						out.println("<div>日期：</div><br>");
 						out.println("<div><input disabled type=\"date\" name=\"date\" value=" + split_line[1] + "></div><br>");

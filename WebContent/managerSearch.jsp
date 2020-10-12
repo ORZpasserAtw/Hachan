@@ -87,8 +87,16 @@ Date lastDayOfMonth = cal.getTime();
 		</div>
 		<%!
 		public void printManagerCard(HttpServletRequest request,JspWriter out,String cookieName,String split_line[]) throws IOException {
-			out.println("<div class=\"separate2 cardview managerId\" onclick=\"location.href='managerModify.jsp?managerId="+cookieName+"'\">");
-			out.println("<form action=\"Manager\" method=\"post\" id=\"Manager\">");
+			if (request.getParameterMap().containsKey("date")){
+				out.println("<div class=\"separate2 cardview managerId\" onclick=\"location.href='managerModify.jsp?managerId="+cookieName+"&date="+request.getParameter("date")+"'\">");
+			}else{
+				out.println("<div class=\"separate2 cardview managerId\" onclick=\"location.href='managerModify.jsp?managerId="+cookieName+"'\">");
+			}
+			if (split_line[0].contains("Y")){
+				out.println("<form action=\"Manager\" method=\"post\" id=\"Manager\" style=\"border: 4px #FF0000 solid;\">");
+			}else{
+				out.println("<form action=\"Manager\" method=\"post\" id=\"Manager\">");
+			}
 			out.println("<label>");
 			out.println("<div>日期：</div><br>");
 			out.println("<div><input disabled type=\"date\" name=\"date\" value=" + split_line[1] + "></div><br>");
@@ -107,9 +115,9 @@ Date lastDayOfMonth = cal.getTime();
 			out.println("<label>");
 			out.println("<div>備註：</div><br>");
 			if(split_line.length >= 5){
-				out.println("<div><textarea disabled name=\"managerDesc\" rows=\"3\" cols=\"10\" maxlength=\"50\">" + URLDecoder.decode(split_line[4], "UTF-8") + "</textarea></div><br>");
+				out.println("<div style=\"height: 60px;\"><textarea disabled name=\"managerDesc\" rows=\"3\" cols=\"10\" maxlength=\"50\">" + URLDecoder.decode(split_line[4], "UTF-8") + "</textarea></div><br>");
 			}else{
-				out.println("<div><textarea disabled name=\"managerDesc\" rows=\"3\" cols=\"10\" maxlength=\"50\"></textarea></div><br>");
+				out.println("<div style=\"height: 60px;\"><textarea disabled name=\"managerDesc\" rows=\"3\" cols=\"10\" maxlength=\"50\"></textarea></div><br>");
 			}
 			out.println("</label>");
 			out.println("<input type=\"hidden\" name=\"managerId\" value="+cookieName+">");

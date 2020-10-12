@@ -6,7 +6,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>修改行程💼LIFF-Bismarck</title>
+    <title>修改行程💼</title>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@100;400;700&display=swap" rel="stylesheet">
     <link href="main.css" rel="stylesheet" />
 </head>
@@ -16,7 +16,13 @@
         <div class="navbar">
             <a class="button upperL" href="#SaveManager" onclick="managermodsend()">保存</a>
             <a class="button upperR" href="#DelManager"  onclick="managerdelsend()">刪除</a>
-            <a class="button bottom" href="manager.jsp">回到行動助理</a>
+            <%
+        	if(request.getParameterMap().containsKey("date")){
+        		out.print("<a class=\"button bottom\" href=\"managerSearch.jsp?date="+request.getParameter("date")+"\">回到查詢行程</a>");
+  			}else{
+  				out.print("<a class=\"button bottom\" href=\"managerSearch.jsp\">回到查詢行程</a>");
+  			}
+        	%>
         </div>
     </div>
     <div class="content">
@@ -79,6 +85,11 @@
 	            </div>
 				<input type="hidden" name="mod">
 				<input type="hidden" name="del">
+				<%
+		       	if(request.getParameterMap().containsKey("date")){
+		       		out.print("<input type=\"hidden\" name=\"date\" value="+request.getParameter("date")+">");
+	 			}
+			    %>
 			</form>
 		</div>
     </div>
