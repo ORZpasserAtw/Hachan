@@ -84,103 +84,11 @@ Date lastDayOfMonth = cal.getTime();
 			              	</select>
 	               		</div><br>
                		</label>
-            		<label>
-                    <div>分類：</div>
-	                    <div>
-		              		<select name="type" class="typeselector">
-		              			<%
-		              			if(request.getParameterMap().containsKey("type")){
-		              				if (request.getParameter("type").contains("All")){
-		              					out.println("<option selected value=\"All\">全部</option>");
-			              				out.println("<option value=\"A\">支出-食</option>");
-			              				out.println("<option value=\"B\">支出-衣</option>");
-			              				out.println("<option value=\"C\">支出-住</option>");
-			              				out.println("<option value=\"D\">支出-行</option>");
-			              				out.println("<option value=\"E\">支出-育樂</option>");
-			              				out.println("<option value=\"F\">支出-其他</option>");
-			              				out.println("<option value=\"Z\">收入</option>");
-		              				}else if (request.getParameter("type").contains("A")){
-		              					out.println("<option value=\"All\">全部</option>");
-			              				out.println("<option selected value=\"A\">支出-食</option>");
-			              				out.println("<option value=\"B\">支出-衣</option>");
-			              				out.println("<option value=\"C\">支出-住</option>");
-			              				out.println("<option value=\"D\">支出-行</option>");
-			              				out.println("<option value=\"E\">支出-育樂</option>");
-			              				out.println("<option value=\"F\">支出-其他</option>");
-			              				out.println("<option value=\"Z\">收入</option>");
-		              				}else if (request.getParameter("type").contains("B")){
-		              					out.println("<option value=\"All\">全部</option>");
-			              				out.println("<option value=\"A\">支出-食</option>");
-			              				out.println("<option selected value=\"B\">支出-衣</option>");
-			              				out.println("<option value=\"C\">支出-住</option>");
-			              				out.println("<option value=\"D\">支出-行</option>");
-			              				out.println("<option value=\"E\">支出-育樂</option>");
-			              				out.println("<option value=\"F\">支出-其他</option>");
-			              				out.println("<option value=\"Z\">收入</option>");
-		              				}else if (request.getParameter("type").contains("C")){
-		              					out.println("<option value=\"All\">全部</option>");
-			              				out.println("<option value=\"A\">支出-食</option>");
-			              				out.println("<option value=\"B\">支出-衣</option>");
-			              				out.println("<option selected value=\"C\">支出-住</option>");
-			              				out.println("<option value=\"D\">支出-行</option>");
-			              				out.println("<option value=\"E\">支出-育樂</option>");
-			              				out.println("<option value=\"F\">支出-其他</option>");
-			              				out.println("<option value=\"Z\">收入</option>");
-		              				}else if (request.getParameter("type").contains("D")){
-		              					out.println("<option value=\"All\">全部</option>");
-			              				out.println("<option value=\"A\">支出-食</option>");
-			              				out.println("<option value=\"B\">支出-衣</option>");
-			              				out.println("<option value=\"C\">支出-住</option>");
-			              				out.println("<option selected value=\"D\">支出-行</option>");
-			              				out.println("<option value=\"E\">支出-育樂</option>");
-			              				out.println("<option value=\"F\">支出-其他</option>");
-			              				out.println("<option value=\"Z\">收入</option>");
-		              				}else if (request.getParameter("type").contains("E")){
-		              					out.println("<option value=\"All\">全部</option>");
-			              				out.println("<option value=\"A\">支出-食</option>");
-			              				out.println("<option value=\"B\">支出-衣</option>");
-			              				out.println("<option value=\"C\">支出-住</option>");
-			              				out.println("<option value=\"D\">支出-行</option>");
-			              				out.println("<option selected value=\"E\">支出-育樂</option>");
-			              				out.println("<option value=\"F\">支出-其他</option>");
-			              				out.println("<option value=\"Z\">收入</option>");
-		              				}else if (request.getParameter("type").contains("F")){
-		              					out.println("<option value=\"All\">全部</option>");
-			              				out.println("<option value=\"A\">支出-食</option>");
-			              				out.println("<option value=\"B\">支出-衣</option>");
-			              				out.println("<option value=\"C\">支出-住</option>");
-			              				out.println("<option value=\"D\">支出-行</option>");
-			              				out.println("<option value=\"E\">支出-育樂</option>");
-			              				out.println("<option selected value=\"F\">支出-其他</option>");
-			              				out.println("<option value=\"Z\">收入</option>");
-		              				}else if (request.getParameter("type").contains("Z")){
-		              					out.println("<option value=\"All\">全部</option>");
-			              				out.println("<option value=\"A\">支出-食</option>");
-			              				out.println("<option value=\"B\">支出-衣</option>");
-			              				out.println("<option value=\"C\">支出-住</option>");
-			              				out.println("<option value=\"D\">支出-行</option>");
-			              				out.println("<option value=\"E\">支出-育樂</option>");
-			              				out.println("<option value=\"F\">支出-其他</option>");
-			              				out.println("<option selected value=\"Z\">收入</option>");
-		              				}
-		              			}else{
-		              				out.println("<option selected value=\"All\">無</option>");
-		              				out.println("<option value=\"A\">支出-食</option>");
-		              				out.println("<option value=\"B\">支出-衣</option>");
-		              				out.println("<option value=\"C\">支出-住</option>");
-		              				out.println("<option value=\"D\">支出-行</option>");
-		              				out.println("<option value=\"E\">支出-育樂</option>");
-		              				out.println("<option value=\"F\">支出-其他</option>");
-		              				out.println("<option value=\"Z\">收入</option>");
-		              			}
-		              			%>
-			              	</select>
-	               		</div><br>
-               		</label>
+            		<input type="hidden" name="type" value="All">
             	</form>
             </div>
             <div class="separate2 cardview">
-            	<form action="#" method="get">
+            	<form action="#" method="get" id="Sumbox">
                 	<label>
                     <div>結餘：</div>
                     <%! 
@@ -369,385 +277,220 @@ Date lastDayOfMonth = cal.getTime();
 					}
 					%>
 					<%
-					out.println("<div><input disabled type=\"text\" value=收入("+sumIn+")-支出("+sumOut+")="+(sumIn-sumOut)+"></div>");
+					out.println("<div style=\"width: 80%;\"><input disabled type=\"text\" value=收入("+sumIn+")-支出("+sumOut+")="+(sumIn-sumOut)+"></div>");
 					%>
                 	</label>
             	</form>
             </div>
+            <div class="separate2 cardview">
+            	<form action="#" method="get" id="Sumbox">
+                	<label>
+	                	<div>收入：</div><br>
+	                	<%
+	                	if (request.getCookies() != null){
+	                		if(request.getParameterMap().containsKey("date")){
+	                        	if (request.getParameter("date").contains("All")){
+	                        		out.println("<div><input disabled type=\"text\" value="+getSum(request, 101, 0, null, null)+"><a href=\"accountDetail.jsp?date=All&type=Z\">明細</a></div><br>");
+	                        	}else if(request.getParameter("date").contains("Month")){
+	                        		out.println("<div><input disabled type=\"text\" value="+getSum(request, 102, 0, firstDayOfMonth, lastDayOfMonth)+"><a href=\"accountDetail.jsp?date=Month&type=Z\">明細</a></div><br>");
+	                        	}else if(request.getParameter("date").contains("Week")){
+	                        		out.println("<div><input disabled type=\"text\" value="+getSum(request, 102, 0, firstDayOfWeek, lastDayOfWeek)+"><a href=\"accountDetail.jsp?date=Week&type=Z\">明細</a></div><br>");
+	                        	}else if(request.getParameter("date").contains("Today")){
+	                        		out.println("<div><input disabled type=\"text\" value="+getSum(request, 103, 0, null, null)+"><a href=\"accountDetail.jsp?date=Today&type=Z\">明細</a></div><br>");
+	                        	}
+	                        }else{
+	                    		out.println("<div><input disabled type=\"text\" value="+getSum(request, 103, 0, null, null)+"><a href=\"accountDetail.jsp?date=Today&type=Z\">明細</a></div><br>");
+	                        }
+	                	}else{
+		               		out.println("<div><input disabled type=\"text\" value=\"0\"><a>明細</a></div><br>");
+	                	}
+                    	%>
+                	</label>
+                </form>
+            </div>
        		<div class="separate2 cardview">
             	<form action="#" method="get" id="Sumbox">
             		<label>
-	                	<div>支出</div><br>
-	                	<div></div><br>
+	                	<div>支出：</div><br>
+	                	<%
+	                	if (request.getCookies() != null){
+	                		if(request.getParameterMap().containsKey("date")){
+	                        	if (request.getParameter("date").contains("All")){
+	                        		out.println("<div><input disabled type=\"text\" value="+getSum(request, 1, 0, null, null)+"><a href=\"accountDetail.jsp?date=All&type=All\">明細</a></div><br>");
+	                        	}else if(request.getParameter("date").contains("Month")){
+	                        		out.println("<div><input disabled type=\"text\" value="+getSum(request, 2, 0, firstDayOfMonth, lastDayOfMonth)+"><a href=\"accountDetail.jsp?date=Month&type=All\">明細</a></div><br>");
+	                        	}else if(request.getParameter("date").contains("Week")){
+	                        		out.println("<div><input disabled type=\"text\" value="+getSum(request, 2, 0, firstDayOfWeek, lastDayOfWeek)+"><a href=\"accountDetail.jsp?date=Week&type=All\">明細</a></div><br>");
+	                        	}else if(request.getParameter("date").contains("Today")){
+	                        		out.println("<div><input disabled type=\"text\" value="+getSum(request, 3, 0, null, null)+"><a href=\"accountDetail.jsp?date=Today&type=All\">明細</a></div><br>");
+	                        	}
+	                        }else{
+	                    		out.println("<div><input disabled type=\"text\" value="+getSum(request, 3, 0, null, null)+"><a href=\"accountDetail.jsp?date=Today&type=All\">明細</a></div><br>");
+	                        }
+	                	}else{
+		               		out.println("<div><input disabled type=\"text\" value=\"0\"><a>明細</a></div><br>");
+	                	}
+                    	%>
                 	</label>
                 	<%
-                    if(request.getParameterMap().containsKey("date")){
-                    	if (request.getParameter("date").contains("All")){
-                    		out.println("<label>");
+                	if (request.getCookies() != null){
+                		if(request.getParameterMap().containsKey("date")){
+                        	if (request.getParameter("date").contains("All")){
+                        		out.println("<label>");
+                            	out.println("<div>　食：</div><br>");
+                            	out.println("<div><input disabled type=\"text\" value="+getSum(request, 11, 0, null, null)+"><a href=\"accountDetail.jsp?date=All&type=A\">明細</a></div><br>");
+                            	out.println("</label>");
+                            	out.println("<label>");
+                            	out.println("<div>　衣：</div><br>");
+                        		out.println("<div><input disabled type=\"text\" value="+getSum(request, 21, 0, null, null)+"><a href=\"accountDetail.jsp?date=All&type=B\">明細</a></div><br>");
+                        		out.println("</label>");
+                        		out.println("<label>");
+                        		out.println("<div>　住：</div><br>");
+                        		out.println("<div><input disabled type=\"text\" value="+getSum(request, 31, 0, null, null)+"><a href=\"accountDetail.jsp?date=All&type=C\">明細</a></div><br>");
+                        		out.println("</label>");
+                        		out.println("<label>");
+                        		out.println("<div>　行：</div><br>");
+                        		out.println("<div><input disabled type=\"text\" value="+getSum(request, 41, 0, null, null)+"><a href=\"accountDetail.jsp?date=All&type=D\">明細</a></div><br>");
+                        		out.println("</label>");
+                        		out.println("<label>");
+                        		out.println("<div>育樂：</div><br>");
+                        		out.println("<div><input disabled type=\"text\" value="+getSum(request, 51, 0, null, null)+"><a href=\"accountDetail.jsp?date=All&type=E\">明細</a></div><br>");
+                        		out.println("</label>");
+                        		out.println("<label>");
+                        		out.println("<div>其他：</div><br>");
+                        		out.println("<div><input disabled type=\"text\" value="+getSum(request, 61, 0, null, null)+"><a href=\"accountDetail.jsp?date=All&type=F\">明細</a></div><br>");
+                        		out.println("</label>");
+                        	}else if(request.getParameter("date").contains("Month")){
+                            	out.println("<label>");
+                            	out.println("<div>　食：</div><br>");
+                            	out.println("<div><input disabled type=\"text\" value="+getSum(request, 12, 0, firstDayOfMonth, lastDayOfMonth)+"><a href=\"accountDetail.jsp?date=Month&type=A\">明細</a></div><br>");
+                            	out.println("</label>");
+                            	out.println("<label>");
+                            	out.println("<div>　衣：</div><br>");
+                        		out.println("<div><input disabled type=\"text\" value="+getSum(request, 22, 0, firstDayOfMonth, lastDayOfMonth)+"><a href=\"accountDetail.jsp?date=Month&type=B\">明細</a></div><br>");
+                        		out.println("</label>");
+                        		out.println("<label>");
+                        		out.println("<div>　住：</div><br>");
+                        		out.println("<div><input disabled type=\"text\" value="+getSum(request, 32, 0, firstDayOfMonth, lastDayOfMonth)+"><a href=\"accountDetail.jsp?date=Month&type=C\">明細</a></div><br>");
+                        		out.println("</label>");
+                        		out.println("<label>");
+                        		out.println("<div>　行：</div><br>");
+                        		out.println("<div><input disabled type=\"text\" value="+getSum(request, 42, 0, firstDayOfMonth, lastDayOfMonth)+"><a href=\"accountDetail.jsp?date=Month&type=D\">明細</a></div><br>");
+                        		out.println("</label>");
+                        		out.println("<label>");
+                        		out.println("<div>育樂：</div><br>");
+                        		out.println("<div><input disabled type=\"text\" value="+getSum(request, 52, 0, firstDayOfMonth, lastDayOfMonth)+"><a href=\"accountDetail.jsp?date=Month&type=E\">明細</a></div><br>");
+                        		out.println("</label>");
+                        		out.println("<label>");
+                        		out.println("<div>其他：</div><br>");
+                        		out.println("<div><input disabled type=\"text\" value="+getSum(request, 62, 0, firstDayOfMonth, lastDayOfMonth)+"><a href=\"accountDetail.jsp?date=Month&type=F\">明細</a></div><br>");
+                        		out.println("</label>");
+                        	}else if(request.getParameter("date").contains("Week")){
+                            	out.println("<label>");
+                            	out.println("<div>　食：</div><br>");
+                            	out.println("<div><input disabled type=\"text\" value="+getSum(request, 12, 0, firstDayOfWeek, lastDayOfWeek)+"><a href=\"accountDetail.jsp?date=Week&type=A\">明細</a></div><br>");
+                            	out.println("</label>");
+                            	out.println("<label>");
+                            	out.println("<div>　衣：</div><br>");
+                        		out.println("<div><input disabled type=\"text\" value="+getSum(request, 22, 0, firstDayOfWeek, lastDayOfWeek)+"><a href=\"accountDetail.jsp?date=Week&type=B\">明細</a></div><br>");
+                        		out.println("</label>");
+                        		out.println("<label>");
+                        		out.println("<div>　住：</div><br>");
+                        		out.println("<div><input disabled type=\"text\" value="+getSum(request, 32, 0, firstDayOfWeek, lastDayOfWeek)+"><a href=\"accountDetail.jsp?date=Week&type=C\">明細</a></div><br>");
+                        		out.println("</label>");
+                        		out.println("<label>");
+                        		out.println("<div>　行：</div><br>");
+                        		out.println("<div><input disabled type=\"text\" value="+getSum(request, 42, 0, firstDayOfWeek, lastDayOfWeek)+"><a href=\"accountDetail.jsp?date=Week&type=D\">明細</a></div><br>");
+                        		out.println("</label>");
+                        		out.println("<label>");
+                        		out.println("<div>育樂：</div><br>");
+                        		out.println("<div><input disabled type=\"text\" value="+getSum(request, 52, 0, firstDayOfWeek, lastDayOfWeek)+"><a href=\"accountDetail.jsp?date=Week&type=E\">明細</a></div><br>");
+                        		out.println("</label>");
+                        		out.println("<label>");
+                        		out.println("<div>其他：</div><br>");
+                        		out.println("<div><input disabled type=\"text\" value="+getSum(request, 62, 0, firstDayOfWeek, lastDayOfWeek)+"><a href=\"accountDetail.jsp?date=Week&type=F\">明細</a></div><br>");
+                        		out.println("</label>");
+                        	}else if(request.getParameter("date").contains("Today")){
+                            	out.println("<label>");
+                            	out.println("<div>　食：</div><br>");
+                            	out.println("<div><input disabled type=\"text\" value="+getSum(request, 13, 0, null, null)+"><a href=\"accountDetail.jsp?date=Today&type=A\">明細</a></div><br>");
+                            	out.println("</label>");
+                            	out.println("<label>");
+                            	out.println("<div>　衣：</div><br>");
+                        		out.println("<div><input disabled type=\"text\" value="+getSum(request, 23, 0, null, null)+"><a href=\"accountDetail.jsp?date=Today&type=B\">明細</a></div><br>");
+                        		out.println("</label>");
+                        		out.println("<label>");
+                        		out.println("<div>　住：</div><br>");
+                        		out.println("<div><input disabled type=\"text\" value="+getSum(request, 33, 0, null, null)+"><a href=\"accountDetail.jsp?date=Today&type=C\">明細</a></div><br>");
+                        		out.println("</label>");
+                        		out.println("<label>");
+                        		out.println("<div>　行：</div><br>");
+                        		out.println("<div><input disabled type=\"text\" value="+getSum(request, 43, 0, null, null)+"><a href=\"accountDetail.jsp?date=Today&type=D\">明細</a></div><br>");
+                        		out.println("</label>");
+                        		out.println("<label>");
+                        		out.println("<div>育樂：</div><br>");
+                        		out.println("<div><input disabled type=\"text\" value="+getSum(request, 53, 0, null, null)+"><a href=\"accountDetail.jsp?date=Today&type=E\">明細</a></div><br>");
+                        		out.println("</label>");
+                        		out.println("<label>");
+                        		out.println("<div>其他：</div><br>");
+                        		out.println("<div><input disabled type=\"text\" value="+getSum(request, 63, 0, null, null)+"><a href=\"accountDetail.jsp?date=Today&type=F\">明細</a></div><br>");
+                        		out.println("</label>");
+                        	}
+                        }else{
+                        	out.println("<label>");
                         	out.println("<div>　食：</div><br>");
-                        	out.println("<div><input disabled type=\"text\" value="+getSum(request, 11, 0, null, null)+"></div><br>");
+                        	out.println("<div><input disabled type=\"text\" value="+getSum(request, 13, 0, null, null)+"><a href=\"accountDetail.jsp?date=Today&type=A\">明細</a></div><br>");
                         	out.println("</label>");
                         	out.println("<label>");
                         	out.println("<div>　衣：</div><br>");
-                    		out.println("<div><input disabled type=\"text\" value="+getSum(request, 21, 0, null, null)+"></div><br>");
+                    		out.println("<div><input disabled type=\"text\" value="+getSum(request, 23, 0, null, null)+"><a href=\"accountDetail.jsp?date=Today&type=B\">明細</a></div><br>");
                     		out.println("</label>");
                     		out.println("<label>");
                     		out.println("<div>　住：</div><br>");
-                    		out.println("<div><input disabled type=\"text\" value="+getSum(request, 31, 0, null, null)+"></div><br>");
-                    		out.println("</label>");
-                    		out.println("<div>　行：</div><br>");
-                    		out.println("<div><input disabled type=\"text\" value="+getSum(request, 41, 0, null, null)+"></div><br>");
-                    		out.println("</label>");
-                    		out.println("<div>育樂：</div><br>");
-                    		out.println("<div><input disabled type=\"text\" value="+getSum(request, 51, 0, null, null)+"></div><br>");
-                    		out.println("</label>");
-                    		out.println("<div>其他：</div><br>");
-                    		out.println("<div><input disabled type=\"text\" value="+getSum(request, 61, 0, null, null)+"></div><br>");
-                    		out.println("</label>");
-                    	}else if(request.getParameter("date").contains("Month")){
-                        	out.println("<label>");
-                        	out.println("<div>　食：</div><br>");
-                        	out.println("<div><input disabled type=\"text\" value="+getSum(request, 12, 0, firstDayOfMonth, lastDayOfMonth)+"></div><br>");
-                        	out.println("</label>");
-                        	out.println("<label>");
-                        	out.println("<div>　衣：</div><br>");
-                    		out.println("<div><input disabled type=\"text\" value="+getSum(request, 22, 0, firstDayOfMonth, lastDayOfMonth)+"></div><br>");
+                    		out.println("<div><input disabled type=\"text\" value="+getSum(request, 33, 0, null, null)+"><a href=\"accountDetail.jsp?date=Today&type=C\">明細</a></div><br>");
                     		out.println("</label>");
                     		out.println("<label>");
-                    		out.println("<div>　住：</div><br>");
-                    		out.println("<div><input disabled type=\"text\" value="+getSum(request, 32, 0, firstDayOfMonth, lastDayOfMonth)+"></div><br>");
-                    		out.println("</label>");
                     		out.println("<div>　行：</div><br>");
-                    		out.println("<div><input disabled type=\"text\" value="+getSum(request, 42, 0, firstDayOfMonth, lastDayOfMonth)+"></div><br>");
-                    		out.println("</label>");
-                    		out.println("<div>育樂：</div><br>");
-                    		out.println("<div><input disabled type=\"text\" value="+getSum(request, 52, 0, firstDayOfMonth, lastDayOfMonth)+"></div><br>");
-                    		out.println("</label>");
-                    		out.println("<div>其他：</div><br>");
-                    		out.println("<div><input disabled type=\"text\" value="+getSum(request, 62, 0, firstDayOfMonth, lastDayOfMonth)+"></div><br>");
-                    		out.println("</label>");
-                    	}else if(request.getParameter("date").contains("Week")){
-                        	out.println("<label>");
-                        	out.println("<div>　食：</div><br>");
-                        	out.println("<div><input disabled type=\"text\" value="+getSum(request, 12, 0, firstDayOfWeek, lastDayOfWeek)+"></div><br>");
-                        	out.println("</label>");
-                        	out.println("<label>");
-                        	out.println("<div>　衣：</div><br>");
-                    		out.println("<div><input disabled type=\"text\" value="+getSum(request, 22, 0, firstDayOfWeek, lastDayOfWeek)+"></div><br>");
+                    		out.println("<div><input disabled type=\"text\" value="+getSum(request, 43, 0, null, null)+"><a href=\"accountDetail.jsp?date=Today&type=D\">明細</a></div><br>");
                     		out.println("</label>");
                     		out.println("<label>");
-                    		out.println("<div>　住：</div><br>");
-                    		out.println("<div><input disabled type=\"text\" value="+getSum(request, 32, 0, firstDayOfWeek, lastDayOfWeek)+"></div><br>");
-                    		out.println("</label>");
-                    		out.println("<div>　行：</div><br>");
-                    		out.println("<div><input disabled type=\"text\" value="+getSum(request, 42, 0, firstDayOfWeek, lastDayOfWeek)+"></div><br>");
-                    		out.println("</label>");
                     		out.println("<div>育樂：</div><br>");
-                    		out.println("<div><input disabled type=\"text\" value="+getSum(request, 52, 0, firstDayOfWeek, lastDayOfWeek)+"></div><br>");
-                    		out.println("</label>");
-                    		out.println("<div>其他：</div><br>");
-                    		out.println("<div><input disabled type=\"text\" value="+getSum(request, 62, 0, firstDayOfWeek, lastDayOfWeek)+"></div><br>");
-                    		out.println("</label>");
-                    	}else if(request.getParameter("date").contains("Today")){
-                        	out.println("<label>");
-                        	out.println("<div>　食：</div><br>");
-                        	out.println("<div><input disabled type=\"text\" value="+getSum(request, 13, 0, null, null)+"></div><br>");
-                        	out.println("</label>");
-                        	out.println("<label>");
-                        	out.println("<div>　衣：</div><br>");
-                    		out.println("<div><input disabled type=\"text\" value="+getSum(request, 23, 0, null, null)+"></div><br>");
+                    		out.println("<div><input disabled type=\"text\" value="+getSum(request, 53, 0, null, null)+"><a href=\"accountDetail.jsp?date=Today&type=E\">明細</a></div><br>");
                     		out.println("</label>");
                     		out.println("<label>");
-                    		out.println("<div>　住：</div><br>");
-                    		out.println("<div><input disabled type=\"text\" value="+getSum(request, 33, 0, null, null)+"></div><br>");
-                    		out.println("</label>");
-                    		out.println("<div>　行：</div><br>");
-                    		out.println("<div><input disabled type=\"text\" value="+getSum(request, 43, 0, null, null)+"></div><br>");
-                    		out.println("</label>");
-                    		out.println("<div>育樂：</div><br>");
-                    		out.println("<div><input disabled type=\"text\" value="+getSum(request, 53, 0, null, null)+"></div><br>");
-                    		out.println("</label>");
                     		out.println("<div>其他：</div><br>");
-                    		out.println("<div><input disabled type=\"text\" value="+getSum(request, 63, 0, null, null)+"></div><br>");
+                    		out.println("<div><input disabled type=\"text\" value="+getSum(request, 63, 0, null, null)+"><a href=\"accountDetail.jsp?date=Today&type=F\">明細</a></div><br>");
                     		out.println("</label>");
-                    	}
-                    }else{
-                    	out.println("<label>");
-                    	out.println("<div>　食：</div><br>");
-                    	out.println("<div><input disabled type=\"text\" value="+getSum(request, 11, 0, null, null)+"></div><br>");
-                    	out.println("</label>");
-                    	out.println("<label>");
-                    	out.println("<div>　衣：</div><br>");
-                		out.println("<div><input disabled type=\"text\" value="+getSum(request, 21, 0, null, null)+"></div><br>");
-                		out.println("</label>");
-                		out.println("<label>");
-                		out.println("<div>　住：</div><br>");
-                		out.println("<div><input disabled type=\"text\" value="+getSum(request, 31, 0, null, null)+"></div><br>");
-                		out.println("</label>");
-                		out.println("<div>　行：</div><br>");
-                		out.println("<div><input disabled type=\"text\" value="+getSum(request, 41, 0, null, null)+"></div><br>");
-                		out.println("</label>");
-                		out.println("<div>育樂：</div><br>");
-                		out.println("<div><input disabled type=\"text\" value="+getSum(request, 51, 0, null, null)+"></div><br>");
-                		out.println("</label>");
-                		out.println("<div>其他：</div><br>");
-                		out.println("<div><input disabled type=\"text\" value="+getSum(request, 61, 0, null, null)+"></div><br>");
-                		out.println("</label>");
-                    }
+                        }
+                	}else{
+	                   	out.println("<label>");
+	                   	out.println("<div>　食：</div><br>");
+	                   	out.println("<div><input disabled type=\"text\" value=\"0\"><a>明細</a></div><br>");
+	                   	out.println("</label>");
+	                   	out.println("<label>");
+	                   	out.println("<div>　衣：</div><br>");
+	               		out.println("<div><input disabled type=\"text\" value=\"0\"><a>明細</a></div><br>");
+	               		out.println("</label>");
+	               		out.println("<label>");
+	               		out.println("<div>　住：</div><br>");
+	               		out.println("<div><input disabled type=\"text\" value=\"0\"><a>明細</a></div><br>");
+	               		out.println("</label>");
+	               		out.println("<label>");
+	               		out.println("<div>　行：</div><br>");
+	               		out.println("<div><input disabled type=\"text\" value=\"0\"><a>明細</a></div><br>");
+	               		out.println("</label>");
+	               		out.println("<label>");
+	               		out.println("<div>育樂：</div><br>");
+	               		out.println("<div><input disabled type=\"text\" value=\"0\"><a>明細</a></div><br>");
+	               		out.println("</label>");
+	               		out.println("<label>");
+	               		out.println("<div>其他：</div><br>");
+	               		out.println("<div><input disabled type=\"text\" value=\"0\"><a>明細</a></div><br>");
+	               		out.println("</label>");
+                	}
                     %>
             	</form>
             </div>
-            <%! 
-            public void printAccountCard(JspWriter out,String cookieName,String sl0,String sl1,String sl2,String sl3) throws IOException {
-            	out.println("<div class=\"separate2 cardview accountId\" onclick=\"location.href='accountModify.jsp?accountId="+cookieName+"'\">");
-				out.println("<form action=\"Account\" method=\"post\" id=\"Account\">");
-				out.println("<label>");
-				out.println("<div>日期：</div><br>");
-				out.println("<div><input disabled type=\"date\" name=\"date\" value=" + sl0 + "></div><br>");
-				out.println("</label>");
-				String AccountCat = "";
-				if (sl1.equals("A")){
-					AccountCat = "支出-食";
-				}else if(sl1.equals("B")){
-					AccountCat = "支出-衣";
-				}else if(sl1.equals("C")){
-					AccountCat = "支出-住";
-				}else if(sl1.equals("D")){
-					AccountCat = "支出-行";
-				}else if(sl1.equals("E")){
-					AccountCat = "支出-育樂";
-				}else if(sl1.equals("F")){
-					AccountCat = "支出-其他";
-				}else if(sl1.equals("Z")){
-					AccountCat = "收入";
-				}
-				out.println("<label>");
-				out.println("<div>分類：</div><br>");
-				out.println("<div><select disabled class=\"AccountCat\">");
-				out.println("<option selected>"+ AccountCat +"</option>");
-				out.println("</select>");
-				out.println("</div><br>");
-				out.println("</label>");
-				
-				out.println("<label>");
-				out.println("<div>事件：</div><br>");
-				out.println("<div><input disabled type=\"text\" value=" + URLDecoder.decode(sl2, "UTF-8") + "></div><br>");
-				out.println("</label>");
-				
-				out.println("<label>");
-				out.println("<div>金額：</div><br>");
-				out.println("<div><input disabled type=\"number\" value=" + sl3 + "></div><br>");
-				out.println("</label>");
-				out.println("</form>");
-				out.println("</div>");
-            }
-			%>
-			<%!
-			public void printAccount(HttpServletRequest request, JspWriter out, int mode, Date start, Date end) throws ParseException,IOException{
-				String[] split_line = new String[1];
-				for (Cookie cookie : request.getCookies()) {
-					String cookieName = URLDecoder.decode(cookie.getName(), "UTF-8");
-					String cookieValue = URLDecoder.decode(cookie.getValue(), "UTF-8");
-					split_line = cookie.getValue().split("\\|");
-
-					if (mode == 1){ //All
-						if (cookieName.contains("accountId_")) {
-							printAccountCard(out, cookieName, split_line[0], split_line[1],split_line[2],split_line[3]);
-						}
-					}else if(mode == 2){//Month and Week
-						if (cookieName.contains("accountId_")) {
-							Date d = new SimpleDateFormat("yyyy-MM-dd").parse(split_line[0]);
-							if (d.getTime() >= start.getTime() && d.getTime() <= end.getTime()){
-								printAccountCard(out, cookieName, split_line[0], split_line[1],split_line[2],split_line[3]);
-							}
-						}
-					}else if(mode == 3){ //Today
-						if (cookieName.contains("accountId_") && split_line[0].equals(new SimpleDateFormat("yyyy-MM-dd").format(new Date()))) {
-							printAccountCard(out, cookieName, split_line[0], split_line[1],split_line[2],split_line[3]);
-						}
-					}else if(mode == 11){
-						if (cookieName.contains("accountId_") && split_line[1].equals("A")) {
-							printAccountCard(out, cookieName, split_line[0], split_line[1],split_line[2],split_line[3]);
-						}
-					}else if(mode == 12){
-						if (cookieName.contains("accountId_") && split_line[1].equals("A")) {
-							Date d = new SimpleDateFormat("yyyy-MM-dd").parse(split_line[0]);
-							if (d.getTime() >= start.getTime() && d.getTime() <= end.getTime()){
-								printAccountCard(out, cookieName, split_line[0], split_line[1],split_line[2],split_line[3]);
-							}
-						}
-					}else if(mode == 13){
-						if (cookieName.contains("accountId_") && split_line[1].equals("A") && split_line[0].equals(new SimpleDateFormat("yyyy-MM-dd").format(new Date()))) {
-							printAccountCard(out, cookieName, split_line[0], split_line[1],split_line[2],split_line[3]);
-						}
-					}else if(mode == 21){
-						if (cookieName.contains("accountId_") && split_line[1].equals("B")) {
-							printAccountCard(out, cookieName, split_line[0], split_line[1],split_line[2],split_line[3]);
-						}
-					}else if(mode == 22){
-						if (cookieName.contains("accountId_") && split_line[1].equals("B")) {
-							Date d = new SimpleDateFormat("yyyy-MM-dd").parse(split_line[0]);
-							if (d.getTime() >= start.getTime() && d.getTime() <= end.getTime()){
-								printAccountCard(out, cookieName, split_line[0], split_line[1],split_line[2],split_line[3]);
-							}
-						}
-					}else if(mode == 23){
-						if (cookieName.contains("accountId_") && split_line[1].equals("B") && split_line[0].equals(new SimpleDateFormat("yyyy-MM-dd").format(new Date()))) {
-							printAccountCard(out, cookieName, split_line[0], split_line[1],split_line[2],split_line[3]);
-						}
-					}else if(mode == 31){
-						if (cookieName.contains("accountId_") && split_line[1].equals("C")) {
-							printAccountCard(out, cookieName, split_line[0], split_line[1],split_line[2],split_line[3]);
-						}
-					}else if(mode == 32){
-						if (cookieName.contains("accountId_") && split_line[1].equals("C")) {
-							Date d = new SimpleDateFormat("yyyy-MM-dd").parse(split_line[0]);
-							if (d.getTime() >= start.getTime() && d.getTime() <= end.getTime()){
-								printAccountCard(out, cookieName, split_line[0], split_line[1],split_line[2],split_line[3]);
-							}
-						}
-					}else if(mode == 33){
-						if (cookieName.contains("accountId_") && split_line[1].equals("C") && split_line[0].equals(new SimpleDateFormat("yyyy-MM-dd").format(new Date()))) {
-							printAccountCard(out, cookieName, split_line[0], split_line[1],split_line[2],split_line[3]);
-						}
-					}else if(mode == 41){
-						if (cookieName.contains("accountId_") && split_line[1].equals("D")) {
-							printAccountCard(out, cookieName, split_line[0], split_line[1],split_line[2],split_line[3]);
-						}
-					}else if(mode == 42){
-						if (cookieName.contains("accountId_") && split_line[1].equals("D")) {
-							Date d = new SimpleDateFormat("yyyy-MM-dd").parse(split_line[0]);
-							if (d.getTime() >= start.getTime() && d.getTime() <= end.getTime()){
-								printAccountCard(out, cookieName, split_line[0], split_line[1],split_line[2],split_line[3]);
-							}
-						}
-					}else if(mode == 43){
-						if (cookieName.contains("accountId_") && split_line[1].equals("D") && split_line[0].equals(new SimpleDateFormat("yyyy-MM-dd").format(new Date()))) {
-							printAccountCard(out, cookieName, split_line[0], split_line[1],split_line[2],split_line[3]);
-						}
-					}else if(mode == 51){
-						if (cookieName.contains("accountId_") && split_line[1].equals("E")) {
-							printAccountCard(out, cookieName, split_line[0], split_line[1],split_line[2],split_line[3]);
-						}
-					}else if(mode == 52){
-						if (cookieName.contains("accountId_") && split_line[1].equals("E")) {
-							Date d = new SimpleDateFormat("yyyy-MM-dd").parse(split_line[0]);
-							if (d.getTime() >= start.getTime() && d.getTime() <= end.getTime()){
-								printAccountCard(out, cookieName, split_line[0], split_line[1],split_line[2],split_line[3]);
-							}
-						}
-					}else if(mode == 53){
-						if (cookieName.contains("accountId_") && split_line[1].equals("E") && split_line[0].equals(new SimpleDateFormat("yyyy-MM-dd").format(new Date()))) {
-							printAccountCard(out, cookieName, split_line[0], split_line[1],split_line[2],split_line[3]);
-						}
-					}else if(mode == 61){
-						if (cookieName.contains("accountId_") && split_line[1].equals("F")) {
-							printAccountCard(out, cookieName, split_line[0], split_line[1],split_line[2],split_line[3]);
-						}
-					}else if(mode == 62){
-						if (cookieName.contains("accountId_") && split_line[1].equals("F")) {
-							Date d = new SimpleDateFormat("yyyy-MM-dd").parse(split_line[0]);
-							if (d.getTime() >= start.getTime() && d.getTime() <= end.getTime()){
-								printAccountCard(out, cookieName, split_line[0], split_line[1],split_line[2],split_line[3]);
-							}
-						}
-					}else if(mode == 63){
-						if (cookieName.contains("accountId_") && split_line[1].equals("F") && split_line[0].equals(new SimpleDateFormat("yyyy-MM-dd").format(new Date()))) {
-							printAccountCard(out, cookieName, split_line[0], split_line[1],split_line[2],split_line[3]);
-						}
-					}else if(mode == 101){
-						if (cookieName.contains("accountId_") && split_line[1].equals("Z")) {
-							printAccountCard(out, cookieName, split_line[0], split_line[1],split_line[2],split_line[3]);
-						}
-					}else if(mode == 102){
-						if (cookieName.contains("accountId_") && split_line[1].equals("Z")) {
-							Date d = new SimpleDateFormat("yyyy-MM-dd").parse(split_line[0]);
-							if (d.getTime() >= start.getTime() && d.getTime() <= end.getTime()){
-								printAccountCard(out, cookieName, split_line[0], split_line[1],split_line[2],split_line[3]);
-							}
-						}
-					}else if(mode == 103){
-						if (cookieName.contains("accountId_") && split_line[1].equals("Z") && split_line[0].equals(new SimpleDateFormat("yyyy-MM-dd").format(new Date()))) {
-							printAccountCard(out, cookieName, split_line[0], split_line[1],split_line[2],split_line[3]);
-						}
-					}
-				}
-			}
-			%>
-			<%
-			
-			if (request.getCookies() != null) {
-				if(request.getParameterMap().containsKey("date") && request.getParameterMap().containsKey("type")){
-					if (request.getParameter("date").contains("All") && request.getParameter("type").contains("All")){
-						printAccount(request,out,1,null,null);
-					}else if(request.getParameter("date").contains("Month") && request.getParameter("type").contains("All")){
-						printAccount(request,out,2,firstDayOfMonth,lastDayOfMonth);
-          			}else if(request.getParameter("date").contains("Week") && request.getParameter("type").contains("All")){
-          				printAccount(request,out,2,firstDayOfWeek,lastDayOfWeek);
-          			}else if(request.getParameter("date").contains("Today") && request.getParameter("type").contains("All")){
-          				printAccount(request,out,3,null,null);
-          			}else if (request.getParameter("date").contains("All") && request.getParameter("type").contains("A")){
-						printAccount(request,out,11,null,null);
-					}else if(request.getParameter("date").contains("Month") && request.getParameter("type").contains("A")){
-						printAccount(request,out,12,firstDayOfMonth,lastDayOfMonth);
-          			}else if(request.getParameter("date").contains("Week") && request.getParameter("type").contains("A")){
-          				printAccount(request,out,12,firstDayOfWeek,lastDayOfWeek);
-          			}else if(request.getParameter("date").contains("Today") && request.getParameter("type").contains("A")){
-          				printAccount(request,out,13,null,null);
-          			}else if (request.getParameter("date").contains("All") && request.getParameter("type").contains("B")){
-						printAccount(request,out,21,null,null);
-					}else if(request.getParameter("date").contains("Month") && request.getParameter("type").contains("B")){
-						printAccount(request,out,22,firstDayOfMonth,lastDayOfMonth);
-          			}else if(request.getParameter("date").contains("Week") && request.getParameter("type").contains("B")){
-          				printAccount(request,out,22,firstDayOfWeek,lastDayOfWeek);
-          			}else if(request.getParameter("date").contains("Today") && request.getParameter("type").contains("B")){
-          				printAccount(request,out,23,null,null);
-          			}else if (request.getParameter("date").contains("All") && request.getParameter("type").contains("C")){
-						printAccount(request,out,31,null,null);
-					}else if(request.getParameter("date").contains("Month") && request.getParameter("type").contains("C")){
-						printAccount(request,out,32,firstDayOfMonth,lastDayOfMonth);
-          			}else if(request.getParameter("date").contains("Week") && request.getParameter("type").contains("C")){
-          				printAccount(request,out,32,firstDayOfWeek,lastDayOfWeek);
-          			}else if(request.getParameter("date").contains("Today") && request.getParameter("type").contains("C")){
-          				printAccount(request,out,33,null,null);
-          			}else if (request.getParameter("date").contains("All") && request.getParameter("type").contains("D")){
-						printAccount(request,out,41,null,null);
-					}else if(request.getParameter("date").contains("Month") && request.getParameter("type").contains("D")){
-						printAccount(request,out,42,firstDayOfMonth,lastDayOfMonth);
-          			}else if(request.getParameter("date").contains("Week") && request.getParameter("type").contains("D")){
-          				printAccount(request,out,42,firstDayOfWeek,lastDayOfWeek);
-          			}else if(request.getParameter("date").contains("Today") && request.getParameter("type").contains("D")){
-          				printAccount(request,out,43,null,null);
-          			}else if (request.getParameter("date").contains("All") && request.getParameter("type").contains("E")){
-						printAccount(request,out,51,null,null);
-					}else if(request.getParameter("date").contains("Month") && request.getParameter("type").contains("E")){
-						printAccount(request,out,52,firstDayOfMonth,lastDayOfMonth);
-          			}else if(request.getParameter("date").contains("Week") && request.getParameter("type").contains("E")){
-          				printAccount(request,out,52,firstDayOfWeek,lastDayOfWeek);
-          			}else if(request.getParameter("date").contains("Today") && request.getParameter("type").contains("E")){
-          				printAccount(request,out,53,null,null);
-          			}else if (request.getParameter("date").contains("All") && request.getParameter("type").contains("F")){
-						printAccount(request,out,61,null,null);
-					}else if(request.getParameter("date").contains("Month") && request.getParameter("type").contains("F")){
-						printAccount(request,out,62,firstDayOfMonth,lastDayOfMonth);
-          			}else if(request.getParameter("date").contains("Week") && request.getParameter("type").contains("F")){
-          				printAccount(request,out,62,firstDayOfWeek,lastDayOfWeek);
-          			}else if(request.getParameter("date").contains("Today") && request.getParameter("type").contains("F")){
-          				printAccount(request,out,63,null,null);
-          			}else if (request.getParameter("date").contains("All") && request.getParameter("type").contains("Z")){
-						printAccount(request,out,101,null,null);
-					}else if(request.getParameter("date").contains("Month") && request.getParameter("type").contains("Z")){
-						printAccount(request,out,102,firstDayOfMonth,lastDayOfMonth);
-          			}else if(request.getParameter("date").contains("Week") && request.getParameter("type").contains("Z")){
-          				printAccount(request,out,102,firstDayOfWeek,lastDayOfWeek);
-          			}else if(request.getParameter("date").contains("Today") && request.getParameter("type").contains("Z")){
-          				printAccount(request,out,103,null,null);
-          			}
-				}else{
-					printAccount(request,out,3,null,null);
-				}
-			}
-			%>
     </div>
     <div class="footer">
         臺北商業大學 夜四技資四甲專題 N109405<br>
