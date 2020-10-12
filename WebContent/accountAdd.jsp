@@ -15,7 +15,13 @@
     <div class="header">
         <div class="navbar">
             <a class="button upperF" href="#RecordAccount" onclick="document.getElementById('Account').submit();">記錄</a>
-            <a class="button bottom" href="account.jsp">回到記帳小本本</a>
+            <%
+        	if(request.getParameterMap().containsKey("date") && request.getParameterMap().containsKey("type")){
+  				out.print("<a class=\"button bottom\" href=\"account.jsp?date="+request.getParameter("date")+"&type="+request.getParameter("type")+"\">回到記帳小本本</a>");
+  			}else{
+  				out.print("<a class=\"button bottom\" href=\"account.jsp\">回到記帳小本本</a>");
+  			}
+        	%>
         </div>
     </div>
     <div class="content">
