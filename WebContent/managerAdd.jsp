@@ -6,7 +6,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>我要排程💼LIFF-Bismarck</title>
+    <title>我要排程💼</title>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@100;400;700&display=swap" rel="stylesheet">
     <link href="main.css" rel="stylesheet" />
 </head>

@@ -6,7 +6,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>記帳小本本-明細📒</title>
+    <title>記帳明細📒</title>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@100;400;700&display=swap" rel="stylesheet">
     <link href="main.css" rel="stylesheet" />
 </head>
@@ -48,7 +48,7 @@ Date lastDayOfMonth = cal.getTime();
         	%>
         </div>
     </div>
-    <div class="content">
+    <div class="content"">
 	<%! 
 	public void printAccountCard(HttpServletRequest request,JspWriter out,String cookieName,String sl0,String sl1,String sl2,String sl3) throws IOException {
 		out.println("<div class=\"separate2 cardview accountId\" onclick=\"location.href='accountModify.jsp?accountId="+cookieName+"&date="+request.getParameter("date")+"&type="+request.getParameter("type")+"'\">");
@@ -305,7 +305,7 @@ Date lastDayOfMonth = cal.getTime();
 			}
 			%>
     </div>
-    <div class="footer">
+    <div class="footer" style="margin-bottom: 62px;">
         臺北商業大學 夜四技資四甲專題 N109405<br>
         Copyright©2020 建議使用手機瀏覽並使用最新Chrome或Firefox<br>
     </div>

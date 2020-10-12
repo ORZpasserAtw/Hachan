@@ -108,7 +108,7 @@ div.navbar a[href*="#SaveManager"]::before{
     background: url(img/mail.png) no-repeat left center transparent;
     background-size: contain;
 }
-div.navbar a[href*="#RecoveryManager"]::before{
+div.navbar a[href*="#DelManager"]::before{
     background: url(img/compass.png) no-repeat left center transparent;
     background-size: contain;
 }
@@ -366,7 +366,7 @@ form#Sumbox label div a:active{
     background: #EAAA00;
 }
 
-form#Account label div a{
+form#Account label div a, form#Manager label div a{
 	padding:0 4px;
 	margin-left:2px;
 	text-decoration: none;
@@ -375,10 +375,10 @@ form#Account label div a{
 	border-radius: 5px;
 	cursor:pointer;
 }
-form#Account label div a:hover{
+form#Account label div a:hover,form#Manager label div a:hover{
     background: #B66C6D;
 }
-form#Account label div a:active{
+form#Account label div a:active,form#Manager label div a:active{
     background: #B65A65;
 }
 
@@ -398,7 +398,7 @@ div.cardview form{
     border-radius: 5px;
     margin-top: 0px;
 }
-div.cardview.modmanager form,div.cardview.accountId form{
+div.cardview.managerId form,div.cardview.accountId form{
     cursor: pointer;
 }
 

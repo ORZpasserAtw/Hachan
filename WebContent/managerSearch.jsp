@@ -6,7 +6,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>查詢行程💼LIFF-Bismarck</title>
+    <title>查詢行程💼</title>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@100;400;700&display=swap" rel="stylesheet">
     <link href="main.css" rel="stylesheet" />
 </head>
@@ -65,6 +65,9 @@ String[] split_line = new String[1];
 					out.println("</label>");
 					out.println("<input type=\"hidden\" name=\"managerId\" value="+cookieName+">");
 					out.println("<input type=\"hidden\" name=\"del\">");
+					out.println("<label>");
+					out.println("<div><a>修改</a></div><br>");
+					out.println("</label>");
 					out.println("</form>");
 					out.println("</div>");
 				}

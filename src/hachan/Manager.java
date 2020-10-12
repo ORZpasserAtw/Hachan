@@ -43,7 +43,7 @@ public class Manager extends HttpServlet {
 					);
 			response.addCookie(NewListN);
 		}
-		if(request.getParameter("mod") != null && request.getParameter("managerName") != ""){
+		if(request.getParameter("mod") != null && request.getParameter("mod").contains("Y") && request.getParameter("managerName") != ""){
 			Cookie NewListN = new Cookie(request.getParameter("managerId"), 
 					request.getParameter("managerRemind")+"|"+
 					request.getParameter("managerDate")+"|"+
@@ -53,7 +53,7 @@ public class Manager extends HttpServlet {
 					);
 			response.addCookie(NewListN);
 		}
-		if(request.getParameter("del") != null){
+		if(request.getParameter("del") != null && request.getParameter("del").contains("Y")){
 			Cookie cookies[] = request.getCookies();
 			for (Cookie c : cookies) {
 				if (c.getName().equals(request.getParameter("managerId"))) {

@@ -24,6 +24,19 @@ function accountmodsend(){
 	document.getElementById('Account').submit();
 }
 
+function managerdelsend(){
+	if (confirm('確定刪除嗎?')) {
+       document.getElementById('Manager').del.value='Y';
+		document.getElementById('Manager').submit();
+    } else {
+        location.reload();
+    }
+}
+function managermodsend(){
+	document.getElementById('Manager').mod.value='Y';
+	document.getElementById('Manager').submit();
+}
+
 $("select.dateselector").change(function() {
      $('#filterform').submit();
 });
