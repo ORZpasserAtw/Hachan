@@ -384,6 +384,7 @@ form#Account label div a{
 	background: #CF6F77;
 	color: #000;
 	border-radius: 5px;
+	cursor:pointer;
 }
 form#Account label div a:hover{
     background: #B66C6D;

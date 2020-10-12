@@ -8,8 +8,21 @@ $('.cardview.managerId').on('press', function (e) {
 });
 
 $('.cardview.accountId').on('press', function (e) {
-
+	
 });
+
+function accountdelsend(){
+	if (confirm('確定刪除嗎?')) {
+       document.getElementById('Account').del.value='Y';
+		document.getElementById('Account').submit();
+    } else {
+        location.reload();
+    }
+}
+function accountmodsend(){
+	document.getElementById('Account').mod.value='Y';
+	document.getElementById('Account').submit();
+}
 
 $("select.dateselector").change(function() {
      $('#filterform').submit();
