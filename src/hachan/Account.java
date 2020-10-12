@@ -29,6 +29,11 @@ public class Account extends HttpServlet {
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
+    
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        doPost(request, response);
+    }
+    
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		Date date = new Date();
@@ -60,7 +65,11 @@ public class Account extends HttpServlet {
 				}
 			}
 		}
-		response.sendRedirect("account.jsp");
+		if (request.getParameter("date") != null && request.getParameter("type") != null) {
+			response.sendRedirect("account.jsp?date="+request.getParameter("date")+"&type="+request.getParameter("type"));
+		}else {
+			response.sendRedirect("account.jsp");
+		}
 	}
 
 }

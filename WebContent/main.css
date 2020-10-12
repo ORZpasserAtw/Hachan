@@ -91,84 +91,73 @@ div.navbar a.upperL::before, div.navbar a.upperR::before , div.navbar a.upperF::
     vertical-align: middle;
     margin: 0px 4px 0px 0px;
 }
-div.navbar a[href="managerAdd.jsp"]::before{
+div.navbar a[href*="managerAdd.jsp"]::before{
     background: url(img/box1.png) no-repeat left center transparent;
     background-size: contain;
 }
-div.navbar a[href="managerSearch.jsp"]::before{
+div.navbar a[href*="managerSearch.jsp"]::before{
     background: url(img/box2.png) no-repeat center transparent;
     background-size: contain;
 }
-div.navbar a[href="remind.html"]::before{
+div.navbar a[href*="remind.html"]::before{
     background: url(img/mail.png) no-repeat left center transparent;
     background-size: contain;
     margin: 0px 8px 0px 0px;
 }
-div.navbar a[href="#SaveManager"]::before{
+div.navbar a[href*="#SaveManager"]::before{
     background: url(img/mail.png) no-repeat left center transparent;
     background-size: contain;
 }
-div.navbar a[href="#RecoveryManager"]::before{
+div.navbar a[href*="#RecoveryManager"]::before{
     background: url(img/compass.png) no-repeat left center transparent;
     background-size: contain;
 }
-div.navbar a[href="#Hate"]::before{
+div.navbar a[href*="#Hate"]::before{
     background: url(img/cross.png) no-repeat left center transparent;
     background-size: contain;
 }
-div.navbar a[href="#Travel"]::before,
-div.navbar a[href="https://www.google.com/maps/dir/?api=1&origin=目前位置&destination=臺北市立動物園&travelmode=walking"]::before,
-div.navbar a[href="https://www.google.com/maps/dir/?api=1&origin=目前位置&destination=Xpark&travelmode=walking"]::before,
-div.navbar a[href="https://www.google.com/maps/dir/?api=1&origin=目前位置&destination=陽明山國家公園遊客中心&travelmode=walking"]::before,
-div.navbar a[href="https://www.google.com/maps/dir/?api=1&origin=目前位置&destination=野柳自然中心&travelmode=walking"]::before,
-div.navbar a[href="https://www.google.com/maps/dir/?api=1&origin=目前位置&destination=清境農場購票處&travelmode=walking"]::before,
-div.navbar a[href="https://www.google.com/maps/dir/?api=1&origin=目前位置&destination=飛牛牧場&travelmode=walking"]::before,
-div.navbar a[href="https://www.google.com/maps/dir/?api=1&origin=目前位置&destination=日月潭文武廟&travelmode=walking"]::before,
-div.navbar a[href="https://www.google.com/maps/dir/?api=1&origin=目前位置&destination=溪頭森林遊樂區&travelmode=walking"]::before,
-div.navbar a[href="https://www.google.com/maps/dir/?api=1&origin=目前位置&destination=國立海洋生物博物館&travelmode=walking"]::before,
-div.navbar a[href="https://www.google.com/maps/dir/?api=1&origin=目前位置&destination=頑皮世界野生動物園&travelmode=walking"]::before,
-div.navbar a[href="https://www.google.com/maps/dir/?api=1&origin=目前位置&destination=阿里山國家森林遊樂區入口觀景台&travelmode=walking"]::before,
-div.navbar a[href="https://www.google.com/maps/dir/?api=1&origin=目前位置&destination=西子灣觀景臺&travelmode=walking"]::before
+div.navbar a[href*="#Travel"]::before,
+div.navbar a[href*="https://www.google.com/maps/dir/"]::before
 {
     background: url(img/bus.png) no-repeat left center transparent;
     background-size: contain;
 }
-div.navbar a[href="accountAdd.jsp"]::before{
+div.navbar a[href*="accountAdd.jsp"]::before{
     background: url(img/sunglass.png) no-repeat left center transparent;
     background-size: contain;
 }
-div.navbar a[href="accountBalance.html"]::before{
+div.navbar a[href*="accountBalance.html"]::before{
     background: url(img/wallet.png) no-repeat left center transparent;
     background-size: contain;
 }
 
-div.navbar a[href="#Save2"]::before{
+div.navbar a[href*="#Save2"]::before{
     background: url(img/sunglass.png) no-repeat left center transparent;
     background-size: contain;
 }
 
-div.navbar a[href="#RecordAccount"]::before{
+div.navbar a[href*="#RecordAccount"]::before{
     background: url(img/camera.png) no-repeat left center transparent;
     background-size: contain;
 }
-div.navbar a[href="accountModify.jsp"]::before{
+div.navbar a[href*="accountModify.jsp"]::before{
     background: url(img/wallet2.png) no-repeat left center transparent;
     background-size: contain;
 }
-div.navbar a[href="#SaveAccount"]::before{
+div.navbar a[href*="#SaveAccount"]::before{
     background: url(img/mail.png) no-repeat left center transparent;
     background-size: contain;
 }
-div.navbar a[href="#DelAccount"]::before{
+div.navbar a[href*="#DelAccount"]::before{
     background: url(img/compass.png) no-repeat left center transparent;
     background-size: contain;
 }
 
-div.navbar a[href="#SaveBalance"]::before{
+div.navbar a[href*="#SaveBalance"]::before{
     background: url(img/letter.png) no-repeat left center transparent;
     background-size: contain;
 }
-div.navbar a[href="#RecoveryBalance"]::before{
+div.navbar a[href*="#RecoveryBalance"]::before{
     background: url(img/compass.png) no-repeat left center transparent;
     background-size: contain;
 }

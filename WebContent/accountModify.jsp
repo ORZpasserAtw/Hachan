@@ -124,6 +124,12 @@
 	            </div>
 				<input type="hidden" name="mod">
 				<input type="hidden" name="del">
+				<%
+		       	if(request.getParameterMap().containsKey("date") && request.getParameterMap().containsKey("type")){
+		       		out.print("<input type=\"hidden\" name=\"date\" value="+request.getParameter("date")+">");
+		       		out.print("<input type=\"hidden\" name=\"type\" value="+request.getParameter("type")+">");
+	 			}
+			    %>
 			</form>
 		</div>
     </div>

@@ -66,6 +66,12 @@
 						<div><input type="number" name="accountMoney"></div><br>
 					</label>
 					<input type="hidden" name="new">
+					<%
+			       	if(request.getParameterMap().containsKey("date") && request.getParameterMap().containsKey("type")){
+			       		out.print("<input type=\"hidden\" name=\"date\" value="+request.getParameter("date")+">");
+			       		out.print("<input type=\"hidden\" name=\"type\" value="+request.getParameter("type")+">");
+		 			}
+			       	%>
 				</div>
 			</form>
 		</div>

@@ -50,8 +50,8 @@ Date lastDayOfMonth = cal.getTime();
     </div>
     <div class="content">
 	<%! 
-	public void printAccountCard(JspWriter out,String cookieName,String sl0,String sl1,String sl2,String sl3) throws IOException {
-		out.println("<div class=\"separate2 cardview accountId\" onclick=\"location.href='accountModify.jsp?accountId="+cookieName+"'\">");
+	public void printAccountCard(HttpServletRequest request,JspWriter out,String cookieName,String sl0,String sl1,String sl2,String sl3) throws IOException {
+		out.println("<div class=\"separate2 cardview accountId\" onclick=\"location.href='accountModify.jsp?accountId="+cookieName+"&date="+request.getParameter("date")+"&type="+request.getParameter("type")+"'\">");
 		out.println("<form action=\"Account\" method=\"post\" id=\"Account\">");
 		out.println("<label>");
 		out.println("<div>日期：</div><br>");
@@ -93,7 +93,6 @@ Date lastDayOfMonth = cal.getTime();
 		
 		out.println("<label>");
 		out.println("<div><a>修改</a></div><br>");
-		out.println("<div></div><br>");
 		out.println("</label>");
 		out.println("</form>");
 		out.println("</div>");
@@ -109,123 +108,123 @@ Date lastDayOfMonth = cal.getTime();
 
 					if (mode == 1){ //All
 						if (cookieName.contains("accountId_")) {
-							printAccountCard(out, cookieName, split_line[0], split_line[1],split_line[2],split_line[3]);
+							printAccountCard(request, out, cookieName, split_line[0], split_line[1],split_line[2],split_line[3]);
 						}
 					}else if(mode == 2){//Month and Week
 						if (cookieName.contains("accountId_")) {
 							Date d = new SimpleDateFormat("yyyy-MM-dd").parse(split_line[0]);
 							if (d.getTime() >= start.getTime() && d.getTime() <= end.getTime()){
-								printAccountCard(out, cookieName, split_line[0], split_line[1],split_line[2],split_line[3]);
+								printAccountCard(request, out, cookieName, split_line[0], split_line[1],split_line[2],split_line[3]);
 							}
 						}
 					}else if(mode == 3){ //Today
 						if (cookieName.contains("accountId_") && split_line[0].equals(new SimpleDateFormat("yyyy-MM-dd").format(new Date()))) {
-							printAccountCard(out, cookieName, split_line[0], split_line[1],split_line[2],split_line[3]);
+							printAccountCard(request, out, cookieName, split_line[0], split_line[1],split_line[2],split_line[3]);
 						}
 					}else if(mode == 11){
 						if (cookieName.contains("accountId_") && split_line[1].equals("A")) {
-							printAccountCard(out, cookieName, split_line[0], split_line[1],split_line[2],split_line[3]);
+							printAccountCard(request, out, cookieName, split_line[0], split_line[1],split_line[2],split_line[3]);
 						}
 					}else if(mode == 12){
 						if (cookieName.contains("accountId_") && split_line[1].equals("A")) {
 							Date d = new SimpleDateFormat("yyyy-MM-dd").parse(split_line[0]);
 							if (d.getTime() >= start.getTime() && d.getTime() <= end.getTime()){
-								printAccountCard(out, cookieName, split_line[0], split_line[1],split_line[2],split_line[3]);
+								printAccountCard(request, out, cookieName, split_line[0], split_line[1],split_line[2],split_line[3]);
 							}
 						}
 					}else if(mode == 13){
 						if (cookieName.contains("accountId_") && split_line[1].equals("A") && split_line[0].equals(new SimpleDateFormat("yyyy-MM-dd").format(new Date()))) {
-							printAccountCard(out, cookieName, split_line[0], split_line[1],split_line[2],split_line[3]);
+							printAccountCard(request, out, cookieName, split_line[0], split_line[1],split_line[2],split_line[3]);
 						}
 					}else if(mode == 21){
 						if (cookieName.contains("accountId_") && split_line[1].equals("B")) {
-							printAccountCard(out, cookieName, split_line[0], split_line[1],split_line[2],split_line[3]);
+							printAccountCard(request, out, cookieName, split_line[0], split_line[1],split_line[2],split_line[3]);
 						}
 					}else if(mode == 22){
 						if (cookieName.contains("accountId_") && split_line[1].equals("B")) {
 							Date d = new SimpleDateFormat("yyyy-MM-dd").parse(split_line[0]);
 							if (d.getTime() >= start.getTime() && d.getTime() <= end.getTime()){
-								printAccountCard(out, cookieName, split_line[0], split_line[1],split_line[2],split_line[3]);
+								printAccountCard(request, out, cookieName, split_line[0], split_line[1],split_line[2],split_line[3]);
 							}
 						}
 					}else if(mode == 23){
 						if (cookieName.contains("accountId_") && split_line[1].equals("B") && split_line[0].equals(new SimpleDateFormat("yyyy-MM-dd").format(new Date()))) {
-							printAccountCard(out, cookieName, split_line[0], split_line[1],split_line[2],split_line[3]);
+							printAccountCard(request, out, cookieName, split_line[0], split_line[1],split_line[2],split_line[3]);
 						}
 					}else if(mode == 31){
 						if (cookieName.contains("accountId_") && split_line[1].equals("C")) {
-							printAccountCard(out, cookieName, split_line[0], split_line[1],split_line[2],split_line[3]);
+							printAccountCard(request, out, cookieName, split_line[0], split_line[1],split_line[2],split_line[3]);
 						}
 					}else if(mode == 32){
 						if (cookieName.contains("accountId_") && split_line[1].equals("C")) {
 							Date d = new SimpleDateFormat("yyyy-MM-dd").parse(split_line[0]);
 							if (d.getTime() >= start.getTime() && d.getTime() <= end.getTime()){
-								printAccountCard(out, cookieName, split_line[0], split_line[1],split_line[2],split_line[3]);
+								printAccountCard(request, out, cookieName, split_line[0], split_line[1],split_line[2],split_line[3]);
 							}
 						}
 					}else if(mode == 33){
 						if (cookieName.contains("accountId_") && split_line[1].equals("C") && split_line[0].equals(new SimpleDateFormat("yyyy-MM-dd").format(new Date()))) {
-							printAccountCard(out, cookieName, split_line[0], split_line[1],split_line[2],split_line[3]);
+							printAccountCard(request, out, cookieName, split_line[0], split_line[1],split_line[2],split_line[3]);
 						}
 					}else if(mode == 41){
 						if (cookieName.contains("accountId_") && split_line[1].equals("D")) {
-							printAccountCard(out, cookieName, split_line[0], split_line[1],split_line[2],split_line[3]);
+							printAccountCard(request, out, cookieName, split_line[0], split_line[1],split_line[2],split_line[3]);
 						}
 					}else if(mode == 42){
 						if (cookieName.contains("accountId_") && split_line[1].equals("D")) {
 							Date d = new SimpleDateFormat("yyyy-MM-dd").parse(split_line[0]);
 							if (d.getTime() >= start.getTime() && d.getTime() <= end.getTime()){
-								printAccountCard(out, cookieName, split_line[0], split_line[1],split_line[2],split_line[3]);
+								printAccountCard(request, out, cookieName, split_line[0], split_line[1],split_line[2],split_line[3]);
 							}
 						}
 					}else if(mode == 43){
 						if (cookieName.contains("accountId_") && split_line[1].equals("D") && split_line[0].equals(new SimpleDateFormat("yyyy-MM-dd").format(new Date()))) {
-							printAccountCard(out, cookieName, split_line[0], split_line[1],split_line[2],split_line[3]);
+							printAccountCard(request, out, cookieName, split_line[0], split_line[1],split_line[2],split_line[3]);
 						}
 					}else if(mode == 51){
 						if (cookieName.contains("accountId_") && split_line[1].equals("E")) {
-							printAccountCard(out, cookieName, split_line[0], split_line[1],split_line[2],split_line[3]);
+							printAccountCard(request, out, cookieName, split_line[0], split_line[1],split_line[2],split_line[3]);
 						}
 					}else if(mode == 52){
 						if (cookieName.contains("accountId_") && split_line[1].equals("E")) {
 							Date d = new SimpleDateFormat("yyyy-MM-dd").parse(split_line[0]);
 							if (d.getTime() >= start.getTime() && d.getTime() <= end.getTime()){
-								printAccountCard(out, cookieName, split_line[0], split_line[1],split_line[2],split_line[3]);
+								printAccountCard(request, out, cookieName, split_line[0], split_line[1],split_line[2],split_line[3]);
 							}
 						}
 					}else if(mode == 53){
 						if (cookieName.contains("accountId_") && split_line[1].equals("E") && split_line[0].equals(new SimpleDateFormat("yyyy-MM-dd").format(new Date()))) {
-							printAccountCard(out, cookieName, split_line[0], split_line[1],split_line[2],split_line[3]);
+							printAccountCard(request, out, cookieName, split_line[0], split_line[1],split_line[2],split_line[3]);
 						}
 					}else if(mode == 61){
 						if (cookieName.contains("accountId_") && split_line[1].equals("F")) {
-							printAccountCard(out, cookieName, split_line[0], split_line[1],split_line[2],split_line[3]);
+							printAccountCard(request, out, cookieName, split_line[0], split_line[1],split_line[2],split_line[3]);
 						}
 					}else if(mode == 62){
 						if (cookieName.contains("accountId_") && split_line[1].equals("F")) {
 							Date d = new SimpleDateFormat("yyyy-MM-dd").parse(split_line[0]);
 							if (d.getTime() >= start.getTime() && d.getTime() <= end.getTime()){
-								printAccountCard(out, cookieName, split_line[0], split_line[1],split_line[2],split_line[3]);
+								printAccountCard(request, out, cookieName, split_line[0], split_line[1],split_line[2],split_line[3]);
 							}
 						}
 					}else if(mode == 63){
 						if (cookieName.contains("accountId_") && split_line[1].equals("F") && split_line[0].equals(new SimpleDateFormat("yyyy-MM-dd").format(new Date()))) {
-							printAccountCard(out, cookieName, split_line[0], split_line[1],split_line[2],split_line[3]);
+							printAccountCard(request, out, cookieName, split_line[0], split_line[1],split_line[2],split_line[3]);
 						}
 					}else if(mode == 101){
 						if (cookieName.contains("accountId_") && split_line[1].equals("Z")) {
-							printAccountCard(out, cookieName, split_line[0], split_line[1],split_line[2],split_line[3]);
+							printAccountCard(request, out, cookieName, split_line[0], split_line[1],split_line[2],split_line[3]);
 						}
 					}else if(mode == 102){
 						if (cookieName.contains("accountId_") && split_line[1].equals("Z")) {
 							Date d = new SimpleDateFormat("yyyy-MM-dd").parse(split_line[0]);
 							if (d.getTime() >= start.getTime() && d.getTime() <= end.getTime()){
-								printAccountCard(out, cookieName, split_line[0], split_line[1],split_line[2],split_line[3]);
+								printAccountCard(request, out, cookieName, split_line[0], split_line[1],split_line[2],split_line[3]);
 							}
 						}
 					}else if(mode == 103){
 						if (cookieName.contains("accountId_") && split_line[1].equals("Z") && split_line[0].equals(new SimpleDateFormat("yyyy-MM-dd").format(new Date()))) {
-							printAccountCard(out, cookieName, split_line[0], split_line[1],split_line[2],split_line[3]);
+							printAccountCard(request, out, cookieName, split_line[0], split_line[1],split_line[2],split_line[3]);
 						}
 					}
 				}
