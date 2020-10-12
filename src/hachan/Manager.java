@@ -62,14 +62,10 @@ public class Manager extends HttpServlet {
 				}
 			}
 		}
-		if ((request.getParameter("del") != null && request.getParameter("del").contains("Y"))||(request.getParameter("mod") != null && request.getParameter("mod").contains("Y"))) {
-			if (request.getParameter("date") != null) {
-				response.sendRedirect("managerSearch.jsp?date="+request.getParameter("date"));
-			}else {
-				response.sendRedirect("managerSearch.jsp");
-			}
+		if (request.getParameter("date") != null) {
+			response.sendRedirect("managerSearch.jsp?date="+request.getParameter("date"));
 		}else {
-			response.sendRedirect("manager.jsp");
+			response.sendRedirect("managerSearch.jsp");
 		}
 	}
 
