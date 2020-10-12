@@ -54,7 +54,7 @@ Date lastDayOfMonth = cal.getTime();
             <div class=separate2>
             	<form action="account.jsp" method="get" id="filterform">
             		<label>
-                    <div>日期：</div>
+                    	<div>日期：</div>
 	                    <div>
 		              		<select name="date" class="dateselector">
 		              			<%

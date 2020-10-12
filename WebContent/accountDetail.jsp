@@ -48,7 +48,7 @@ Date lastDayOfMonth = cal.getTime();
         	%>
         </div>
     </div>
-    <div class="content"">
+    <div class="content">
 	<%! 
 	public void printAccountCard(HttpServletRequest request,JspWriter out,String cookieName,String sl0,String sl1,String sl2,String sl3) throws IOException {
 		out.println("<div class=\"separate2 cardview accountId\" onclick=\"location.href='accountModify.jsp?accountId="+cookieName+"&date="+request.getParameter("date")+"&type="+request.getParameter("type")+"'\">");

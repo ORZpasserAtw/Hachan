@@ -382,6 +382,22 @@ form#Account label div a:active,form#Manager label div a:active{
     background: #B65A65;
 }
 
+form#Manager label div a{
+	padding:0 4px;
+	margin-left:2px;
+	text-decoration: none;
+	background: #9BE198;
+	color: #000;
+	border-radius: 5px;
+	cursor:pointer;
+}
+form#Manager label div a:hover{
+    background: #79D97C;
+}
+form#Manager label div a:active{
+    background: #7CCC6C;
+}
+
 div.separate2 > form#filterform br{
 	display:block;
 }
