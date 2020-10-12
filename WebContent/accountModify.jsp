@@ -16,7 +16,13 @@
         <div class="navbar">
             <a class="button upperL" href="#SaveAccount" onclick="accountmodsend()">紀錄</a>
             <a class="button upperR" href="#DelAccount"  onclick="accountdelsend()">刪除</a>
-            <a class="button bottom" href="account.jsp">回到記帳小本本</a>
+            <%
+        	if(request.getParameterMap().containsKey("date") && request.getParameterMap().containsKey("type")){
+  				out.print("<a class=\"button bottom\" href=\"account.jsp?date="+request.getParameter("date")+"&type="+request.getParameter("type")+"\">回到記帳小本本</a>");
+  			}else{
+  				out.print("<a class=\"button bottom\" href=\"account.jsp\">回到記帳小本本</a>");
+  			}
+        	%>
         </div>
     </div>
     <div class="content">
