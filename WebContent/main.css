@@ -377,6 +377,21 @@ form#Sumbox label div a:active{
     background: #EAAA00;
 }
 
+form#Account label div a{
+	padding:0 4px;
+	margin-left:2px;
+	text-decoration: none;
+	background: #CF6F77;
+	color: #000;
+	border-radius: 5px;
+}
+form#Account label div a:hover{
+    background: #B66C6D;
+}
+form#Account label div a:active{
+    background: #B65A65;
+}
+
 div.separate2 > form#filterform br{
 	display:block;
 }

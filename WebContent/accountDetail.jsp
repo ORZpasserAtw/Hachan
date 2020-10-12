@@ -90,6 +90,11 @@ Date lastDayOfMonth = cal.getTime();
 		out.println("<div>金額：</div><br>");
 		out.println("<div><input disabled type=\"number\" value=" + sl3 + "></div><br>");
 		out.println("</label>");
+		
+		out.println("<label>");
+		out.println("<div><a>修改</a></div><br>");
+		out.println("<div></div><br>");
+		out.println("</label>");
 		out.println("</form>");
 		out.println("</div>");
 	}
