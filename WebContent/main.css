@@ -313,7 +313,12 @@ div.separate2 form#Sumbox label div:nth-of-type(odd){
 div.separate2 form#Sumbox label div:nth-of-type(even){
     width:67%;
 }
-
+div.separate2 form#filterform label div:nth-of-type(odd){
+    width:20%;
+}
+div.separate2 form#filterform label div:nth-of-type(even){
+    width:80%;
+}
 div.separate2 form#Account label div:nth-of-type(odd){
     width:20%;
 }
@@ -358,15 +363,18 @@ form#Sumbox label:first-child div:first-child{
 }
 form#Sumbox label div a{
 	padding:0 4px;
+	margin-left:2px;
 	text-decoration: none;
-	font-weight: bold;
-	color: #05868E;
+	background: #F8E59A;
+	color: #000;
+	border-radius: 5px;
+	font-size:85%;
 }
 form#Sumbox label div a:hover{
-    color: #2C9199;
+    background: #FED141;
 }
 form#Sumbox label div a:active{
-    color: #006975;
+    background: #EAAA00;
 }
 
 div.separate2 > form#filterform br{

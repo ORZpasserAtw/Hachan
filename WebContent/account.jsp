@@ -316,19 +316,19 @@ Date lastDayOfMonth = cal.getTime();
 	                	if (request.getCookies() != null){
 	                		if(request.getParameterMap().containsKey("date")){
 	                        	if (request.getParameter("date").contains("All")){
-	                        		out.println("<div><input disabled type=\"text\" value="+getSum(request, 1, 0, null, null)+"><a href=\"accountDetail.jsp?date=All&type=All\">明細</a></div><br>");
+	                        		out.println("<div><input disabled type=\"text\" value="+getSum(request, 1, 0, null, null)+"></div><br>");
 	                        	}else if(request.getParameter("date").contains("Month")){
-	                        		out.println("<div><input disabled type=\"text\" value="+getSum(request, 2, 0, firstDayOfMonth, lastDayOfMonth)+"><a href=\"accountDetail.jsp?date=Month&type=All\">明細</a></div><br>");
+	                        		out.println("<div><input disabled type=\"text\" value="+getSum(request, 2, 0, firstDayOfMonth, lastDayOfMonth)+"></div><br>");
 	                        	}else if(request.getParameter("date").contains("Week")){
-	                        		out.println("<div><input disabled type=\"text\" value="+getSum(request, 2, 0, firstDayOfWeek, lastDayOfWeek)+"><a href=\"accountDetail.jsp?date=Week&type=All\">明細</a></div><br>");
+	                        		out.println("<div><input disabled type=\"text\" value="+getSum(request, 2, 0, firstDayOfWeek, lastDayOfWeek)+"></div><br>");
 	                        	}else if(request.getParameter("date").contains("Today")){
-	                        		out.println("<div><input disabled type=\"text\" value="+getSum(request, 3, 0, null, null)+"><a href=\"accountDetail.jsp?date=Today&type=All\">明細</a></div><br>");
+	                        		out.println("<div><input disabled type=\"text\" value="+getSum(request, 3, 0, null, null)+"></div><br>");
 	                        	}
 	                        }else{
-	                    		out.println("<div><input disabled type=\"text\" value="+getSum(request, 3, 0, null, null)+"><a href=\"accountDetail.jsp?date=Today&type=All\">明細</a></div><br>");
+	                    		out.println("<div><input disabled type=\"text\" value="+getSum(request, 3, 0, null, null)+"></div><br>");
 	                        }
 	                	}else{
-		               		out.println("<div><input disabled type=\"text\" value=\"0\"><a>明細</a></div><br>");
+		               		out.println("<div><input disabled type=\"text\" value=\"0\"></div><br>");
 	                	}
                     	%>
                 	</label>
