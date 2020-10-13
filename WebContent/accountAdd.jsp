@@ -69,7 +69,7 @@
 			        </label>
 			        <label>
 			        	<div>金額：</div><br>
-						<div><input type="number" name="accountMoney"></div><br>
+						<div><input type="number" name="accountMoney" max="2147483647"></div><br>
 					</label>
 					<input type="hidden" name="new">
 					<%

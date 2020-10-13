@@ -38,7 +38,11 @@ public class Account extends HttpServlet {
 		// TODO Auto-generated method stub
 		Date date = new Date();
 		
-		if (request.getParameter("new") != null && request.getParameter("accountName") != "" && request.getParameter("accountMoney") != "") {
+		if (request.getParameter("new") != null && 
+				request.getParameter("accountName") != "" && 
+				request.getParameter("accountMoney") != "" && 
+				Long.parseLong(request.getParameter("accountMoney")) <= 2147483647 && 
+				Long.parseLong(request.getParameter("accountMoney")) >= 0) {
 			Cookie NewListN = new Cookie("accountId_"+Integer.toHexString(date.hashCode()), 
 					request.getParameter("accountDate")+"|"+
 					request.getParameter("accountCat")+"|"+
@@ -47,7 +51,12 @@ public class Account extends HttpServlet {
 					);
 			response.addCookie(NewListN);
 		}
-		if(request.getParameter("mod") != null && request.getParameter("mod").contains("Y") && request.getParameter("accountName") != "" && request.getParameter("accountMoney") != ""){
+		if(request.getParameter("mod") != null && 
+				request.getParameter("mod").contains("Y") && 
+				request.getParameter("accountName") != "" &&
+				request.getParameter("accountMoney") != ""  && 
+				Long.parseLong(request.getParameter("accountMoney")) <= 2147483647 && 
+				Long.parseLong(request.getParameter("accountMoney")) >= 0){
 			Cookie NewListN = new Cookie(request.getParameter("accountId"), 
 					request.getParameter("accountDate")+"|"+
 					request.getParameter("accountCat")+"|"+
@@ -56,7 +65,10 @@ public class Account extends HttpServlet {
 					);
 			response.addCookie(NewListN);
 		}
-		if(request.getParameter("del") != null && request.getParameter("del").contains("Y")){
+		if(request.getParameter("del") != null &&
+				request.getParameter("del").contains("Y") &&
+				request.getParameter("accountName") != "" &&
+				request.getParameter("accountMoney") != ""){
 			Cookie cookies[] = request.getCookies();
 			for (Cookie c : cookies) {
 				if (c.getName().equals(request.getParameter("accountId"))) {

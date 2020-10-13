@@ -125,7 +125,7 @@
 		        </label>
 		        <label>
 		        	<div>金額：</div><br>
-					<div><input type="number" name="accountMoney" value=<%= split_line[3] %>></div><br>
+					<div><input type="number" name="accountMoney" max="2147483647" value=<%= split_line[3] %>></div><br>
 				</label>
 	            </div>
 				<input type="hidden" name="mod">
