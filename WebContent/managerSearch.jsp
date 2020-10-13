@@ -93,7 +93,7 @@ Date lastDayOfMonth = cal.getTime();
 				out.println("<div class=\"separate2 cardview managerId\" onclick=\"location.href='managerModify.jsp?managerId="+cookieName+"'\">");
 			}
 			if (split_line[0].contains("Y")){
-				out.println("<form action=\"Manager\" method=\"post\" id=\"Manager\" style=\"border: 4px #FF0000 solid;\">");
+				out.println("<form action=\"Manager\" method=\"post\" id=\"Manager\" style=\"border: 4px #FF0000 dashed;\">");
 			}else{
 				out.println("<form action=\"Manager\" method=\"post\" id=\"Manager\">");
 			}
