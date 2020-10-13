@@ -40,7 +40,7 @@ Date lastDayOfMonth = cal.getTime();
 <body>
     <div class="header-low">
         <div class="navbar">
-            <a class="button bottom" href="manager.jsp">回到行動助理</a>
+            <a class="button bottom" href="manager.jsp">回到呼叫助理</a>
         </div>
     </div>
     <div class="content" style="margin-bottom: 62px;">

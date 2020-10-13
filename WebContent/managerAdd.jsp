@@ -15,7 +15,7 @@
     <div class="header">
         <div class="navbar">
             <a class="button upperF" href="#SaveManager" onclick="document.getElementById('Manager').submit();">保存</a>
-            <a class="button bottom" href="manager.jsp">回到行動助理</a>
+            <a class="button bottom" href="manager.jsp">回到呼叫助理</a>
         </div>
     </div>
     <div class="content" style="height: 150vh;">

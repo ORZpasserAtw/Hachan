@@ -37,15 +37,13 @@ cal.set(Calendar.DAY_OF_MONTH, cal.getActualMaximum(Calendar.DAY_OF_MONTH));
 Date lastDayOfMonth = cal.getTime();
 %>
 <body>
-    <div class="header">
+    <div class="header-low">
         <div class="navbar">
             <%
         	if(request.getParameterMap().containsKey("date") && request.getParameterMap().containsKey("type")){
         		out.print("<a class=\"button upperF\" href=\"accountAdd.jsp?date="+request.getParameter("date")+"&type="+request.getParameter("type")+"\">開始記帳</a>");
-        		out.print("<a class=\"button bottom\" href=\"account.jsp?date="+request.getParameter("date")+"&type="+request.getParameter("type")+"\">回到記帳小本本</a>");
   			}else{
   				out.print("<a class=\"button upperF\" href=\"accountAdd.jsp\">開始記帳</a>");
-  				out.print("<a class=\"button bottom\" href=\"account.jsp\">回到記帳小本本</a>");
   			}
         	%>
         </div>
@@ -498,7 +496,7 @@ Date lastDayOfMonth = cal.getTime();
             	</form>
             </div>
     </div>
-    <div class="footer">
+    <div class="footer" style="margin-bottom: 62px;">
         臺北商業大學 夜四技資四甲專題 N109405<br>
         Copyright©2020 建議使用手機瀏覽並使用最新Chrome或Firefox<br>
     </div>

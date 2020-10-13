@@ -109,7 +109,7 @@ div.navbar a[href*="#SaveManager"]::before{
     background-size: contain;
 }
 div.navbar a[href*="#DelManager"]::before{
-    background: url(img/compass.png) no-repeat left center transparent;
+    background: url(img/trash.png) no-repeat left center transparent;
     background-size: contain;
 }
 div.navbar a[href*="#Hate"]::before{
@@ -123,7 +123,7 @@ div.navbar a[href*="https://www.google.com/maps/dir/"]::before
     background-size: contain;
 }
 div.navbar a[href*="accountAdd.jsp"]::before{
-    background: url(img/sunglass.png) no-repeat left center transparent;
+    background: url(img/wallet2.png) no-repeat left center transparent;
     background-size: contain;
 }
 div.navbar a[href*="accountBalance.html"]::before{
@@ -145,11 +145,11 @@ div.navbar a[href*="accountModify.jsp"]::before{
     background-size: contain;
 }
 div.navbar a[href*="#SaveAccount"]::before{
-    background: url(img/mail.png) no-repeat left center transparent;
+    background: url(img/camera.png) no-repeat left center transparent;
     background-size: contain;
 }
 div.navbar a[href*="#DelAccount"]::before{
-    background: url(img/compass.png) no-repeat left center transparent;
+    background: url(img/trash.png) no-repeat left center transparent;
     background-size: contain;
 }
 

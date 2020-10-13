@@ -17,11 +17,10 @@ Cookie cookies[] = request.getCookies();
 String[] split_line = new String[1];
 %>
 <body>
-    <div class="header">
+    <div class="header-low">
         <div class="navbar">
             <a class="button upperL" href="managerAdd.jsp">我要排程</a>
             <a class="button upperR" href="managerSearch.jsp">查詢行程</a>
-            <a class="button bottom" href="manager.jsp">回到行動助理</a>
         </div>
     </div>
     <div class="content">
@@ -70,7 +69,7 @@ String[] split_line = new String[1];
 			}
 			%>
     	</div>
-    <div class="footer">
+    <div class="footer" style="margin-bottom: 62px;">
         臺北商業大學 夜四技資四甲專題 N109405<br>
         Copyright©2020 建議使用手機瀏覽並使用最新Chrome或Firefox<br>
     </div>
