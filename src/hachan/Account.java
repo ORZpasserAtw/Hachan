@@ -30,7 +30,7 @@ public class Account extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
     
-    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
         doPost(request, response);
     }
     
@@ -38,32 +38,33 @@ public class Account extends HttpServlet {
 		// TODO Auto-generated method stub
 		Date date = new Date();
 		
-		if (request.getParameter("new") != null && 
-				request.getParameter("accountName") != "" && 
-				request.getParameter("accountMoney") != "" && 
-				Long.parseLong(request.getParameter("accountMoney")) <= 2147483647 && 
-				Long.parseLong(request.getParameter("accountMoney")) >= 0) {
-			Cookie NewListN = new Cookie("accountId_"+Integer.toHexString(date.hashCode()), 
-					request.getParameter("accountDate")+"|"+
-					request.getParameter("accountCat")+"|"+
-					URLEncoder.encode(request.getParameter("accountName"),"ISO-8859-1")+"|"+
-					request.getParameter("accountMoney")
-					);
-			response.addCookie(NewListN);
+		if (request.getParameter("new") != null && request.getParameter("accountName") != "" && request.getParameter("accountMoney") != "") {
+			try {
+				Integer.parseInt(request.getParameter("accountMoney"));
+				Cookie NewListN = new Cookie("accountId_"+Integer.toHexString(date.hashCode()), 
+						request.getParameter("accountDate")+"|"+
+						request.getParameter("accountCat")+"|"+
+						URLEncoder.encode(request.getParameter("accountName"),"ISO-8859-1")+"|"+
+						request.getParameter("accountMoney")
+						);
+				response.addCookie(NewListN);
+			}catch (NumberFormatException e) {
+				
+			}
 		}
-		if(request.getParameter("mod") != null && 
-				request.getParameter("mod").contains("Y") && 
-				request.getParameter("accountName") != "" &&
-				request.getParameter("accountMoney") != ""  && 
-				Long.parseLong(request.getParameter("accountMoney")) <= 2147483647 && 
-				Long.parseLong(request.getParameter("accountMoney")) >= 0){
-			Cookie NewListN = new Cookie(request.getParameter("accountId"), 
-					request.getParameter("accountDate")+"|"+
-					request.getParameter("accountCat")+"|"+
-					URLEncoder.encode(request.getParameter("accountName"),"ISO-8859-1")+"|"+
-					request.getParameter("accountMoney")
-					);
-			response.addCookie(NewListN);
+		if(request.getParameter("mod") != null && request.getParameter("mod").contains("Y") && request.getParameter("accountName") != "" &&request.getParameter("accountMoney") != ""){
+			try {
+				Integer.parseInt(request.getParameter("accountMoney"));
+				Cookie NewListN = new Cookie(request.getParameter("accountId"), 
+						request.getParameter("accountDate")+"|"+
+						request.getParameter("accountCat")+"|"+
+						URLEncoder.encode(request.getParameter("accountName"),"ISO-8859-1")+"|"+
+						request.getParameter("accountMoney")
+						);
+				response.addCookie(NewListN);
+			}catch (NumberFormatException e) {
+				
+			}
 		}
 		if(request.getParameter("del") != null &&
 				request.getParameter("del").contains("Y") &&
