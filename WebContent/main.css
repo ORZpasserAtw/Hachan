@@ -458,7 +458,7 @@ div.travelshow p{
     width: 100%;
 }
 
-div.travelshow p a{
+div.travelshow a{
     text-decoration: none;
     font-size: 80%;
     line-height: 44px;
@@ -467,13 +467,16 @@ div.travelshow p a{
     color: #05868E;
     border-radius: 100%;
     box-sizing: border-box;
-    padding: 0 50px
 }
-div.travelshow p a:hover{
+div.travelshow  a:hover{
     color: #2C9199;
 }
-div.travelshow p a:active{
+div.travelshow a:active{
     color: #006975;
+}
+div.travelshow a p::first-line{
+    color: #000;
+    font-weight: normal;
 }
 
 div.content img[src="img/notice.png"]{
