@@ -38,11 +38,7 @@
 		
 		<div class="separate2 cardview">
 			<form action="Manager" method="post" id="Manager">
-				<div class=separate3>
-	                <label>提醒</label>
-	                <label><input type="radio" name="managerRemind" value="Y">是</label>
-	                <label><input type="radio" name="managerRemind" value="N" checked>否</label>
-	            </div>
+	            <input type="hidden" name="managerRemind" value="N" checked>
 	            <div class=separate2>
 	                <label>
 	                    <div>選擇日期：</div><br>

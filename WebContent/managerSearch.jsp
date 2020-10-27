@@ -1,5 +1,5 @@
 <%@ page language="java" pageEncoding="UTF-8" %>
-<jsp:directive.page import="java.net.URLDecoder,java.io.*,java.text.ParseException,java.util.Date,java.util.Calendar,java.text.DateFormat,java.text.SimpleDateFormat"/>
+<jsp:directive.page import="java.net.URLDecoder,java.io.*,java.text.ParseException,java.util.Date,java.util.Calendar,java.util.ArrayList,java.util.Collections,java.text.DateFormat,java.text.SimpleDateFormat"/>
 <!doctype html>
 <html>
 
@@ -92,11 +92,7 @@ Date lastDayOfMonth = cal.getTime();
 			}else{
 				out.println("<div class=\"separate2 cardview managerId\" onclick=\"location.href='managerModify.jsp?managerId="+cookieName+"'\">");
 			}
-			if (split_line[0].contains("Y")){
-				out.println("<form action=\"Manager\" method=\"post\" id=\"Manager\" style=\"border: 4px #FF0000 dashed;\">");
-			}else{
-				out.println("<form action=\"Manager\" method=\"post\" id=\"Manager\">");
-			}
+			out.println("<form action=\"Manager\" method=\"post\" id=\"Manager\">");
 			out.println("<label>");
 			out.println("<div>日期：</div><br>");
 			out.println("<div><input disabled type=\"date\" name=\"date\" value=" + split_line[1] + "></div><br>");
@@ -132,6 +128,7 @@ Date lastDayOfMonth = cal.getTime();
 		<%
 		if (request.getCookies() != null) {
 			if(request.getParameterMap().containsKey("date")){
+				ArrayList<String[]> CookieList = new ArrayList<String[]>();
 				if (request.getParameter("date").contains("All")){
 					for (Cookie cookie : request.getCookies()) {
 						String cookieName = URLDecoder.decode(cookie.getName(), "UTF-8");
@@ -139,8 +136,11 @@ Date lastDayOfMonth = cal.getTime();
 						split_line = cookie.getValue().split("\\|");
 						if (cookieName.contains("managerId_")) {
 							printManagerCard(request,out,cookieName,split_line);
+							CookieList.add(split_line);
 						}
 					}
+					
+					System.out.println(CookieList);
 				}else if(request.getParameter("date").contains("Month")){
 					for (Cookie cookie : request.getCookies()) {
 						String cookieName = URLDecoder.decode(cookie.getName(), "UTF-8");

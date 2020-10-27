@@ -47,18 +47,7 @@
 		<div class="separate2 cardview">
 			<form action="Manager" method="post" id="Manager">
 				<input type="hidden" name="managerId" value=<%= target %>>
-				<div class=separate3>
-	                <label>提醒</label>
-	                 <%
-	                 if (split_line[0].equals("Y")){
-	                	 out.println("<label><input type=\"radio\" name=\"managerRemind\" value=\"Y\" checked>是</label>");
-	                	 out.println("<label><input type=\"radio\" name=\"managerRemind\" value=\"N\">否</label>");
-	                 } else {
-	                	 out.println("<label><input type=\"radio\" name=\"managerRemind\" value=\"Y\">是</label>");
-	                	 out.println("<label><input type=\"radio\" name=\"managerRemind\" value=\"N\" checked>否</label>");
-	                 }
-	                 %>
-	            </div>
+	            <input type="hidden" name="managerRemind" value="N" checked>
 	            <div class=separate2>
 	                <label>
 	                    <div>選擇日期：</div><br>
