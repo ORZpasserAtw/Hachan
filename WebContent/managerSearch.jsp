@@ -1,5 +1,5 @@
 <%@ page language="java" pageEncoding="UTF-8" %>
-<jsp:directive.page import="java.net.URLDecoder,java.io.*,java.text.ParseException,java.util.Date,java.util.Calendar,java.util.ArrayList,java.util.Collections,java.text.DateFormat,java.text.SimpleDateFormat"/>
+<jsp:directive.page import="java.net.URLDecoder,java.io.*,java.text.ParseException,java.util.Date,java.util.Calendar,java.util.ArrayList,java.util.Arrays,java.util.Comparator,java.util.Collections,java.text.DateFormat,java.text.SimpleDateFormat"/>
 <!doctype html>
 <html>
 
@@ -127,20 +127,27 @@ Date lastDayOfMonth = cal.getTime();
 		%>
 		<%
 		if (request.getCookies() != null) {
+			ArrayList<ArrayList<String>> CookieList = new ArrayList<ArrayList<String>>();
 			if(request.getParameterMap().containsKey("date")){
-				ArrayList<String[]> CookieList = new ArrayList<String[]>();
 				if (request.getParameter("date").contains("All")){
 					for (Cookie cookie : request.getCookies()) {
 						String cookieName = URLDecoder.decode(cookie.getName(), "UTF-8");
 						String cookieValue = URLDecoder.decode(cookie.getValue(), "UTF-8");
 						split_line = cookie.getValue().split("\\|");
 						if (cookieName.contains("managerId_")) {
-							printManagerCard(request,out,cookieName,split_line);
-							CookieList.add(split_line);
+							if(split_line.length >= 5){
+								CookieList.add(new ArrayList<String>(Arrays.asList(cookieName,split_line[0],split_line[1],split_line[2],split_line[3],split_line[4])));
+							}else{
+								CookieList.add(new ArrayList<String>(Arrays.asList(cookieName,split_line[0],split_line[1],split_line[2],split_line[3])));
+							}
 						}
 					}
-					
-					System.out.println(CookieList);
+					Collections.sort(CookieList, new Comparator<ArrayList<String>>() {    
+				        @Override
+				        public int compare(ArrayList<String> o1, ArrayList<String> o2) {
+				            return o1.get(2).compareTo(o2.get(2));
+				        }               
+				    });
 				}else if(request.getParameter("date").contains("Month")){
 					for (Cookie cookie : request.getCookies()) {
 						String cookieName = URLDecoder.decode(cookie.getName(), "UTF-8");
@@ -149,10 +156,20 @@ Date lastDayOfMonth = cal.getTime();
 						if (cookieName.contains("managerId_")) {
 							Date d = new SimpleDateFormat("yyyy-MM-dd").parse(split_line[1]);
 							if (d.getTime() >= firstDayOfMonth.getTime() && d.getTime() <= lastDayOfMonth.getTime()){
-								printManagerCard(request,out,cookieName,split_line);
+								if(split_line.length >= 5){
+									CookieList.add(new ArrayList<String>(Arrays.asList(cookieName,split_line[0],split_line[1],split_line[2],split_line[3],split_line[4])));
+								}else{
+									CookieList.add(new ArrayList<String>(Arrays.asList(cookieName,split_line[0],split_line[1],split_line[2],split_line[3])));
+								}
 							}
 						}
 					}
+					Collections.sort(CookieList, new Comparator<ArrayList<String>>() {    
+				        @Override
+				        public int compare(ArrayList<String> o1, ArrayList<String> o2) {
+				            return o1.get(2).compareTo(o2.get(2));
+				        }               
+				    });
       			}else if(request.getParameter("date").contains("Week")){
       				for (Cookie cookie : request.getCookies()) {
 						String cookieName = URLDecoder.decode(cookie.getName(), "UTF-8");
@@ -161,19 +178,39 @@ Date lastDayOfMonth = cal.getTime();
 						if (cookieName.contains("managerId_")) {
 							Date d = new SimpleDateFormat("yyyy-MM-dd").parse(split_line[1]);
 							if (d.getTime() >= firstDayOfWeek.getTime() && d.getTime() <= lastDayOfWeek.getTime()){
-								printManagerCard(request,out,cookieName,split_line);
+								if(split_line.length >= 5){
+									CookieList.add(new ArrayList<String>(Arrays.asList(cookieName,split_line[0],split_line[1],split_line[2],split_line[3],split_line[4])));
+								}else{
+									CookieList.add(new ArrayList<String>(Arrays.asList(cookieName,split_line[0],split_line[1],split_line[2],split_line[3])));
+								}
 							}
 						}
 					}
+      				Collections.sort(CookieList, new Comparator<ArrayList<String>>() {    
+				        @Override
+				        public int compare(ArrayList<String> o1, ArrayList<String> o2) {
+				            return o1.get(2).compareTo(o2.get(2));
+				        }               
+				    });
       			}else if(request.getParameter("date").contains("Today")){
       				for (Cookie cookie : request.getCookies()) {
 						String cookieName = URLDecoder.decode(cookie.getName(), "UTF-8");
 						String cookieValue = URLDecoder.decode(cookie.getValue(), "UTF-8");
 						split_line = cookie.getValue().split("\\|");
 						if (cookieName.contains("managerId_") && split_line[1].equals(new SimpleDateFormat("yyyy-MM-dd").format(new Date()))) {
-							printManagerCard(request,out,cookieName,split_line);
+							if(split_line.length >= 5){
+								CookieList.add(new ArrayList<String>(Arrays.asList(cookieName,split_line[0],split_line[1],split_line[2],split_line[3],split_line[4])));
+							}else{
+								CookieList.add(new ArrayList<String>(Arrays.asList(cookieName,split_line[0],split_line[1],split_line[2],split_line[3])));
+							}
 						}
 					}
+      				Collections.sort(CookieList, new Comparator<ArrayList<String>>() {    
+				        @Override
+				        public int compare(ArrayList<String> o1, ArrayList<String> o2) {
+				            return o1.get(3).compareTo(o2.get(3));
+				        }               
+				    });
       			}
 			}else{
 				for (Cookie cookie : request.getCookies()) {
@@ -181,10 +218,27 @@ Date lastDayOfMonth = cal.getTime();
 					String cookieValue = URLDecoder.decode(cookie.getValue(), "UTF-8");
 					split_line = cookie.getValue().split("\\|");
 					if (cookieName.contains("managerId_") && split_line[1].equals(new SimpleDateFormat("yyyy-MM-dd").format(new Date()))) {
-						printManagerCard(request,out,cookieName,split_line);
+						if(split_line.length >= 5){
+							CookieList.add(new ArrayList<String>(Arrays.asList(cookieName,split_line[0],split_line[1],split_line[2],split_line[3],split_line[4])));
+						}else{
+							CookieList.add(new ArrayList<String>(Arrays.asList(cookieName,split_line[0],split_line[1],split_line[2],split_line[3])));
+						}
 					}
 				}
+				Collections.sort(CookieList, new Comparator<ArrayList<String>>() {    
+			        @Override
+			        public int compare(ArrayList<String> o1, ArrayList<String> o2) {
+			            return o1.get(3).compareTo(o2.get(3));
+			        }               
+			    });
 			}
+			for(int i = 0; i < CookieList.size(); i++) {
+				if (CookieList.get(i).size() >= 6){
+					printManagerCard(request,out,CookieList.get(i).get(0),new String[] {CookieList.get(i).get(1),CookieList.get(i).get(2),CookieList.get(i).get(3),CookieList.get(i).get(4),CookieList.get(i).get(5)});
+				} else {
+					printManagerCard(request,out,CookieList.get(i).get(0),new String[] {CookieList.get(i).get(1),CookieList.get(i).get(2),CookieList.get(i).get(3),CookieList.get(i).get(4)});
+				}
+		    }
 		}
 		%>
     </div>
