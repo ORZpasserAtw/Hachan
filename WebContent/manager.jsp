@@ -42,8 +42,13 @@ String[] split_line = new String[1];
 				Collections.sort(CookieList, new Comparator<ArrayList<String>>() {    
 			        @Override
 			        public int compare(ArrayList<String> o1, ArrayList<String> o2) {
-			            return o1.get(3).compareTo(o2.get(3));
-			        }               
+			        	System.out.print(o1.get(3) + o1.get(4) + o2.get(3) + o2.get(4));
+			        	int c;
+				        c = o1.get(3).compareTo(o2.get(3));
+				        if (c == 0)
+				           c = o1.get(4).compareTo(o2.get(4));
+				        return c;
+			        }
 			    });
 				for(int i = 0; i < CookieList.size(); i++) {
 					out.println("<div class=\"separate2 cardview managerId\">");

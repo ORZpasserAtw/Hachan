@@ -142,12 +142,6 @@ Date lastDayOfMonth = cal.getTime();
 							}
 						}
 					}
-					Collections.sort(CookieList, new Comparator<ArrayList<String>>() {    
-				        @Override
-				        public int compare(ArrayList<String> o1, ArrayList<String> o2) {
-				            return o1.get(2).compareTo(o2.get(2));
-				        }               
-				    });
 				}else if(request.getParameter("date").contains("Month")){
 					for (Cookie cookie : request.getCookies()) {
 						String cookieName = URLDecoder.decode(cookie.getName(), "UTF-8");
@@ -164,12 +158,6 @@ Date lastDayOfMonth = cal.getTime();
 							}
 						}
 					}
-					Collections.sort(CookieList, new Comparator<ArrayList<String>>() {    
-				        @Override
-				        public int compare(ArrayList<String> o1, ArrayList<String> o2) {
-				            return o1.get(2).compareTo(o2.get(2));
-				        }               
-				    });
       			}else if(request.getParameter("date").contains("Week")){
       				for (Cookie cookie : request.getCookies()) {
 						String cookieName = URLDecoder.decode(cookie.getName(), "UTF-8");
@@ -186,12 +174,6 @@ Date lastDayOfMonth = cal.getTime();
 							}
 						}
 					}
-      				Collections.sort(CookieList, new Comparator<ArrayList<String>>() {    
-				        @Override
-				        public int compare(ArrayList<String> o1, ArrayList<String> o2) {
-				            return o1.get(2).compareTo(o2.get(2));
-				        }               
-				    });
       			}else if(request.getParameter("date").contains("Today")){
       				for (Cookie cookie : request.getCookies()) {
 						String cookieName = URLDecoder.decode(cookie.getName(), "UTF-8");
@@ -205,12 +187,6 @@ Date lastDayOfMonth = cal.getTime();
 							}
 						}
 					}
-      				Collections.sort(CookieList, new Comparator<ArrayList<String>>() {    
-				        @Override
-				        public int compare(ArrayList<String> o1, ArrayList<String> o2) {
-				            return o1.get(3).compareTo(o2.get(3));
-				        }               
-				    });
       			}
 			}else{
 				for (Cookie cookie : request.getCookies()) {
@@ -225,13 +201,18 @@ Date lastDayOfMonth = cal.getTime();
 						}
 					}
 				}
-				Collections.sort(CookieList, new Comparator<ArrayList<String>>() {    
-			        @Override
-			        public int compare(ArrayList<String> o1, ArrayList<String> o2) {
-			            return o1.get(3).compareTo(o2.get(3));
-			        }               
-			    });
 			}
+			Collections.sort(CookieList, new Comparator<ArrayList<String>>() {    
+		        @Override
+		        public int compare(ArrayList<String> o1, ArrayList<String> o2) {
+		        	System.out.print(o1.get(3) + o1.get(4) + o2.get(3) + o2.get(4));
+		        	int c;
+			        c = o1.get(3).compareTo(o2.get(3));
+			        if (c == 0)
+			           c = o1.get(4).compareTo(o2.get(4));
+			        return c;
+		        }
+		    });
 			for(int i = 0; i < CookieList.size(); i++) {
 				if (CookieList.get(i).size() >= 6){
 					printManagerCard(request,out,CookieList.get(i).get(0),new String[] {CookieList.get(i).get(1),CookieList.get(i).get(2),CookieList.get(i).get(3),CookieList.get(i).get(4),CookieList.get(i).get(5)});
