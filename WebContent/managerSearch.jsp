@@ -205,11 +205,11 @@ Date lastDayOfMonth = cal.getTime();
 			Collections.sort(CookieList, new Comparator<ArrayList<String>>() {    
 		        @Override
 		        public int compare(ArrayList<String> o1, ArrayList<String> o2) {
-		        	System.out.print(o1.get(3) + o1.get(4) + o2.get(3) + o2.get(4));
+		        	//System.out.print(o1.get(2) + o2.get(2) + "X"+ o2.get(3) + o1.get(3));
 		        	int c;
-			        c = o1.get(3).compareTo(o2.get(3));
+			        c = o1.get(2).compareTo(o2.get(2));
 			        if (c == 0)
-			           c = o1.get(4).compareTo(o2.get(4));
+			           c = o1.get(3).compareTo(o2.get(3));
 			        return c;
 		        }
 		    });
