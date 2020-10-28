@@ -42,7 +42,7 @@ String[] split_line = new String[1];
 				Collections.sort(CookieList, new Comparator<ArrayList<String>>() {    
 			        @Override
 			        public int compare(ArrayList<String> o1, ArrayList<String> o2) {
-			        	System.out.print(o1.get(2) + o2.get(2) + "X"+ o2.get(3) + o1.get(3));
+			        	//System.out.print(o1.get(2) + o2.get(2) + "X"+ o2.get(3) + o1.get(3));
 			        	int c;
 				        c = o1.get(2).compareTo(o2.get(2));
 				        if (c == 0)
