@@ -28,14 +28,20 @@ for (int i = 0; i<=6; i++)
 }
 Date lastDayOfWeek = cal.getTime();
 
-cal.setTime(new Date());
-cal.set(Calendar.DAY_OF_MONTH, cal.getActualMinimum(Calendar.DAY_OF_MONTH));
-Date firstDayOfMonthFake = cal.getTime();
-cal.add(Calendar.DATE, -1);
-Date firstDayOfMonth = cal.getTime();
-cal.add(Calendar.DATE, 1);
-cal.set(Calendar.DAY_OF_MONTH, cal.getActualMaximum(Calendar.DAY_OF_MONTH));
-Date lastDayOfMonth = cal.getTime();
+Date [] firstDayOfMonthAFake = new Date[12];
+Date [] firstDayOfMonthA = new Date[12];
+Date [] lastDayOfMonthA = new Date[12];
+for (int i = 0; i <= 11; i++) {
+    cal.setTime(new Date());
+    cal.add(Calendar.MONTH, 6-i);
+    cal.set(Calendar.DAY_OF_MONTH, cal.getActualMinimum(Calendar.DAY_OF_MONTH));
+    firstDayOfMonthAFake[i] = cal.getTime();
+    cal.add(Calendar.DATE, -1);
+    firstDayOfMonthA[i] = cal.getTime();
+    cal.add(Calendar.DATE, 1);
+    cal.set(Calendar.DAY_OF_MONTH, cal.getActualMaximum(Calendar.DAY_OF_MONTH));
+    lastDayOfMonthA[i] = cal.getTime();
+	}
 %>
 <body>
     <div class="header-low">
@@ -55,28 +61,42 @@ Date lastDayOfMonth = cal.getTime();
 		              				if (request.getParameter("date").contains("All")){
 			              				out.println("<option value=\"Today\">今天 "+dateformat.format(new Date())+"</option>");
 			              				out.println("<option value=\"Week\">本週 "+dateformat.format(firstDayOfWeekFake)+"~"+dateformat.format(lastDayOfWeek)+"</option>");
-			              				out.println("<option value=\"Month\">本月 "+dateformat.format(firstDayOfMonthFake)+"~"+dateformat.format(lastDayOfMonth)+"</option>");
+			              				for (int i = 0; i <= 11; i++) {
+			              					out.println("<option value=\"Month"+i+"\">"+dateformat.format(firstDayOfMonthAFake[i])+"~"+dateformat.format(lastDayOfMonthA[i])+"</option>");
+			              				}
 			              				out.println("<option selected value=\"All\">全部</option>");
 			              			}else if(request.getParameter("date").contains("Month")){
 			              				out.println("<option value=\"Today\">今天 "+dateformat.format(new Date())+"</option>");
 			              				out.println("<option value=\"Week\">本週 "+dateformat.format(firstDayOfWeekFake)+"~"+dateformat.format(lastDayOfWeek)+"</option>");
-			              				out.println("<option selected value=\"Month\">本月 "+dateformat.format(firstDayOfMonthFake)+"~"+dateformat.format(lastDayOfMonth)+"</option>");
+			              				for (int i = 0; i <= 11; i++) {
+			              					if (request.getParameter("date").replaceAll("[^\\d.]", "").equals(i+"")){
+			              						out.println("<option selected value=\"Month"+i+"\">"+dateformat.format(firstDayOfMonthAFake[i])+"~"+dateformat.format(lastDayOfMonthA[i])+"</option>");
+			              					}else{
+			              						out.println("<option value=\"Month"+i+"\">"+dateformat.format(firstDayOfMonthAFake[i])+"~"+dateformat.format(lastDayOfMonthA[i])+"</option>");
+			              					}
+			              				}
 			              				out.println("<option value=\"All\">全部</option>");
 			              			}else if(request.getParameter("date").contains("Week")){
 			              				out.println("<option value=\"Today\">今天 "+dateformat.format(new Date())+"</option>");
 			              				out.println("<option selected value=\"Week\">本週 "+dateformat.format(firstDayOfWeekFake)+"~"+dateformat.format(lastDayOfWeek)+"</option>");
-			              				out.println("<option value=\"Month\">本月 "+dateformat.format(firstDayOfMonthFake)+"~"+dateformat.format(lastDayOfMonth)+"</option>");
+			              				for (int i = 0; i <= 11; i++) {
+			              					out.println("<option value=\"Month"+i+"\">"+dateformat.format(firstDayOfMonthAFake[i])+"~"+dateformat.format(lastDayOfMonthA[i])+"</option>");
+			              				}
 			              				out.println("<option value=\"All\">全部</option>");
 			              			}else if(request.getParameter("date").contains("Today")){
 			              				out.println("<option selected value=\"Today\">今天 "+dateformat.format(new Date())+"</option>");
 			              				out.println("<option value=\"Week\">本週 "+dateformat.format(firstDayOfWeekFake)+"~"+dateformat.format(lastDayOfWeek)+"</option>");
-			              				out.println("<option value=\"Month\">本月 "+dateformat.format(firstDayOfMonthFake)+"~"+dateformat.format(lastDayOfMonth)+"</option>");
+			              				for (int i = 0; i <= 11; i++) {
+			              					out.println("<option value=\"Month"+i+"\">"+dateformat.format(firstDayOfMonthAFake[i])+"~"+dateformat.format(lastDayOfMonthA[i])+"</option>");
+			              				}
 			              				out.println("<option value=\"All\">全部</option>");
 			              			}
 		              			}else{
 		              				out.println("<option selected value=\"Today\">今天 "+dateformat.format(new Date())+"</option>");
 		              				out.println("<option value=\"Week\">本週 "+dateformat.format(firstDayOfWeekFake)+"~"+dateformat.format(lastDayOfWeek)+"</option>");
-		              				out.println("<option value=\"Month\">本月 "+dateformat.format(firstDayOfMonthFake)+"~"+dateformat.format(lastDayOfMonth)+"</option>");
+		              				for (int i = 0; i <= 11; i++) {
+		              					out.println("<option value=\"Month"+i+"\">"+dateformat.format(firstDayOfMonthAFake[i])+"~"+dateformat.format(lastDayOfMonthA[i])+"</option>");
+		              				}
 		              				out.println("<option value=\"All\">全部</option>");
 		              			}
 		              			%>
@@ -143,13 +163,14 @@ Date lastDayOfMonth = cal.getTime();
 						}
 					}
 				}else if(request.getParameter("date").contains("Month")){
+					int i = Integer.parseInt(request.getParameter("date").replaceAll("[^\\d.]", ""));
 					for (Cookie cookie : request.getCookies()) {
 						String cookieName = URLDecoder.decode(cookie.getName(), "UTF-8");
 						String cookieValue = URLDecoder.decode(cookie.getValue(), "UTF-8");
 						split_line = cookie.getValue().split("\\|");
 						if (cookieName.contains("managerId_")) {
 							Date d = new SimpleDateFormat("yyyy-MM-dd").parse(split_line[1]);
-							if (d.getTime() >= firstDayOfMonth.getTime() && d.getTime() <= lastDayOfMonth.getTime()){
+							if (d.getTime() >= firstDayOfMonthA[i].getTime() && d.getTime() <= lastDayOfMonthA[i].getTime()){
 								if(split_line.length >= 5){
 									CookieList.add(new ArrayList<String>(Arrays.asList(cookieName,split_line[0],split_line[1],split_line[2],split_line[3],split_line[4])));
 								}else{
