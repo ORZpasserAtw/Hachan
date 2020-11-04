@@ -246,13 +246,19 @@ form select option{
 
 form select option[value="A"], form select option[value="B"], form select option[value="C"], 
 form select option[value="D"], form select option[value="D"], form select option[value="E"], 
-form select option[value="F"] {
+form select option[value="F"]{
 	background: #F8E59A;
 }
 form select option[value="Z"]{
 	background: #ADDC91;
 }
 
+form select.TravelPri option{
+	background: #EEE;
+}
+form select.TravelSub option{
+	background: #DDD;
+}
 
 form textarea{
     font-size: 100%;
