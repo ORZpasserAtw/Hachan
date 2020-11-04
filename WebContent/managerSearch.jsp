@@ -31,7 +31,7 @@ Date lastDayOfWeek = cal.getTime();
 Date [] firstDayOfMonthAFake = new Date[12];
 Date [] firstDayOfMonthA = new Date[12];
 Date [] lastDayOfMonthA = new Date[12];
-for (int i = 0; i <= 11; i++) {
+for (int i = 11; i >= 0; i--) {
     cal.setTime(new Date());
     cal.add(Calendar.MONTH, 6-i);
     cal.set(Calendar.DAY_OF_MONTH, cal.getActualMinimum(Calendar.DAY_OF_MONTH));
@@ -61,14 +61,14 @@ for (int i = 0; i <= 11; i++) {
 		              				if (request.getParameter("date").contains("All")){
 			              				out.println("<option value=\"Today\">今天 "+dateformat.format(new Date())+"</option>");
 			              				out.println("<option value=\"Week\">本週 "+dateformat.format(firstDayOfWeekFake)+"~"+dateformat.format(lastDayOfWeek)+"</option>");
-			              				for (int i = 0; i <= 11; i++) {
+			              				for (int i = 11; i >= 0; i--) {
 			              					out.println("<option value=\"Month"+i+"\">"+dateformat.format(firstDayOfMonthAFake[i])+"~"+dateformat.format(lastDayOfMonthA[i])+"</option>");
 			              				}
 			              				out.println("<option selected value=\"All\">全部</option>");
 			              			}else if(request.getParameter("date").contains("Month")){
 			              				out.println("<option value=\"Today\">今天 "+dateformat.format(new Date())+"</option>");
 			              				out.println("<option value=\"Week\">本週 "+dateformat.format(firstDayOfWeekFake)+"~"+dateformat.format(lastDayOfWeek)+"</option>");
-			              				for (int i = 0; i <= 11; i++) {
+			              				for (int i = 11; i >= 0; i--) {
 			              					if (request.getParameter("date").replaceAll("[^\\d.]", "").equals(i+"")){
 			              						out.println("<option selected value=\"Month"+i+"\">"+dateformat.format(firstDayOfMonthAFake[i])+"~"+dateformat.format(lastDayOfMonthA[i])+"</option>");
 			              					}else{
@@ -79,14 +79,14 @@ for (int i = 0; i <= 11; i++) {
 			              			}else if(request.getParameter("date").contains("Week")){
 			              				out.println("<option value=\"Today\">今天 "+dateformat.format(new Date())+"</option>");
 			              				out.println("<option selected value=\"Week\">本週 "+dateformat.format(firstDayOfWeekFake)+"~"+dateformat.format(lastDayOfWeek)+"</option>");
-			              				for (int i = 0; i <= 11; i++) {
+			              				for (int i = 11; i >= 0; i--) {
 			              					out.println("<option value=\"Month"+i+"\">"+dateformat.format(firstDayOfMonthAFake[i])+"~"+dateformat.format(lastDayOfMonthA[i])+"</option>");
 			              				}
 			              				out.println("<option value=\"All\">全部</option>");
 			              			}else if(request.getParameter("date").contains("Today")){
 			              				out.println("<option selected value=\"Today\">今天 "+dateformat.format(new Date())+"</option>");
 			              				out.println("<option value=\"Week\">本週 "+dateformat.format(firstDayOfWeekFake)+"~"+dateformat.format(lastDayOfWeek)+"</option>");
-			              				for (int i = 0; i <= 11; i++) {
+			              				for (int i = 11; i >= 0; i--) {
 			              					out.println("<option value=\"Month"+i+"\">"+dateformat.format(firstDayOfMonthAFake[i])+"~"+dateformat.format(lastDayOfMonthA[i])+"</option>");
 			              				}
 			              				out.println("<option value=\"All\">全部</option>");
@@ -94,7 +94,7 @@ for (int i = 0; i <= 11; i++) {
 		              			}else{
 		              				out.println("<option selected value=\"Today\">今天 "+dateformat.format(new Date())+"</option>");
 		              				out.println("<option value=\"Week\">本週 "+dateformat.format(firstDayOfWeekFake)+"~"+dateformat.format(lastDayOfWeek)+"</option>");
-		              				for (int i = 0; i <= 11; i++) {
+		              				for (int i = 11; i >= 0; i--) {
 		              					out.println("<option value=\"Month"+i+"\">"+dateformat.format(firstDayOfMonthAFake[i])+"~"+dateformat.format(lastDayOfMonthA[i])+"</option>");
 		              				}
 		              				out.println("<option value=\"All\">全部</option>");
