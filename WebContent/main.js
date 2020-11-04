@@ -65,6 +65,16 @@ function TravelIndexChange() {
         sessionStorage.setItem("travelIndex", "NS3");
     }
 
+    if (document.getElementById("TravelPri").selectedIndex === 1 && document.getElementById("TravelSub").selectedIndex === 3 && sessionStorage.getItem("Hate") === "1") {
+        sessionStorage.setItem("travelIndex", "NO1");
+    }
+    if (document.getElementById("TravelPri").selectedIndex === 1 && document.getElementById("TravelSub").selectedIndex === 3 && sessionStorage.getItem("Hate") === "2") {
+        sessionStorage.setItem("travelIndex", "NO2");
+    }
+    if (document.getElementById("TravelPri").selectedIndex === 1 && document.getElementById("TravelSub").selectedIndex === 3 && sessionStorage.getItem("Hate") === "3") {
+        sessionStorage.setItem("travelIndex", "NO3");
+    }
+
     if (document.getElementById("TravelPri").selectedIndex === 2 && document.getElementById("TravelSub").selectedIndex === 1 && sessionStorage.getItem("Hate") === "1") {
         sessionStorage.setItem("travelIndex", "MA1");
     }
@@ -83,6 +93,16 @@ function TravelIndexChange() {
     }
     if (document.getElementById("TravelPri").selectedIndex === 2 && document.getElementById("TravelSub").selectedIndex === 2 && sessionStorage.getItem("Hate") === "3") {
         sessionStorage.setItem("travelIndex", "MS3");
+    }
+
+    if (document.getElementById("TravelPri").selectedIndex === 2 && document.getElementById("TravelSub").selectedIndex === 3 && sessionStorage.getItem("Hate") === "1") {
+        sessionStorage.setItem("travelIndex", "MO1");
+    }
+    if (document.getElementById("TravelPri").selectedIndex === 2 && document.getElementById("TravelSub").selectedIndex === 3 && sessionStorage.getItem("Hate") === "2") {
+        sessionStorage.setItem("travelIndex", "MO2");
+    }
+    if (document.getElementById("TravelPri").selectedIndex === 2 && document.getElementById("TravelSub").selectedIndex === 3 && sessionStorage.getItem("Hate") === "3") {
+        sessionStorage.setItem("travelIndex", "MO3");
     }
 
     if (document.getElementById("TravelPri").selectedIndex === 3 && document.getElementById("TravelSub").selectedIndex === 1 && sessionStorage.getItem("Hate") === "1") {
@@ -105,6 +125,16 @@ function TravelIndexChange() {
         sessionStorage.setItem("travelIndex", "SS3");
     }
 
+    if (document.getElementById("TravelPri").selectedIndex === 3 && document.getElementById("TravelSub").selectedIndex === 3 && sessionStorage.getItem("Hate") === "1") {
+        sessionStorage.setItem("travelIndex", "SO1");
+    }
+    if (document.getElementById("TravelPri").selectedIndex === 3 && document.getElementById("TravelSub").selectedIndex === 3 && sessionStorage.getItem("Hate") === "2") {
+        sessionStorage.setItem("travelIndex", "SO2");
+    }
+    if (document.getElementById("TravelPri").selectedIndex === 3 && document.getElementById("TravelSub").selectedIndex === 3 && sessionStorage.getItem("Hate") === "3") {
+        sessionStorage.setItem("travelIndex", "SO3");
+    }
+
     if (document.getElementById("TravelPri").selectedIndex === 4 && document.getElementById("TravelSub").selectedIndex === 1 && sessionStorage.getItem("Hate") === "1") {
         sessionStorage.setItem("travelIndex", "EA1");
     }
@@ -123,6 +153,16 @@ function TravelIndexChange() {
     }
     if (document.getElementById("TravelPri").selectedIndex === 4 && document.getElementById("TravelSub").selectedIndex === 2 && sessionStorage.getItem("Hate") === "3") {
         sessionStorage.setItem("travelIndex", "ES3");
+    }
+
+    if (document.getElementById("TravelPri").selectedIndex === 4 && document.getElementById("TravelSub").selectedIndex === 3 && sessionStorage.getItem("Hate") === "1") {
+        sessionStorage.setItem("travelIndex", "EO1");
+    }
+    if (document.getElementById("TravelPri").selectedIndex === 4 && document.getElementById("TravelSub").selectedIndex === 3 && sessionStorage.getItem("Hate") === "2") {
+        sessionStorage.setItem("travelIndex", "EO2");
+    }
+    if (document.getElementById("TravelPri").selectedIndex === 4 && document.getElementById("TravelSub").selectedIndex === 3 && sessionStorage.getItem("Hate") === "3") {
+        sessionStorage.setItem("travelIndex", "EO3");
     }
 
     if (sessionStorage.getItem("travelIndex") !== null) {
