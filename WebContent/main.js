@@ -164,7 +164,44 @@ function TravelIndexChange() {
     if (document.getElementById("TravelPri").selectedIndex === 4 && document.getElementById("TravelSub").selectedIndex === 3 && sessionStorage.getItem("Hate") === "3") {
         sessionStorage.setItem("travelIndex", "EO3");
     }
-
+// 
+    if (document.getElementById("TravelPri").selectedIndex === 1 && document.getElementById("TravelSub").selectedIndex === 4 && sessionStorage.getItem("Hate") === "1") {
+        sessionStorage.setItem("travelIndex", "NP1");
+    }
+    if (document.getElementById("TravelPri").selectedIndex === 1 && document.getElementById("TravelSub").selectedIndex === 4 && sessionStorage.getItem("Hate") === "2") {
+        sessionStorage.setItem("travelIndex", "NP2");
+    }
+    if (document.getElementById("TravelPri").selectedIndex === 1 && document.getElementById("TravelSub").selectedIndex === 4 && sessionStorage.getItem("Hate") === "3") {
+        sessionStorage.setItem("travelIndex", "NP3");
+    }
+    if (document.getElementById("TravelPri").selectedIndex === 2 && document.getElementById("TravelSub").selectedIndex === 4 && sessionStorage.getItem("Hate") === "1") {
+        sessionStorage.setItem("travelIndex", "MP1");
+    }
+    if (document.getElementById("TravelPri").selectedIndex === 2 && document.getElementById("TravelSub").selectedIndex === 4 && sessionStorage.getItem("Hate") === "2") {
+        sessionStorage.setItem("travelIndex", "MP2");
+    }
+    if (document.getElementById("TravelPri").selectedIndex === 2 && document.getElementById("TravelSub").selectedIndex === 4 && sessionStorage.getItem("Hate") === "3") {
+        sessionStorage.setItem("travelIndex", "MP3");
+    }
+    if (document.getElementById("TravelPri").selectedIndex === 3 && document.getElementById("TravelSub").selectedIndex === 4 && sessionStorage.getItem("Hate") === "1") {
+        sessionStorage.setItem("travelIndex", "SP1");
+    }
+    if (document.getElementById("TravelPri").selectedIndex === 3 && document.getElementById("TravelSub").selectedIndex === 4 && sessionStorage.getItem("Hate") === "2") {
+        sessionStorage.setItem("travelIndex", "SP2");
+    }
+    if (document.getElementById("TravelPri").selectedIndex === 3 && document.getElementById("TravelSub").selectedIndex === 4 && sessionStorage.getItem("Hate") === "3") {
+        sessionStorage.setItem("travelIndex", "SP3");
+    }
+    if (document.getElementById("TravelPri").selectedIndex === 4 && document.getElementById("TravelSub").selectedIndex === 4 && sessionStorage.getItem("Hate") === "1") {
+        sessionStorage.setItem("travelIndex", "EP1");
+    }
+    if (document.getElementById("TravelPri").selectedIndex === 4 && document.getElementById("TravelSub").selectedIndex === 4 && sessionStorage.getItem("Hate") === "2") {
+        sessionStorage.setItem("travelIndex", "EP2");
+    }
+    if (document.getElementById("TravelPri").selectedIndex === 4 && document.getElementById("TravelSub").selectedIndex === 4 && sessionStorage.getItem("Hate") === "3") {
+        sessionStorage.setItem("travelIndex", "EP3");
+    }
+// 
     if (sessionStorage.getItem("travelIndex") !== null) {
         $('div.travelshow').hide();
         $('div.navbar a.upperR').hide();
