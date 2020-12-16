@@ -279,7 +279,7 @@ $('select.TravelSub').change(function () {
 
 var customizedFunction = function (info) {
     // direct access to info object
-    sessionStorage.setItem("buttonIndex", info.container.id+info.index);
+    sessionStorage.setItem("buttonIndex", info.container.id+(info.index+1));
     TravelIndexChange();
   }
   
