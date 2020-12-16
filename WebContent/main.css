@@ -450,6 +450,34 @@ div.separate2 br:nth-of-type(even){
     display:block;
 }
 
+.tns-controls [aria-controls]{
+    display:none;
+}
+.tns-controls [disabled] { 
+    color: #999999;
+    background: #B3B3B3; 
+    cursor: not-allowed !important;
+}
+.tns-nav {
+    text-align: center;
+    margin-bottom: 10px;
+    /*float: left;
+    position: absolute;
+    z-index: 999;
+    left: 50%;
+    margin-left: -30px;*/
+}
+.tns-nav > [aria-controls] {
+    width: 10px;
+    height: 10px;
+    padding: 0;
+    margin: 0 5px;
+    border-radius: 50%;
+    background: #ddd;
+    border: 0;
+}
+.tns-nav > .tns-nav-active { background: #999; }
+
 div.travelshow img{
     width: 100%;
     height: auto;

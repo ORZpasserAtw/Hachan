@@ -44,6 +44,7 @@ $("select.typeselector").change(function() {
      $('#filterform').submit();
 });
 
+
 function TravelIndexChange() {
     if (document.getElementById("TravelPri").selectedIndex === 1 && document.getElementById("TravelSub").selectedIndex === 1 && sessionStorage.getItem("Hate") === "1") {
         sessionStorage.setItem("travelIndex", "NA1");
@@ -203,15 +204,63 @@ function TravelIndexChange() {
     }
 // 
     if (sessionStorage.getItem("travelIndex") !== null) {
-        $('div.travelshow').hide();
+        $('div.tns-outer').hide();
+        if (sessionStorage.getItem("travelIndex")==="NA1"){$('#NA-ow').show();}
+        else if (sessionStorage.getItem("travelIndex")==="NS1"){
+            $('#NS-ow').show();
+        }
+        else if (sessionStorage.getItem("travelIndex")==="NO1"){
+            $('#NO-ow').show();
+        }
+        else if (sessionStorage.getItem("travelIndex")==="NP1"){
+            $('#NP-ow').show();
+        }
+        else if (sessionStorage.getItem("travelIndex")==="MA1"){
+            $('#MA-ow').show();
+        }
+        else if (sessionStorage.getItem("travelIndex")==="MS1"){
+            $('#MS-ow').show();
+        }
+        else if (sessionStorage.getItem("travelIndex")==="MO1"){
+            $('#MO-ow').show();
+        }
+        else if (sessionStorage.getItem("travelIndex")==="MP1"){
+            $('#MP-ow').show();
+        }
+        else if (sessionStorage.getItem("travelIndex")==="SA1"){
+            $('#SA-ow').show();
+        }
+        else if (sessionStorage.getItem("travelIndex")==="SS1"){
+            $('#SS-ow').show();
+        }
+        else if (sessionStorage.getItem("travelIndex")==="SO1"){
+            $('#SO-ow').show();
+        }
+        else if (sessionStorage.getItem("travelIndex")==="SP1"){
+            $('#SP-ow').show();
+        }
+        else if (sessionStorage.getItem("travelIndex")==="EA1"){
+            $('#EA-ow').show();
+        }
+        else if (sessionStorage.getItem("travelIndex")==="ES1"){
+            $('#ES-ow').show();
+        }
+        else if (sessionStorage.getItem("travelIndex")==="EO1"){
+            $('#EO-ow').show();
+        }
+        else if (sessionStorage.getItem("travelIndex")==="EP1"){
+            $('#EP-ow').show();
+        }
+        $('#XX').hide();
+       /*  $('div.travelshow').hide();
         $('div.navbar a.upperR').hide();
         $("#"+sessionStorage.getItem("travelIndex")+".travelshow").show();
-        $("#"+sessionStorage.getItem("travelIndex")+".upperR").show();
+        $("#"+sessionStorage.getItem("travelIndex")+".upperR").show(); */
     }else{
-        $('div.travelshow').hide();
-        $('div.travelshow').eq(0).show();
-        $('div.navbar a.upperR').hide();
-        $('div.navbar a.upperR').eq(0).show();
+        $('div.tns-outer').hide();
+        $('#XX').show();
+        /* $('div.navbar a.upperR').hide();
+        $('div.navbar a.upperR').eq(0).show(); */
     }
 }
 
