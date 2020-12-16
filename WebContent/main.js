@@ -75,7 +75,7 @@ function TravelIndexChange() {
         sessionStorage.setItem("travelIndex", "MO");
     }
 
-    if (document.getElementById("TravelPri").selectedIndex === 1 && document.getElementById("TravelSub").selectedIndex === 4) {
+    if (document.getElementById("TravelPri").selectedIndex === 2 && document.getElementById("TravelSub").selectedIndex === 4) {
         sessionStorage.setItem("travelIndex", "MP");
     }
 
