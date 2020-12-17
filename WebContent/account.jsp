@@ -281,7 +281,11 @@ Date lastDayOfMonth = cal.getTime();
 					}
 					%>
 					<%
-					out.println("<div style=\"width: 80%;\"><input disabled type=\"text\" value=收入("+sumIn+")-支出("+sumOut+")="+(sumIn-sumOut)+"></div>");
+					if (sumIn-sumOut>=0){
+						out.println("<div style=\"width: 80%;\"><input disabled type=\"text\" value=收入("+sumIn+")-支出("+sumOut+")="+(sumIn-sumOut)+"></div>");
+					}else{
+						out.println("<div style=\"width: 80%;\"><input style=\"color:#f00\"; disabled type=\"text\" value=收入("+sumIn+")-支出("+sumOut+")="+(sumIn-sumOut)+"></div>");
+					}
 					%>
                 	</label>
             	</form>
