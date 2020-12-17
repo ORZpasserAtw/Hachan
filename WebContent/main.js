@@ -230,7 +230,7 @@ function ButtonIndexReset() {
         sessionStorage.setItem("buttonIndex", "MO1");
     }
 
-    if (document.getElementById("TravelPri").selectedIndex === 1 && document.getElementById("TravelSub").selectedIndex === 4) {
+    if (document.getElementById("TravelPri").selectedIndex === 2 && document.getElementById("TravelSub").selectedIndex === 4) {
         sessionStorage.setItem("buttonIndex", "MP1");
     }
 
